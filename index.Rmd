@@ -163,12 +163,12 @@ All lectures are in `html` format. Practicals are are provided both as naked que
 
 ## Column 2
 
-### Useful References
+### Useful references
 <!-- - [The Google R style guide](https://google.github.io/styleguide/Rguide.xml) -->
 - [`magrittr`](https://magrittr.tidyverse.org)
 - [`R` for Data Science](http://r4ds.had.co.nz) - [Chapter 18 on pipes](http://r4ds.had.co.nz/pipes.html)
-
-
+- [R-bloggers tutorial on pipes](https://www.r-bloggers.com/2017/12/pipes-in-r-tutorial-for-beginners/)
+- [pipe tutorial on datacamp](https://www.datacamp.com/community/tutorials/pipe-r-tutorial)
 
 The above links are useful references that connect to today's materials.
 
