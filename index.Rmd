@@ -29,15 +29,8 @@ Material adopted from [Gerko Vink](https://github.com/gerkovink/R)
 ## Column 1
 
 ### Outline
-R is rapidly becoming the standard platform for data manipulation, visualization and analysis and has a number of advantages over other statistical software packages. A wide community of users contribute to R, resulting in an enormous coverage of statistical procedures, including many that are not available in any other statistical program. Furthermore, it is highly flexible for programming and scripting purposes, for example when manipulating data or creating professional plots. However, R lacks standard GUI menus, as in SPSS for example, from which to choose what statistical test to perform or which graph to create. As a consequence, R is more challenging to master. Therefore, this course offers an elaborate introduction into statistical programming in R. Students learn to operate R, make plots, fit, assess and interpret a variety of basic statistical models and do advanced statistical programming and data manipulation. The topics in this course include regression models for linear, dichotomous, ordinal and multivariate data, statistical inference, statistical learning, bootstrapping and Monte Carlo simulation techniques. 
+R is rapidly becoming the standard platform for data manipulation, visualization and analysis and has a number of advantages over other statistical software packages. A wide community of users contribute to R, resulting in an enormous coverage of statistical procedures, including many that are not available in any other statistical program. Furthermore, it is highly flexible for programming and scripting purposes, for example when manipulating data or creating professional plots. However, R lacks standard GUI menus, as in SPSS for example, from which to choose what statistical test to perform or which graph to create. As a consequence, R is more challenging to master. Therefore, this course offers an introduction to statistical programming in R. Students learn to operate R, make plots, and do advanced statistical programming and data manipulation. 
 
-The course deals with the following topics:
-
-1.	An introduction to the R environment.
-2.  Getting data into and out of R
-3.  Basic to advanced programming skills: Loops and functions, 
-4.  Data manipulation and basic statistics 
-5.	Data visualisation
 
 The course starts at a very basic level and builds up gradually. No previous experience with R is required.
 
@@ -50,13 +43,13 @@ The course starts at a very basic level and builds up gradually. No previous exp
 | *Monday*    |                                                 |
 | 13.00-16.00 | Introduction to R and Rstudio (A+B)             |
 | *Tuesday*   |                                                 |
-| 09.00-12.00 | Data in R, reading in and exporting data (C)    |
+| 09.00-12.00 | Data manipulation (C)                           |
 |             | *Break*                                         |             
-| 13.00-16.00 | Loops and functions (E)                         |
+| 13.00-16.00 | Analyzing data (D)                              |
 | *Wednesday* |                                                 |
-| 09.00-12.00 | Data manipulation (F)                           |
+| 09.00-12.00 | Data visualization  (E)                         |
 |             | *Break*                                         |
-| 13.00-16.00 | Data visualisation (I)                          |
+| 13.00-16.00 | Loops and functions (F)                         |
 | *Thursday*  |                                                 |
 | 09.00-12.00 | Evaluation, agreement on summary mission report |
 
@@ -70,7 +63,7 @@ Dear all,
 
 The below steps guide you through installing both `R` as well as the necessary additions.
 
-We look forward to see you all in Sarajevo,  
+We look forward to see you all in Accra,  
 
 *Signe and Mikkel*
 
@@ -159,24 +152,23 @@ See also [this `rmarkdown` cheat sheet](Contents/Material/Part A - Introduction/
 ### Tuesday's materials
 We adapt the course as we go. To ensure that you work with the latest iteration of the course materials, we advice all course participants to access the materials online.
 
-- Part C: `R` Functionality and reading in data
-    - [Lecture C](Contents/Material/Part C - R-functionality/Lecture_C.html){target="_blank"}
-    - [Lecture C Handout](Contents/Material/Part C - R-functionality/Lecture_C_handout.html){target="_blank"}
-    - [Practical C](Contents/Material/Part C - R-functionality/Practical_C.html){target="_blank"}
-    - [Practical C with solutions](Contents/Material/Part C - R-functionality/Practical_C_walkthrough.html){target="_blank"}
-    - [`cabinet.txt`](Contents/Material/Part C - R-functionality/cabinet.txt)
-- Part E: Loops and functions
-    - [Lecture E](Contents/Material/Part E - Functions apply and looping/Lecture_E.html){target="_blank"}
-    - [Lecture E Handout](Contents/Material/Part E - Functions apply and looping/Lecture_E_handout.html){target="_blank"}
-    - [Practical E](Contents/Material/Part E - Functions apply and looping/Practical_E_barebone.html){target="_blank"}
-    - [Practical E with solutions](Contents/Material/Part E - Functions apply and looping/Practical_E_walkthrough.html){target="_blank"}
-
+- Part C: Data manipulation
+    - [Lecture C](Contents/Material/Part F - Pipes/Lecture_F.html){target="_blank"}
+    - [Lecture C Handout](Contents/Material/Part F - Pipes/Lecture_F_Handout.html){target="_blank"}
+- Part D: Analyzing data 
+    - [Lecture D]
+    - [Lecture D Handout]
+    
 All lectures are in `html` format. Practicals are are provided both as naked questions but also with ample explanations and solutions - choose according to your taste!
 
 ## Column 2
 
 ### Useful References
-- [The Google R style guide](https://google.github.io/styleguide/Rguide.xml)
+<!-- - [The Google R style guide](https://google.github.io/styleguide/Rguide.xml) -->
+- [`magrittr`](https://magrittr.tidyverse.org)
+- [`R` for Data Science](http://r4ds.had.co.nz) - [Chapter 18 on pipes](http://r4ds.had.co.nz/pipes.html)
+
+
 
 The above links are useful references that connect to today's materials.
 
@@ -187,24 +179,27 @@ The above links are useful references that connect to today's materials.
 ### Wednesday's materials
 We adapt the course as we go. To ensure that you work with the latest iteration of the course materials, we advice all course participants to access the materials online.
 
-- Part F: Data manipulation and basic statstiscs
-    - [Lecture F](Contents/Material/Part F - Pipes/Lecture_F.html){target="_blank"}
-    - [Lecture F Handout](Contents/Material/Part F - Pipes/Lecture_F_Handout.html){target="_blank"}
-- Part I: Data visualization
+- Part E: Data visualization
     - [Lecture I](Contents/Material/Part I - Data visualization/Lecture_i.html){target="_blank"}
     - [Practical I](Contents/Material/Part I - Data visualization/Practical_i_walkthrough.html){target="_blank"}
     - [Practical I - using ggplot](Contents/Material/Part I - Data visualization/Practical_i_walkthrough_ggplot.html){target="_blank"}
     - [Impractical I](Contents/Material/Part I - Data visualization/Practical_i.html){target="_blank"}
     - [DK_map.shp](Contents/Material/Part I - Data visualization/DK_map.shp), [DK_map.shx](Contents/Material/Part I - Data visualization/DK_map.shx), [DK_map.dbf](Contents/Material/Part I - Data visualization/DK_map.dbf), [DK_map.prj](Contents/Material/Part I - Data visualization/DK_map.prj)  shapefiles for mapping data on Danish municipalities
+- Part F: Loops and functions
+    - [Lecture E](Contents/Material/Part E - Functions apply and looping/Lecture_E.html){target="_blank"}
+    - [Lecture E Handout](Contents/Material/Part E - Functions apply and looping/Lecture_E_handout.html){target="_blank"}
+    - [Practical E](Contents/Material/Part E - Functions apply and looping/Practical_E_barebone.html){target="_blank"}
+    - [Practical E with solutions](Contents/Material/Part E - Functions apply and looping/Practical_E_walkthrough.html){target="_blank"}
+
 
 All lectures are in `html` format. Practicals are walkthrough files that guide you through the exercises. `Impractical` files contain the exercises, without walkthrough, explanations and solutions.
 
 ## Column 2
 
-### Useful links
+### Useful references
 
-- [`magrittr`](https://magrittr.tidyverse.org)
-- [`R` for Data Science](http://r4ds.had.co.nz) - [Chapter 18 on pipes](http://r4ds.had.co.nz/pipes.html)
+<!-- - [`magrittr`](https://magrittr.tidyverse.org) -->
+<!-- - [`R` for Data Science](http://r4ds.had.co.nz) - [Chapter 18 on pipes](http://r4ds.had.co.nz/pipes.html) -->
 - [The `ggplot2` reference page](https://ggplot2.tidyverse.org/reference/)
 
 The above link details pretty much all you can do with package `ggplot2`.
