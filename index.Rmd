@@ -153,8 +153,9 @@ See also [this `rmarkdown` cheat sheet](Contents/Material/Part A - Introduction/
 We adapt the course as we go. To ensure that you work with the latest iteration of the course materials, we advice all course participants to access the materials online.
 
 - Part C: Data manipulation
-    - [Lecture C](Contents/Material/Part F - Pipes/Lecture_F.html){target="_blank"}
-    - [Lecture C Handout](Contents/Material/Part F - Pipes/Lecture_F_Handout.html){target="_blank"}
+    - [Lecture C](Contents/Material/Part C - Data manipulation/Lecture_C.html)
+    - [Practical C](Contents/Material/Part C - Data manipulation/Practical_C.html)
+    - [Practical C with solutions](Contents/Material/Part C - Data manipulation/Practical_C_walkthrough.html)
 - Part D: Analyzing data 
     - [Lecture D]
     - [Lecture D Handout]
