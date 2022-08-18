@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Gerko Vink" />
+
+
+<title>Practical XXXX</title>
+
+<script src="libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+<link href="libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Practical XXXX</h1>
+<h4 class="author">Gerko Vink</h4>
+<h4 class="date">Statistical Programming with R</h4>
+
+</div>
+
+
+<hr />
+<div id="exercises" class="section level4">
+<h4>Exercises</h4>
+<hr />
+<p>The following packages are required for this practical:</p>
+<pre class="r"><code>library(dplyr)
+library(magrittr)
+library(mice)</code></pre>
+<p>and if you’d like the same results as I have obtained, you can fix
+the random seed</p>
+<pre class="r"><code>set.seed(123)</code></pre>
+<hr />
+<ol style="list-style-type: decimal">
+<li><strong>Use a pipe to do the following:</strong></li>
+</ol>
+<ul>
+<li>draw 1000 values from a normal distribution with
+<code>mean = 5</code> and <code>sd = 1</code> - <span
+class="math inline">\(N(5, 1)\)</span>,</li>
+<li>create a matrix where the first 500 values are the first column and
+the second 500 values are the second column **</li>
+<li>make a scatterplot of these two columns</li>
+</ul>
+<pre class="r"><code>rnorm(1000, 5) %&gt;%
+  matrix(ncol = 2) %&gt;%
+  plot()</code></pre>
+<p><img src="Practical_C_walkthrough_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<hr />
+<!-- 2. **Use a pipe to assign values `1:5` to object `x` and verify that the object exists.** -->
+<!-- Normally, when we use the following code to assign values to an object, we can directly run -->
+<!-- ```{r, eval=FALSE} -->
+<!-- x <- 1:5 -->
+<!-- ``` -->
+<!-- However, when we would like to do this in a pipe, we run into a problem.  -->
+<!-- ```{r, error=TRUE} -->
+<!-- "x" %>% assign(1:5) -->
+<!-- x -->
+<!-- ``` -->
+<!-- The pipe creates a separate, temporary environment where all things `%>%` take place (environments were discussed in Lecture C). This environment is different from the Global Environment and disappears once the pipe is finished. In other words, we assign `1:5` to object `x`, but once we are done assigning, object `x` is deleted.  -->
+<!-- Function `assign()` is part of a class of functions that uses the current environment (the one that it is called from) to do its business. For such functions, we need to be explicit about the environment we would like the funtion to use: -->
+<!-- ```{r} -->
+<!-- env <- environment() -->
+<!-- "x" %>% assign(1:5, envir = env) -->
+<!-- x -->
+<!-- ``` -->
+<!-- Now we have explicitly instructed function `assign()` to use the Global Environment: -->
+<!-- ```{r} -->
+<!-- environment() -->
+<!-- ``` -->
+<!-- We could also create a new environment to assign values to objects -->
+<!-- ```{r} -->
+<!-- assign.env <- new.env()  -->
+<!-- "x" %>% assign(letters[1:5], envir = assign.env) -->
+<!-- ``` -->
+<!-- But then we need to call `x` from `assign.env` -->
+<!-- ```{r} -->
+<!-- assign.env$x -->
+<!-- ``` -->
+<!-- because otherwise we would still get `x` from `R_GlobalEnv` -->
+<!-- ```{r} -->
+<!-- x -->
+<!-- ``` -->
+<!-- --- -->
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Use a pipe to calculate the correlation matrix on the
+<code>anscombe</code> data set.</strong></li>
+</ol>
+<pre class="r"><code>anscombe %&gt;%
+  cor()</code></pre>
+<pre><code>##            x1         x2         x3         x4         y1         y2         y3
+## x1  1.0000000  1.0000000  1.0000000 -0.5000000  0.8164205  0.8162365  0.8162867
+## x2  1.0000000  1.0000000  1.0000000 -0.5000000  0.8164205  0.8162365  0.8162867
+## x3  1.0000000  1.0000000  1.0000000 -0.5000000  0.8164205  0.8162365  0.8162867
+## x4 -0.5000000 -0.5000000 -0.5000000  1.0000000 -0.5290927 -0.7184365 -0.3446610
+## y1  0.8164205  0.8164205  0.8164205 -0.5290927  1.0000000  0.7500054  0.4687167
+## y2  0.8162365  0.8162365  0.8162365 -0.7184365  0.7500054  1.0000000  0.5879193
+## y3  0.8162867  0.8162867  0.8162867 -0.3446610  0.4687167  0.5879193  1.0000000
+## y4 -0.3140467 -0.3140467 -0.3140467  0.8165214 -0.4891162 -0.4780949 -0.1554718
+##            y4
+## x1 -0.3140467
+## x2 -0.3140467
+## x3 -0.3140467
+## x4  0.8165214
+## y1 -0.4891162
+## y2 -0.4780949
+## y3 -0.1554718
+## y4  1.0000000</code></pre>
+<hr />
+<ol start="3" style="list-style-type: decimal">
+<li><strong>Now use a pipe to calculate the correlation for the pair
+(<code>x4</code>, <code>y4</code>) on the <code>anscombe</code> data
+set.</strong></li>
+</ol>
+<p>Using the standard <code>%&gt;%</code> pipe:</p>
+<pre class="r"><code>anscombe %&gt;%
+  subset(select = c(x4, y4)) %&gt;%
+  cor()</code></pre>
+<pre><code>##           x4        y4
+## x4 1.0000000 0.8165214
+## y4 0.8165214 1.0000000</code></pre>
+<p>Alternatively, we can use the <code>%$%</code> pipe from package
+<code>magrittr</code> to make this process much more efficient.</p>
+<pre class="r"><code>anscombe %$%
+  cor(x4, y4)</code></pre>
+<pre><code>## [1] 0.8165214</code></pre>
+<hr />
+<ol start="4" style="list-style-type: decimal">
+<li><strong>Use a pipe to calculate the correlation between
+<code>hgt</code> and <code>wgt</code> in the <code>boys</code> data set
+from package <code>mice</code>.</strong></li>
+</ol>
+<p>Because <code>boys</code> has missings values for almost all
+variables, we must first select <code>wgt</code> and <code>hgt</code>
+and then omit the rows that have missing values, before we can calculate
+the correlation. Using the standard <code>%&gt;%</code> pipe, this would
+look like:</p>
+<pre class="r"><code>boys %&gt;%
+  subset(select = c(&quot;wgt&quot;, &quot;hgt&quot;)) %&gt;%
+  cor(use = &quot;pairwise.complete.obs&quot;)</code></pre>
+<pre><code>##           wgt       hgt
+## wgt 1.0000000 0.9428906
+## hgt 0.9428906 1.0000000</code></pre>
+<p>which is equivalent to</p>
+<pre class="r"><code>boys %&gt;%
+  subset(select = c(&quot;wgt&quot;, &quot;hgt&quot;)) %&gt;%
+  na.omit() %&gt;%
+  cor()</code></pre>
+<pre><code>##           wgt       hgt
+## wgt 1.0000000 0.9428906
+## hgt 0.9428906 1.0000000</code></pre>
+<p>Alternatively, we can use the <code>%$%</code> pipe:</p>
+<pre class="r"><code>boys %$% 
+  cor(hgt, wgt, use = &quot;pairwise.complete.obs&quot;)</code></pre>
+<pre><code>## [1] 0.9428906</code></pre>
+<p>The <code>%$%</code> pipe <em>unfolds</em> the listed dimensions of
+the <code>boys</code> dataset, such that we can refer to them
+directly.</p>
+<hr />
+<ol start="5" style="list-style-type: decimal">
+<li><strong>In the <code>boys</code> data set, <code>hgt</code> is
+recorded in centimeters. Use a pipe to transform <code>hgt</code> in the
+<code>boys</code> dataset to height in meters and verify the
+transformation.</strong></li>
+</ol>
+<p>Using the standard <code>%&gt;%</code> and the <code>%$%</code>
+pipes:</p>
+<pre class="r"><code>boys %&gt;%
+  transform(hgt = hgt / 100) %$%
+  mean(hgt, na.rm = TRUE)</code></pre>
+<pre><code>## [1] 1.321518</code></pre>
+<hr />
+<ol start="6" style="list-style-type: decimal">
+<li><strong>Use a pipe to plot the pair (<code>hgt</code>,
+<code>wgt</code>) two times: once for <code>hgt</code> in meters and
+once for <code>hgt</code> in centimeters. Make the points in the
+‘centimeter’ plot <code>red</code> and in the ‘meter’ plot
+<code>blue</code>. </strong></li>
+</ol>
+<p>This is best done with the <code>%T&gt;%</code> pipe:</p>
+<pre class="r"><code>boys %&gt;%
+  subset(select = c(hgt, wgt)) %T&gt;%
+  plot(col = &quot;red&quot;, main = &quot;Height in centimeters&quot;) %&gt;%
+  transform(hgt = hgt / 100) %&gt;%
+  plot(col = &quot;blue&quot;, main = &quot;Height in meters&quot;)</code></pre>
+<p><img src="Practical_C_walkthrough_files/figure-html/unnamed-chunk-12-1.png" width="672" /><img src="Practical_C_walkthrough_files/figure-html/unnamed-chunk-12-2.png" width="672" /></p>
+<p>The <code>%T&gt;%</code> pipe is very useful, because it creates a
+literal <code>T</code> junction in the pipe. It is perhaps most
+informative to graphically represent the above pipe as follows:</p>
+<pre class="r"><code>boys %&gt;%
+  subset(select = c(hgt, wgt)) %T&gt;%
+  plot(col = &quot;red&quot;, main = &quot;Height in centimeters&quot;) %&gt;%
+  transform(hgt = hgt / 100) %&gt;%
+  plot(col = &quot;blue&quot;, main = &quot;Height in meters&quot;)</code></pre>
+<p><img src="flow_t_pipe.png" /></p>
+<p>We can see that there is indeed a literal T-junction. Naturally, we
+can expand this process with more <code>%T&gt;%</code> pipes. However,
+once a pipe gets too long or too complicated, it is perhaps more useful
+to cut the piped problem into smaller, manageble pieces.</p>
+<hr />
+<p>End of Practical</p>
+<hr />
+</div>
+<div id="useful-references" class="section level4">
+<h4>Useful References</h4>
+<ul>
+<li><a
+href="https://magrittr.tidyverse.org"><code>magrittr</code></a></li>
+<li><a href="http://r4ds.had.co.nz"><code>R</code> for Data Science</a>
+- <a href="http://r4ds.had.co.nz/pipes.html">Chapter 18 on
+pipes</a></li>
+</ul>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
