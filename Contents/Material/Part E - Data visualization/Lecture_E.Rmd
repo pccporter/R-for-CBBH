@@ -1,0 +1,415 @@
+---
+title: 'Data visualisation'
+author: "Gerko Vink, Anne Vinkel Hansen & Mikkel Mollerup"
+date: "Statistical Programming in R"
+output:
+  ioslides_presentation:
+    logo: logo_en.png
+    smaller: yes
+    widescreen: no
+    self_contained: false
+    lib_dir: libs
+  beamer_presentation:
+    colortheme: beaver
+---
+
+## We use the following packages
+```{r, message=FALSE, warning=FALSE}
+library(MASS)     # Datasets
+library(mice)     # Boys dataset
+library(dplyr)    # Data manipulation
+library(magrittr) # Pipes
+library(ggplot2)  # Plotting suite
+library(sf)       # Spatial features
+```
+
+## 
+
+New functions: 
+
+- `plot()`: R's plotting device 
+- `barplot()`: bar plot function 
+- `pie()`: pie plot function 
+- `hist()`: histogram 
+- `density()`: function that calculates the density 
+- `boxplot()`: box plot function 
+<!-- - `ggplot()`: ggplot's plotting device -->
+
+
+## Why visualise?
+
+- We can process a lot of information quickly with our eyes
+- Plots give us information about
+    - Distribution / shape
+    - Irregularities
+    - Assumptions
+    - Intuitions
+- Summary statistics, correlations, parameters, model tests, *p*-values do not tell the whole story
+
+
+
+## Why visualise?
+
+<img src="anscombe.svg" style="display:block;width:90%;margin:0 auto;"></img>
+<p style="text-align:center;font-style:italic;font-size:0.5em;">Source: Anscombe, F. J. (1973). "Graphs in Statistical Analysis". American Statistician. 27 (1): 17–21.</p>
+
+## Why visualise?
+
+<img src="datasaurus.gif" style="display:block;width:90%;margin:0 auto;"></img>
+
+
+<p style="text-align:center;font-style:italic;font-size:0.5em;">Source: https://www.autodeskresearch.com/publications/samestats</p>
+
+
+## What we will do
+
+- A few plots in `base` graphics in `R`
+- Plotting with `ggplot2` graphics
+- Plotting data on maps
+
+# `base` graphics in `R`
+
+## Recall
+
+- Vectors
+
+```{r}
+height <- c(50.1, 53.5, 50.0, 54.5, 57.5)
+weight <- c(3.65, 3.37, 3.14, 4.27, 5.03)
+```
+
+- Data frames
+
+```{r}
+boys <- boys
+head(boys)
+
+```
+
+## Recall
+
+To subset a vector use square brackets `v[1:5]`
+
+To call a variable in the data frame, use the $ notation: 
+```{r, eval=FALSE}
+boys$hgt
+```
+
+```{r}
+boys$hgt[1:10]
+```
+
+
+## Scatter plot
+```{r, fig.align='center', dev.args=list(bg="transparent")}
+plot(x = boys$hgt, y = boys$wgt, main = "Scatter plot", 
+     xlab = "Height", ylab = "Weight", bty = "L")
+```
+
+## Scatter plot
+Breaking this down: 
+```{r,eval=F}
+plot( # Calling the base plot function
+      x = boys$hgt, # x coordinates
+      y = boys$wgt, # y coordinates
+      main = "Scatter plot",# Plot title
+      xlab = "Height", # x-axis label
+      ylab = "Weight", # y axis label
+      bty = "L" # Type of box around plot: "Shaped like an L"
+      )
+```
+
+See `?par` for more graphical parameters
+
+
+
+## Scatter plot
+
+Two ways of doing the same thing 
+```{r,eval = F}
+plot(x = boys$hgt, y = boys$wgt) 
+plot( wgt ~ hgt, data = boys)
+```
+
+The latter is the plot method for formulas. (*Formulas are an `R` class!*)
+
+## Line chart
+
+```{r, fig.align='center', dev.args=list(bg="transparent")}
+plot(x = 1:5, y = exp(1:5), type = "l", main = "Line chart", bty = "L")
+```
+
+## Bar chart
+
+Beyond basic scatter/line plots, there are specific functions: 
+
+```{r, fig.align='center', dev.args=list(bg="transparent")}
+counts <- table(boys$reg)
+
+barplot(counts, main="Bar chart", ylab = "N")
+
+```
+
+## Pie chart
+```{r, fig.align='center', dev.args=list(bg="transparent")}
+counts <- table(boys$reg)
+
+pie(x=counts, main="Pie chart")
+```
+
+## Pie chart
+
+Let's go one step back: 
+```{r, fig.align='center', dev.args=list(bg="transparent")}
+counts <- table(boys$reg)
+
+counts
+```
+
+## Histogram
+```{r, fig.align='center', dev.args=list(bg="transparent")}
+hist(boys$hgt, main = "Histogram", xlab = "Height")
+```
+
+<!-- ## Density -->
+<!-- ```{r, fig.align='center', dev.args=list(bg="transparent")} -->
+<!-- dens <- density(boys$hgt, na.rm = TRUE) -->
+<!-- plot(dens, main = "Density plot", xlab = "Height", bty = "L") -->
+<!-- ``` -->
+
+## Box plot
+```{r, fig.align='center', dev.args=list(bg="transparent")}
+boxplot(boys$hgt ~ boys$reg, main = "Box plot", 
+        xlab = "Region", ylab = "Height")
+```
+
+## The alternative to base plots
+
+- If we want to be able to set visual standards easily
+- ... and have a more unified graphics system
+- ... at the cost of some abstraction and a steeper intial learning curve
+- we go `ggplot`
+
+# ggplot2
+
+## What is `ggplot2`?
+Layered plotting based on the book **The Grammar of Graphics** by Leland Wilkinsons.
+
+With `ggplot2` you
+
+1. provide the _data_
+2. define how to map variables to _aesthetics_
+3. state which _geometric object_ to display
+4. (optional) edit the overall _theme_ of the plot
+
+`ggplot2` then takes care of the details
+
+## An example: scatterplot
+
+1: Provide the data
+```{r, eval=FALSE}
+ggplot( data = boys )
+```
+
+2: map variable to aesthetics
+```{r, eval=FALSE}
+  ggplot( data = boys, aes(x = hgt, y = wgt) )
+```
+
+3: state which geometric object to display
+```{r, eval=FALSE}
+ggplot( data = boys, aes(x = hgt, y = wgt) ) +
+  geom_point()
+```
+
+## An example: scatterplot
+```{r, echo=FALSE, fig.align='center'}
+ggplot(data = boys, aes(x = hgt, y = wgt )) +
+  geom_point(na.rm = TRUE)
+```
+
+## Why this syntax?
+
+Create the plot
+```{r, fig.align='center', dev.args=list(bg="transparent"), warning=FALSE, message=FALSE}
+gg <- 
+  ggplot( data = boys, aes( x = hgt, y = wgt ) ) +
+  geom_point( col = "dark green" )
+```
+
+Add another layer (smooth fit line)
+```{r, warning=FALSE, message=FALSE, fig.align='center', dev.args=list(bg="transparent")}
+gg <- gg + 
+  geom_smooth(col = "dark blue")
+```
+
+Give it some labels and a nice look
+```{r, fig.align='center', dev.args=list(bg="transparent")}
+gg <- gg + 
+  labs(x = "Age", y = "BMI", title = "BMI trend for boys") +
+  theme_minimal()
+```
+
+## Why this syntax?
+```{r, warning=FALSE, message=FALSE, fig.align='center', dev.args=list(bg="transparent")}
+plot(gg)
+```
+
+## Aesthetics
+
+- x
+- y
+- size
+- colour
+- fill
+- opacity (alpha)
+- linetype
+- ...
+
+## Aesthetics
+```{r, warning=FALSE, message=FALSE, fig.align='center', dev.args=list(bg="transparent")}
+gg <- 
+  boys %>% 
+  filter(!is.na(reg)) %>% 
+  
+  ggplot(aes(x      = hgt, 
+             y      = wgt, 
+             pch    = reg, 
+             colour = age)) +
+  
+  geom_point( alpha = 0.5) +
+  
+  labs(title  = "Trend for boys",
+       x      = "Height", 
+       y      = "Weight", 
+       pch    = "Region",
+       colour = "Age") +
+  theme_minimal()
+```
+ 
+## Aesthetics
+```{r, warning=FALSE, message=FALSE, fig.align='center', dev.args=list(bg="transparent")}
+plot(gg)
+```
+
+## Geoms
+
+- geom_point
+- geom_bar
+- geom_line
+- geom_smooth
+
+- geom_histogram
+- geom_boxplot
+- geom_density
+
+## Geoms: Bar
+```{r, echo=FALSE, warning=FALSE, message=FALSE, fig.align='center', dev.args=list(bg="transparent")}
+data.frame(x = letters[1:5], y = c(1, 3, 3, 2, 1)) %>% 
+  ggplot(aes(x = x, y = y)) + 
+  geom_bar(fill = "dark green", stat = "identity") +
+  labs(title = "Value per letter",
+       x     = "Letter", 
+       y     = "Value") +
+  theme_minimal()
+```
+
+## Geoms: Line
+```{r, echo=FALSE, warning=FALSE, message=FALSE, fig.align='center', dev.args=list(bg="transparent")}
+ggdat <- data.frame(x = 1:100, y = rnorm(100))
+ggdat %>% 
+  ggplot(aes(x = x, y = y)) + 
+  geom_line(colour = "dark green", lwd = 1) +
+  ylim(-2, 3.5) +
+  labs(title = "Some line thing",
+       x     = "Time since start", 
+       y     = "Some value") +
+  theme_minimal()
+```
+
+## Geoms: Smooth
+```{r, echo=FALSE, warning=FALSE, message=FALSE, fig.align='center', dev.args=list(bg="transparent")}
+ggdat %>% 
+  ggplot(aes(x = x, y = y)) + 
+  geom_smooth(colour = "dark green", lwd = 1, se = FALSE) +
+  ylim(-2, 3.5) +
+  labs(title = "Some line thing",
+       x     = "Time since start", 
+       y     = "Some value") +
+  theme_minimal()
+```
+
+## Geoms: Boxplot
+```{r, echo=FALSE, warning=FALSE, message=FALSE, fig.align='center', dev.args=list(bg="transparent")}
+boys %>% 
+  filter(!is.na(reg)) %>% 
+  
+  ggplot(aes(x = reg, y = bmi, fill = reg)) +
+  
+  geom_boxplot() +
+  
+  labs(title = "BMI across regions",
+       x     = "Region", 
+       y     = "BMI") +
+  theme_minimal() + 
+  theme(legend.position = "none")
+```
+
+<!-- ## Geoms: Density -->
+<!-- ```{r, echo=FALSE, warning=FALSE, message=FALSE, fig.align='center', dev.args=list(bg="transparent")} -->
+<!-- boys %>%  -->
+<!--   filter(!is.na(reg)) %>%  -->
+<!--   ggplot(aes(x = hgt, fill = reg)) + -->
+<!--   geom_density(alpha = 0.5, colour = "transparent") + -->
+<!--   xlim(0, 250) +  -->
+<!--   labs(title = "Height across regions", -->
+<!--        x     = "Height",  -->
+<!--        fill  = "Region") + -->
+<!--   theme_minimal() -->
+<!-- ``` -->
+
+
+## Helpful link in RStudio
+<img src="cheatsheet.png" style="display:block;width:90%;margin:0 auto;"></img>
+
+# Maps
+
+## Simple Features
+- A formal standard (ISO 19125-1:2004) that describes how objects in the real world can be represented in computers, with emphasis on the spatial geometry of these objects.
+- As implemented e.g. in ArcGIS
+- Implemented for R in the `sf` package
+- Feature geometries are stored in `data.frames`
+
+We have time for a cursory introduction at most. 
+
+```{r, echo=FALSE, results="hide"}
+denmark <- st_read("DK_map.shp")
+```
+
+## Reading in spatial data
+```{r, eval=FALSE, fig.align='center', dev.args=list(bg="transparent")}
+denmark <- st_read("DK_map.shp")
+```
+
+```{r, message=FALSE, fig.align='center', dev.args=list(bg="transparent")}
+plot(st_geometry(denmark))
+```
+
+## Plotting regional attributes
+```{r, warning=FALSE, message=FALSE, fig.align='center', dev.args=list(bg="transparent")}
+denmark$proportion.over.70 <- denmark$over70/denmark$population
+
+plot(denmark["proportion.over.70"],
+     main = "Proportion of population aged 70 years and above")
+```
+
+## Or we can `ggplot`
+
+```{r message=FALSE, fig.align='center', dev.args=list(bg="transparent")}
+
+denmark %>% ggplot(aes(fill=proportion.over.70)) + geom_sf()
+
+```
+
+# Practical
+
