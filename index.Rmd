@@ -181,16 +181,19 @@ The above links are useful references that connect to today's materials.
 We adapt the course as we go. To ensure that you work with the latest iteration of the course materials, we advice all course participants to access the materials online.
 
 - Part E: Data visualization
-    - [Lecture I](Contents/Material/Part I - Data visualization/Lecture_i.html){target="_blank"}
-    - [Practical I](Contents/Material/Part I - Data visualization/Practical_i_walkthrough.html){target="_blank"}
-    - [Practical I - using ggplot](Contents/Material/Part I - Data visualization/Practical_i_walkthrough_ggplot.html){target="_blank"}
-    - [Impractical I](Contents/Material/Part I - Data visualization/Practical_i.html){target="_blank"}
-    - [DK_map.shp](Contents/Material/Part I - Data visualization/DK_map.shp), [DK_map.shx](Contents/Material/Part I - Data visualization/DK_map.shx), [DK_map.dbf](Contents/Material/Part I - Data visualization/DK_map.dbf), [DK_map.prj](Contents/Material/Part I - Data visualization/DK_map.prj)  shapefiles for mapping data on Danish municipalities
-- Part F: Loops and functions
-    - [Lecture E](Contents/Material/Part E - Functions apply and looping/Lecture_E.html){target="_blank"}
-    - [Lecture E Handout](Contents/Material/Part E - Functions apply and looping/Lecture_E_handout.html){target="_blank"}
-    - [Practical E](Contents/Material/Part E - Functions apply and looping/Practical_E_barebone.html){target="_blank"}
-    - [Practical E with solutions](Contents/Material/Part E - Functions apply and looping/Practical_E_walkthrough.html){target="_blank"}
+    - [Lecture E](Contents/Material/Part E - Data visualization/Lecture_E.html){target="_blank"}
+    - [Practical E](Contents/Material/Part E - Data visualization/Practical_E.html){target="_blank"}
+    - [Practical E with solutions](Contents/Material/Part E - Data visualization/Practical_E_walkthrough.html){target="_blank"}
+    - [Practical E with solutions - using ggplot](Contents/Material/Part E - Data visualization/Practical_E_walkthrough_ggplot.html){target="_blank"}
+    
+    
+    
+<!--     - [DK_map.shp](Contents/Material/Part I - Data visualization/DK_map.shp), [DK_map.shx](Contents/Material/Part I - Data visualization/DK_map.shx), [DK_map.dbf](Contents/Material/Part I - Data visualization/DK_map.dbf), [DK_map.prj](Contents/Material/Part I - Data visualization/DK_map.prj)  shapefiles for mapping data on Danish municipalities -->
+<!-- - Part F: Loops and functions -->
+<!--     - [Lecture E](Contents/Material/Part E - Functions apply and looping/Lecture_E.html){target="_blank"} -->
+<!--     - [Lecture E Handout](Contents/Material/Part E - Functions apply and looping/Lecture_E_handout.html){target="_blank"} -->
+<!--     - [Practical E](Contents/Material/Part E - Functions apply and looping/Practical_E_barebone.html){target="_blank"} -->
+<!--     - [Practical E with solutions](Contents/Material/Part E - Functions apply and looping/Practical_E_walkthrough.html){target="_blank"} -->
 
 
 All lectures are in `html` format. Practicals are walkthrough files that guide you through the exercises. `Impractical` files contain the exercises, without walkthrough, explanations and solutions.
