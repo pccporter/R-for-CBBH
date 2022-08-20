@@ -115,19 +115,19 @@ We adapt the course as we go. To ensure that you work with the latest iteration 
 
 - Part A: Introduction
     - [Lecture A](Contents/Material/Part A - Introduction/Lecture_A.html){target="_blank"}
-    - [Lecture A Handout](Contents/Material/Part A - Introduction/Lecture_A_handout.html){target="_blank"}
     - [Practical A](Contents/Material/Part A - Introduction/Practical_A_walkthrough.html){target="_blank"}
-    - [`notebook.R`](Contents/Material/Part A - Introduction/notebook.R){target="_blank"}
-    - [`markdown.Rmd`](Contents/Material/Part A - Introduction/markdown.Rmd){target="_blank"}
+    - [XXXX`notebook.R`](Contents/Material/Part A - Introduction/notebook.R){target="_blank"}
+    - [XXXX`markdown.Rmd`](Contents/Material/Part A - Introduction/markdown.Rmd){target="_blank"}
 
 - Part B: How is `R` organized?
-    - [Lecture B](Contents/Material/Part B - How is R organized/Lecture_B.html){target="_blank"}
-    - [Lecture B Handout](Contents/Material/Part B - How is R organized/Lecture_B_handout.html){target="_blank"}
-    - [Practical B](Contents/Material/Part B - How is R organized/Practical_B_walkthrough.html){target="_blank"}
-    - [Impractical B](Contents/Material/Part B - How is R organized/Practical_B.html){target="_blank"}
-    - [`boys.RData`](Contents/Material/Part B - How is R organized/boys.RData)
+    - [XXXXLecture B](Contents/Material/Part B - How is R organized/Lecture_B.html){target="_blank"}
+    - [XXXXPractical B](Contents/Material/Part B - How is R organized/Practical_B.html){target="_blank"}
+    - [XXXXPractical B with solutions](Contents/Material/Part B - How is R organized/Practical_B_walkthrough.html){target="_blank"}
+    - [XXXX`boys.RData`](Contents/Material/Part B - How is R organized/boys.RData)
 
-All lectures are in `html` format. Practicals are walkthrough files that guide you through the exercises. `Impractical` files contain the exercises, without walkthrough, explanations and solutions. 
+All lectures are in `html` format. Practicals are are provided both as naked questions but also with ample explanations and solutions - choose according to your taste!
+
+<!-- All lectures are in `html` format. Practicals are walkthrough files that guide you through the exercises. `Impractical` files contain the exercises, without walkthrough, explanations and solutions.  -->
 
 ## Column 2
 
@@ -157,8 +157,9 @@ We adapt the course as we go. To ensure that you work with the latest iteration 
     - [Practical C](Contents/Material/Part C - Data manipulation/Practical_C.html)
     - [Practical C with solutions](Contents/Material/Part C - Data manipulation/Practical_C_walkthrough.html)
 - Part D: Analyzing data 
-    - [Lecture D]
-    - [Lecture D Handout]
+    - [XXXXLecture D](Contents/Material/Part D - Analyzing data/Lecture_D.html)
+    - [XXXXPractical D](Contents/Material/Part D - Analyzing data/Practical_D.html)
+    - [XXXXPractical D with solutions](Contents/Material/Part D - Analyzing data/Practical_D_walkthrough.html)
     
 All lectures are in `html` format. Practicals are are provided both as naked questions but also with ample explanations and solutions - choose according to your taste!
 
@@ -185,7 +186,15 @@ We adapt the course as we go. To ensure that you work with the latest iteration 
     - [Practical E](Contents/Material/Part E - Data visualization/Practical_E.html){target="_blank"}
     - [Practical E with solutions](Contents/Material/Part E - Data visualization/Practical_E_walkthrough.html){target="_blank"}
     - [Practical E with solutions - using ggplot](Contents/Material/Part E - Data visualization/Practical_E_walkthrough_ggplot.html){target="_blank"}
-    - [DK_map.shp](Contents/Material/Part E - Data visualization/DK_map.shp), [DK_map.shx](Contents/Material/Part E - Data visualization/DK_map.shx), [DK_map.dbf](Contents/Material/Part E - Data visualization/DK_map.dbf), [DK_map.prj](Contents/Material/Part E - Data visualization/DK_map.prj)  shapefiles for mapping data on Danish municipalities
+    - [`DK_map.shp`](Contents/Material/Part E - Data visualization/DK_map.shp), [`DK_map.shx`](Contents/Material/Part E - Data visualization/DK_map.shx), [`DK_map.dbf`](Contents/Material/Part E - Data visualization/DK_map.dbf), [`DK_map.prj`](Contents/Material/Part E - Data visualization/DK_map.prj)  shapefiles for mapping data on Danish municipalities
+- Part F: Loops and functions
+    - [XXXXLecture F](Contents/Material/Part F - Loops and functions/Lecture_F.html){target="_blank"}
+    - [XXXXPractical F](Contents/Material/Part f - Loops and functions/Practical_F.html){target="_blank"}
+    - [XXXXPractical F with solutions](Contents/Material/Part F - Loops and functions/Practical_F_walkthrough.html){target="_blank"}
+
+
+
+
     
 XXXX Tjek om PRJ og Anscombe skal bruges til noget XXXX
     
@@ -196,7 +205,10 @@ XXXX Tjek om PRJ og Anscombe skal bruges til noget XXXX
 <!--     - [Practical E with solutions](Contents/Material/Part E - Functions apply and looping/Practical_E_walkthrough.html){target="_blank"} -->
 
 
-All lectures are in `html` format. Practicals are walkthrough files that guide you through the exercises. `Impractical` files contain the exercises, without walkthrough, explanations and solutions.
+All lectures are in `html` format. Practicals are are provided both as naked questions but also with ample explanations and solutions - choose according to your taste!
+
+
+<!-- All lectures are in `html` format. Practicals are walkthrough files that guide you through the exercises. `Impractical` files contain the exercises, without walkthrough, explanations and solutions. -->
 
 ## Column 2
 
