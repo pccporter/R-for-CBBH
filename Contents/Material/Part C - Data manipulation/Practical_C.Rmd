@@ -1,5 +1,5 @@
 ---
-title: "Practical XXXX-testingssssss"
+title: "Practical C"
 author: "Gerko Vink"
 date: "Statistical Programming in R"
 output: 

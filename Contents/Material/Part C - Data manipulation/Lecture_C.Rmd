@@ -1,5 +1,5 @@
 ---
-title: 'Data manipulation and pipes'
+title: 'Data manipulation'
 author: "Gerko Vink, Erik-Jan van Kesteren & Mikkel Mollerup"
 date: "Statistical Programming with R"
 output:
