@@ -210,7 +210,7 @@ boys %>% cor(use = "pairwise.complete.obs")
 boys %>% subset(select = wgt) %>% na.omit() %>% max()
 ```
 
-## Useful: outlier filtering
+## Useful 1: outlier filtering
 ```{r}
 nrow(cats)
 
@@ -225,6 +225,26 @@ cats %>%
   filter(Hwt > mean(Hwt) + 3 * sd(Hwt))
 ```
 
+
+## Useful 2: filter out NA values 
+
+```{r}
+mycats <- data.frame(Sex = as.factor(c("F","M",NA)),
+                     Bwt = c(1.9,NA, 2.1),
+                     Hwt = c(8.2, NA, 7.8))
+mycats
+```
+
+
+```{r}
+mycats %>% filter(is.na(Sex))
+```
+
+```{r}
+mycats %>% filter(if_all(everything(), ~ !is.na(.)))
+```
+
+<!-- mycats %>% filter_at(vars(Bwt,Hwt), all_vars(is.na(.))) -->
 
 # More pipe stuff
 
