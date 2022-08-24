@@ -1,7 +1,7 @@
 ---
-title: 'Data visualisation'
-author: "Gerko Vink, Anne Vinkel Hansen & Mikkel Mollerup"
-date: "Statistical Programming in R"
+title: 'Data visualization'
+author: "Statistical Programming in R"
+date: ""
 output:
   ioslides_presentation:
     logo: logo_en.png
