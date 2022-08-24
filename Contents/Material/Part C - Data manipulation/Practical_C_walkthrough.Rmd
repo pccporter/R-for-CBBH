@@ -1,7 +1,7 @@
 ---
-title: "Practical C"
-author: "Gerko Vink"
-date: "Statistical Programming with R"
+title: "Practical C - solutions"
+author: "Statistical Programming with R"
+date: ""
 output: 
   html_document:
     self_contained: false
