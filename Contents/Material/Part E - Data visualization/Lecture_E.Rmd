@@ -55,7 +55,7 @@ New functions:
 
 ## Why visualise?
 
-<img src="datasaurus.gif" style="display:block;width:90%;margin:0 auto;"></img>
+<!-- <img src="datasaurus.gif" style="display:block;width:90%;margin:0 auto;"></img> -->
 
 
 <p style="text-align:center;font-style:italic;font-size:0.5em;">Source: https://www.autodeskresearch.com/publications/samestats</p>
