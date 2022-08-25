@@ -6,11 +6,12 @@ output:
     vertical_layout: scroll
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-library(vembedr)
 
-```
+<!-- ```{r setup, include=FALSE} -->
+<!-- knitr::opts_chunk$set(echo = TRUE) -->
+<!-- library(vembedr) -->
+
+<!-- ``` -->
 
 
 
@@ -150,23 +151,14 @@ The above links are useful references that connect to today's materials.
 ### About `rmarkdown`
 
 ```{r, echo=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(vembedr)
 
-#knitr::include_url("https://www.youtube.com/embed/9bZkp7q19f0", height="200")
-knitr::include_url("https://player.vimeo.com/video/178485416?color=428bca&title=0&byline=0&portrait=0", height=400)
-#knitr::include_url("https://www.youtube.com/watch?v=PjHI5SJHGU8",height = "200px")
-
-
-#embed_url("https://www.youtube.com/watch?v=PjHI5SJHGU8",height="200px")
+knitr::include_url("https://player.vimeo.com/video/178485416?color=428bca&title=0&byline=0&portrait=0", height="360")
 ```
 
-
-
-<!-- <center> -->
-<!-- <!-- <iframe src="https://player.vimeo.com/video/178485416?color=428bca&title=0&byline=0&portrait=0" width="500" height="315" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> --> -->
-<!-- <p><a href="https://vimeo.com/178485416">What is R Markdown?</a> from <a href="https://vimeo.com/rstudioinc">RStudio, Inc.</a> on <a href="https://vimeo.com">Vimeo</a>.</p> 
-<!-- </center> -->
-
-See also [this `rmarkdown` cheat sheet](Contents/Material/Part A - Introduction/rmarkdown-reference_sheet.pdf). 
+<!-- <br> -->
+<!-- See also [this `rmarkdown` cheat sheet](Contents/Material/Part A - Introduction/rmarkdown-reference_sheet.pdf).  -->
 
 # Tuesday
 
