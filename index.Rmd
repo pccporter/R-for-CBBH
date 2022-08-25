@@ -150,12 +150,17 @@ The above links are useful references that connect to today's materials.
 
 ### About `rmarkdown`
 
-```{r, echo=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-library(vembedr)
 
-knitr::include_url("https://player.vimeo.com/video/178485416?color=428bca&title=0&byline=0&portrait=0", height="360")
-```
+<!-- ```{r, echo=FALSE} -->
+<!-- knitr::opts_chunk$set(echo = TRUE) -->
+<!-- library(vembedr) -->
+
+<!-- knitr::include_url("https://player.vimeo.com/video/178485416?color=428bca&title=0&byline=0&portrait=0", height="360px") -->
+<!-- ``` -->
+
+
+<iframe src="https://player.vimeo.com/video/178485416?color=428bca&title=0&byline=0&portrait=0" data-external= "1"
+height = "315"> </iframe>
 
 <!-- <br> -->
 <!-- See also [this `rmarkdown` cheat sheet](Contents/Material/Part A - Introduction/rmarkdown-reference_sheet.pdf).  -->
