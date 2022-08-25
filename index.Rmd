@@ -144,6 +144,9 @@ The above links are useful references that connect to today's materials.
 
 <center>
 <iframe src="https://player.vimeo.com/video/178485416?color=428bca&title=0&byline=0&portrait=0" width="500" height="315" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+
+
 <p><a href="https://vimeo.com/178485416">What is R Markdown?</a> from <a href="https://vimeo.com/rstudioinc">RStudio, Inc.</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
 </center>
 
@@ -192,16 +195,11 @@ We adapt the course as we go. To ensure that you work with the latest iteration 
     - [Practical E with solutions - using ggplot](Contents/Material/Part E - Data visualization/Practical_E_walkthrough_ggplot.html){target="_blank"}
     - [`DK_map.shp`](Contents/Material/Part E - Data visualization/DK_map.shp), [`DK_map.shx`](Contents/Material/Part E - Data visualization/DK_map.shx), [`DK_map.dbf`](Contents/Material/Part E - Data visualization/DK_map.dbf), [`DK_map.prj`](Contents/Material/Part E - Data visualization/DK_map.prj)  shapefiles for mapping data on Danish municipalities
 - Part F: Loops and functions
-    - [XXXXLecture F](Contents/Material/Part F - Loops and functions/Lecture_F.html){target="_blank"}
-    - [XXXXPractical F](Contents/Material/Part f - Loops and functions/Practical_F.html){target="_blank"}
-    - [XXXXPractical F with solutions](Contents/Material/Part F - Loops and functions/Practical_F_walkthrough.html){target="_blank"}
+    - [Lecture F](Contents/Material/Part F - Loops and functions/Lecture_F.html){target="_blank"}
+    - [Practical F](Contents/Material/Part f - Loops and functions/Practical_F.html){target="_blank"}
+    - [Practical F with solutions](Contents/Material/Part F - Loops and functions/Practical_F_walkthrough.html){target="_blank"}
 
 
-
-
-    
-XXXX Tjek om PRJ og Anscombe skal bruges til noget XXXX
-    
 <!-- - Part F: Loops and functions -->
 <!--     - [Lecture E](Contents/Material/Part E - Functions apply and looping/Lecture_E.html){target="_blank"} -->
 <!--     - [Lecture E Handout](Contents/Material/Part E - Functions apply and looping/Lecture_E_handout.html){target="_blank"} -->
