@@ -140,6 +140,8 @@ All lectures are in `html` format. Practicals are are provided both as naked que
 The above links are useful references that connect to today's materials. 
 
 ### About `rmarkdown`
+
+
 <center>
 <iframe src="https://player.vimeo.com/video/178485416?color=428bca&title=0&byline=0&portrait=0" width="500" height="315" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 <p><a href="https://vimeo.com/178485416">What is R Markdown?</a> from <a href="https://vimeo.com/rstudioinc">RStudio, Inc.</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
