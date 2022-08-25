@@ -1,0 +1,253 @@
+---
+title: "Practical E - solutions with `ggplot2`"
+author: "Statistical Programming in R"
+date: ""
+output:
+  html_document: 
+    self_contained: false
+    lib_dir: libs
+  pdf_document: default
+  
+---
+
+
+```{r echo=FALSE}
+printAnswers <- TRUE
+
+```
+
+
+---
+
+#### Exercises
+
+---
+
+The following packages are required for this practical:
+
+```{r, message=FALSE}
+library(dplyr)
+library(magrittr)
+library(mice)
+library(ggplot2)
+library(stringr)
+```
+
+and if you'd like the same results as I have obtained, you can fix the random seed
+
+```{r cache=TRUE}
+set.seed(123)
+```
+1. **Create a scatterplot between `age` and `bmi` in the `mice::boys` data set.**
+
+```{r cache=TRUE}
+p <- ggplot( data = boys, aes(age, bmi))
+p + geom_point()
+```
+
+Package `ggplot2` offers far greater flexibility in data visualization than the standard plotting devices in `R`. However, it has its own language, which allows you to easily expand graphs with additional commands. To make these expansions or layers clearly visible, it is advisable to use the plotting language conventions. For example,
+
+```{r, eval = FALSE}
+  ggplot( data = mice::boys, aes(age, bmi)) +
+  geom_point()
+```
+
+would yield the same plot as 
+
+```{r, eval = FALSE}
+ggplot(mice::boys, aes(age, bmi)) + geom_point()
+```
+but the latter style may be less informative, especially if more customization takes place and if you share your code with others. 
+
+---
+
+2. **Now recreate the plot with the following specifications:**
+
+- If `bmi < 18.5` use `color = "light blue"`
+- If `bmi > 18.5 & bmi < 25` use `color = "light green"`
+- If `bmi > 25 & bmi < 30` use `color = "orange"`
+- If `bmi > 30` use `color = "red"`
+
+Hint: it may help to expand the data set with a new variable. 
+
+It may be easier to create a new variable that creates the specified categories. We can use the `cut()` function to do this quickly
+
+```{r cache=TRUE}
+boys2 <- 
+  boys %>%
+  mutate(class = cut(bmi, c(0, 18.5, 25, 30, Inf),
+                    labels = c("underweight",
+                               "healthy",
+                               "overweight",
+                               "obese")))
+```
+
+by specifying the boundaries of the intervals. In this case we obtain 4 intervals: `0-18.5`, `18.5-25`, `25-30` and `30-Inf`. We can now call `ggplot`
+
+```{r cache=TRUE}
+ggplot(data = boys2) +
+  geom_point(aes(age, bmi, col = class))
+```
+
+Although the different classifications have different colours, the colours are not conform the specifications of this exercise. We can manually override this:
+
+```{r cache=TRUE}
+ggplot(data = boys2 ) +
+  geom_point(aes(age, bmi, col = class)) +
+  scale_color_manual(values = c("light blue", "light green", "orange", "red"))
+```
+
+Because there are missing values, `ggplot2` displays a warning message. If we would like to not consider the missing values when plotting, we can simply exclude the `NA`s by using a `filter()`:
+
+```{r cache=TRUE}
+  ggplot( data = boys2[ !is.na( boys2$class ), ] ) +
+  geom_point(aes(age, bmi, col = class)) +
+  scale_color_manual(values = c("light blue", "light green", "orange", "red"))
+```
+
+Specifying a filter on the feature `class` is sufficient: age has no missings and the missings in `class` directly correspond to missing values on `bmi`. Filtering on `bmi` would therefore yield an identical plot.
+
+---
+
+3. **Create a histogram for `age` in the `boys` data set.**
+
+```{r cache=TRUE}
+ggplot( data = boys ) + 
+  geom_histogram(aes(age), binwidth = .4)
+```
+
+Please note that the plots from `geom_histogram()` and `hist` use different calculations for the bars (bins) and hence may look slightly different.
+
+---
+
+4. **Create a bar chart for `reg` in the boys data set.**
+
+```{r cache=TRUE}
+ggplot( data = boys ) + 
+  geom_bar(aes(reg))
+```
+
+Note that `geom_bar` by default plots the `NA`'s, while `barplot()` omits the `NA`'s without warning. If we would not like to plot the `NA`s, then a simple `filter()` (see exercise 2) on the `boys` data is efficient. 
+
+---
+
+5. **Create a box plot for `hgt` with different boxes for `reg` in the `boys` data set.**
+
+```{r cache=TRUE}
+ggplot( data = boys,  aes(reg, hgt)) +
+  geom_boxplot()
+```
+
+---
+
+6. **Create a density plot for `age` with different curves for boys from the `city` and boys from rural areas (`!city`).**
+
+With `ggplot2`:
+
+```{r cache=TRUE}
+boys %>%
+  mutate(area = ifelse(reg == "city", "city", "rural")) %>%
+  filter(!is.na(area)) %>%
+  ggplot(aes(age, fill = area)) +
+  geom_density(alpha = .3) # some transparency
+```
+
+
+7. **Create a diverging bar chart for `hgt` in the `boys` data set, that displays for every `age` year that year's mean height in deviations from the overall average `hgt`.**
+
+Let's not make things too complicated and just focus on `ggplot2`:
+
+```{r}
+boys %>%
+  mutate(Hgt = hgt - mean(hgt, na.rm = TRUE),
+         Age = cut(age, 0:22, labels = 0:21)) %>%
+  group_by(Age) %>%
+  summarize(Hgt = mean(Hgt, na.rm = TRUE)) %>% 
+  mutate(Diff = cut(Hgt, c(-Inf, 0, Inf),
+                    labels = c("Below Average", "Above Average"))) %>%
+  ggplot(aes(x = Age, y = Hgt, fill = Diff)) + 
+  geom_bar(stat = "identity") +
+  coord_flip()
+```
+
+We can clearly see that the average height in the group is reached just before age 7. 
+
+The `group_by()` and `summarize()` function are advanced `dplyr` functions used to return the `mean()` of deviation `Hgt` for every group in `Age`. For example, if we would like the mean and sd of height `hgt` for every region `reg` in the `boys` data, we could call:
+
+```{r}
+boys %>%
+  group_by(reg) %>% 
+  summarize(mean_hgt = mean(hgt, na.rm = TRUE), 
+            sd_hgt   = sd(hgt, na.rm = TRUE))
+```
+
+The `na.rm` argument ensures that the mean and sd of only the observed values in each category are used.
+
+
+---
+
+
+
+
+
+8. **Read in the `sf` package, and open the shapefiles on the Danish municipalities from the course homepage. Plot the `REGIONNAVN` variable to see the Danish regions. Plot the municipal-level population.**
+```{r}
+library(sf)
+denmark <- st_read("DK_map.shp")
+class(denmark)
+```
+
+```{r}
+ggplot( data = denmark ) + geom_sf()
+```
+
+Say we want to colour the maps by the administrative regions coded in the `REGIONNAVN` variable. Also, we could move the legend inside the plot and use a more colorblind-friendly color scale:
+
+```{r}
+denmark %>% ggplot( aes( fill = REGIONNAVN  ) ) + geom_sf() +
+  theme(legend.position = c(0.8,0.7)) +
+  scale_fill_brewer(palette = "Set2")
+```
+
+We plot the municipal-level population
+
+```{r}
+denmark %>% mutate( population = population/1000) %>% 
+  ggplot(aes( fill = population)) +
+  geom_sf() + 
+  scale_fill_viridis_c() + # The viridis color scale gives more visual nuance
+  labs( fill = "Population,\nthousands")
+```
+
+But perhaps population per square kilometer might be more informative than just population
+```{r}
+denmark$area <- st_area(denmark)/(1000^2)
+
+denmark %>% 
+  group_by(KOMKODE) %>% 
+  summarise( total.area = sum( as.numeric( area ) ), 
+             population = first( population )) %>% 
+  mutate( pop.area = population/total.area) %>% 
+  ggplot( aes( fill = pop.area)) + 
+  geom_sf()+ 
+  scale_fill_viridis_c() + # The viridis color scale gives more visual nuance
+  labs( fill = "Population per \nsquare kilometer")
+
+```
+
+Our `sf` object contains more than one feature for some of the municipalities. The population number given is for the total municipality, so we need to compute the total area for each municipality. 
+
+---
+
+End of Practical
+
+---
+
+#### Useful References
+
+[The `ggplot2` reference page](https://ggplot2.tidyverse.org/reference/index.html)
+
+
+---
+
+
