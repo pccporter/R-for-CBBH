@@ -159,9 +159,9 @@ We adapt the course as we go. To ensure that you work with the latest iteration 
     - [Practical C](Contents/Material/Part C - Data manipulation/Practical_C.html)
     - [Practical C with solutions](Contents/Material/Part C - Data manipulation/Practical_C_walkthrough.html)
 - Part D: Analyzing data 
-    - [XXXXLecture D](Contents/Material/Part D - Analyzing data/Lecture_D.html)
-    - [XXXXPractical D](Contents/Material/Part D - Analyzing data/Practical_D.html)
-    - [XXXXPractical D with solutions](Contents/Material/Part D - Analyzing data/Practical_D_walkthrough.html)
+    - [Lecture D](Contents/Material/Part D - Analyzing data/Lecture_D.html)
+    - [Practical D](Contents/Material/Part D - Analyzing data/Practical_D.html)
+    - [Practical D with solutions](Contents/Material/Part D - Analyzing data/Practical_D_walkthrough.html)
     
 All lectures are in `html` format. Practicals are are provided both as naked questions but also with ample explanations and solutions - choose according to your taste!
 
