@@ -160,7 +160,7 @@ The above links are useful references that connect to today's materials.
 
 
 <iframe src="https://player.vimeo.com/video/178485416?color=428bca&title=0&byline=0&portrait=0" data-external= "1"
-height = "315"> </iframe>
+height = "315" width="500" frameborder="0"> </iframe>
 
 <!-- <br> -->
 <!-- See also [this `rmarkdown` cheat sheet](Contents/Material/Part A - Introduction/rmarkdown-reference_sheet.pdf).  -->
