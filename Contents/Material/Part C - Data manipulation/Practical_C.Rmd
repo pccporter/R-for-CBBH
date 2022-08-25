@@ -38,8 +38,8 @@ set.seed(123)
 
 1. **Use a pipe to do the following:**
 
-- draw 1000 values from a normal distribution with `mean = 5` and `sd = 1` - $N(5, 1)$, 
-- create a matrix where the first 500 values are the first column and the second 500 values are the second column **
+- draw 1000 values from a normal distribution with `mean = 5` and `sd = 1` - $N(5, 1)$ 
+- create a matrix where the first 500 values are the first column and the second 500 values are the second column
 - make a scatterplot of these two columns
 ```{r, echo = F}
 rnorm(1000, 5) %>%
