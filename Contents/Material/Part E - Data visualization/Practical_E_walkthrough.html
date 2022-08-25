@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Statistical Programming in R" />
+
+
+<title>Practical E - solutions</title>
+
+<script src="libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+<link href="libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Practical E - solutions</h1>
+<h4 class="author">Statistical Programming in R</h4>
+
+</div>
+
+
+<hr />
+<div id="exercises" class="section level4">
+<h4>Exercises</h4>
+<hr />
+<p>The following packages are required for this practical:</p>
+<pre class="r"><code>library(dplyr)
+library(magrittr)
+library(mice)
+library(ggplot2)
+library(stringr)</code></pre>
+<p>and if you’d like the same results as I have obtained, you can fix
+the random seed</p>
+<pre class="r"><code>set.seed(123)</code></pre>
+<hr />
+<ol start="0" style="list-style-type: decimal">
+<li><strong>Function <code>plot()</code> is the core plotting function
+in <code>R</code>. Find out more about <code>plot()</code>: Try both the
+help in the help-pane and <code>?plot</code> in the console. Look at the
+examples by running <code>example(plot)</code>.</strong></li>
+</ol>
+<p>The help tells you all about a functions arguments (the input you can
+specify), as well as the element the function returns to the Global
+Environment. There are strict rules for publishing packages in R. For
+your packages to appear on the Comprehensive R Archive Network (CRAN), a
+rigorous series of checks have to be passed. As a result, all user-level
+components (functions, datasets, elements) that are published, have an
+acompanying documentation that elaborates how the function should be
+used, what can be expected, or what type of information a data set
+contains. Help files often contain example code that can be run to
+demonstrate the workings.</p>
+<pre class="r"><code>?plot</code></pre>
+<pre><code>## starting httpd help server ... done</code></pre>
+<pre class="r"><code>example(plot)</code></pre>
+<pre><code>## 
+## plot&gt; Speed &lt;- cars$speed
+## 
+## plot&gt; Distance &lt;- cars$dist
+## 
+## plot&gt; plot(Speed, Distance, panel.first = grid(8, 8),
+## plot+      pch = 0, cex = 1.2, col = &quot;blue&quot;)</code></pre>
+<p><img src="Practical_E_walkthrough_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<pre><code>## 
+## plot&gt; plot(Speed, Distance,
+## plot+      panel.first = lines(stats::lowess(Speed, Distance), lty = &quot;dashed&quot;),
+## plot+      pch = 0, cex = 1.2, col = &quot;blue&quot;)</code></pre>
+<p><img src="Practical_E_walkthrough_files/figure-html/unnamed-chunk-4-2.png" width="672" /></p>
+<pre><code>## 
+## plot&gt; ## Show the different plot types
+## plot&gt; x &lt;- 0:12
+## 
+## plot&gt; y &lt;- sin(pi/5 * x)
+## 
+## plot&gt; op &lt;- par(mfrow = c(3,3), mar = .1+ c(2,2,3,1))
+## 
+## plot&gt; for (tp in c(&quot;p&quot;,&quot;l&quot;,&quot;b&quot;,  &quot;c&quot;,&quot;o&quot;,&quot;h&quot;,  &quot;s&quot;,&quot;S&quot;,&quot;n&quot;)) {
+## plot+    plot(y ~ x, type = tp, main = paste0(&quot;plot(*, type = \&quot;&quot;, tp, &quot;\&quot;)&quot;))
+## plot+    if(tp == &quot;S&quot;) {
+## plot+       lines(x, y, type = &quot;s&quot;, col = &quot;red&quot;, lty = 2)
+## plot+       mtext(&quot;lines(*, type = \&quot;s\&quot;, ...)&quot;, col = &quot;red&quot;, cex = 0.8)
+## plot+    }
+## plot+ }</code></pre>
+<p><img src="Practical_E_walkthrough_files/figure-html/unnamed-chunk-4-3.png" width="672" /></p>
+<pre><code>## 
+## plot&gt; par(op)
+## 
+## plot&gt; ##--- Log-Log Plot  with  custom axes
+## plot&gt; lx &lt;- seq(1, 5, length.out = 41)
+## 
+## plot&gt; yl &lt;- expression(e^{-frac(1,2) * {log[10](x)}^2})
+## 
+## plot&gt; y &lt;- exp(-.5*lx^2)
+## 
+## plot&gt; op &lt;- par(mfrow = c(2,1), mar = par(&quot;mar&quot;)-c(1,0,2,0), mgp = c(2, .7, 0))
+## 
+## plot&gt; plot(10^lx, y, log = &quot;xy&quot;, type = &quot;l&quot;, col = &quot;purple&quot;,
+## plot+      main = &quot;Log-Log plot&quot;, ylab = yl, xlab = &quot;x&quot;)</code></pre>
+<pre><code>## 
+## plot&gt; plot(10^lx, y, log = &quot;xy&quot;, type = &quot;o&quot;, pch = &quot;.&quot;, col = &quot;forestgreen&quot;,
+## plot+      main = &quot;Log-Log plot with custom axes&quot;, ylab = yl, xlab = &quot;x&quot;,
+## plot+      axes = FALSE, frame.plot = TRUE)</code></pre>
+<p><img src="Practical_E_walkthrough_files/figure-html/unnamed-chunk-4-4.png" width="672" /></p>
+<pre><code>## 
+## plot&gt; my.at &lt;- 10^(1:5)
+## 
+## plot&gt; axis(1, at = my.at, labels = formatC(my.at, format = &quot;fg&quot;))
+## 
+## plot&gt; e.y &lt;- -5:-1 ; at.y &lt;- 10^e.y
+## 
+## plot&gt; axis(2, at = at.y, col.axis = &quot;red&quot;, las = 1,
+## plot+      labels = as.expression(lapply(e.y, function(E) bquote(10^.(E)))))
+## 
+## plot&gt; par(op)</code></pre>
+<p>There are many more functions that can plot specific types of plots.
+For example, function <code>hist()</code> plots histograms, but falls
+back on the basic <code>plot()</code> function. Packages
+<code>lattice</code> and <code>ggplot2</code> are excellent packages to
+use for complex plots. Pretty much any type of plot can be made in R. A
+good reference for packages <code>lattice</code> that provides all
+<code>R</code>-code can be found at <a
+href="http://lmdvr.r-forge.r-project.org/figures/figures.html">http://lmdvr.r-forge.r-project.org/figures/figures.html</a>.
+Alternatively, all ggplot2 documentation can be found at <a
+href="http://docs.ggplot2.org/current/">http://docs.ggplot2.org/current/</a></p>
+<hr />
+<ol style="list-style-type: decimal">
+<li><strong>Create a scatterplot between <code>age</code> and
+<code>bmi</code> in the <code>mice::boys</code> data set.</strong></li>
+</ol>
+<p>With the standard plotting device in <code>R</code>:</p>
+<pre class="r"><code>plot( boys$bmi ~ boys$age )</code></pre>
+</div>
+<div id="section" class="section level2">
+<h2><img src="Practical_E_walkthrough_files/figure-html/unnamed-chunk-5-1.png" width="672" /></h2>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Now recreate the plot with the following
+specifications:</strong></li>
+</ol>
+<ul>
+<li>If <code>bmi &lt; 18.5</code> use
+<code>color = "light blue"</code></li>
+<li>If <code>bmi &gt; 18.5 &amp; bmi &lt; 25</code> use
+<code>color = "light green"</code></li>
+<li>If <code>bmi &gt; 25 &amp; bmi &lt; 30</code> use
+<code>color = "orange"</code></li>
+<li>If <code>bmi &gt; 30</code> use <code>color = "red"</code></li>
+</ul>
+<p>Hint: it may help to expand the data set with a new variable.</p>
+<p>It may be easier to create a new variable that creates the specified
+categories. We can use the <code>cut()</code> function to do this
+quickly</p>
+<pre class="r"><code>boys2 &lt;- 
+  boys %&gt;%
+  mutate(class = cut(bmi, c(0, 18.5, 25, 30, Inf),
+                    labels = c(&quot;underweight&quot;,
+                               &quot;healthy&quot;,
+                               &quot;overweight&quot;,
+                               &quot;obese&quot;)))</code></pre>
+<p>by specifying the boundaries of the intervals. In this case we obtain
+4 intervals: <code>0-18.5</code>, <code>18.5-25</code>,
+<code>25-30</code> and <code>30-Inf</code>. We used the
+<code>%&gt;%</code> pipe to work with <code>bmi</code> directly.
+Alternatively, we could have done this without a pipe:</p>
+<pre class="r"><code>boys3 &lt;- boys
+boys3$class &lt;- cut(boys$bmi, c(0, 18.5, 25, 30, Inf), 
+                   labels = c(&quot;underweight&quot;,
+                              &quot;healthy&quot;,
+                              &quot;overweight&quot;,
+                              &quot;obese&quot;))</code></pre>
+<p>to obtain the same result.</p>
+<p>With the standard plotting device in <code>R</code> we can now
+specify:</p>
+<pre class="r"><code>plot(bmi ~ age, subset = class == &quot;underweight&quot;, col = &quot;light blue&quot;, data = boys2, 
+     ylim = c(10, 35), xlim = c(0, 25))
+points(bmi ~ age, subset = class == &quot;healthy&quot;, col = &quot;light green&quot;, data = boys2)
+points(bmi ~ age, subset = class == &quot;overweight&quot;, col = &quot;orange&quot;, data = boys2)
+points(bmi ~ age, subset = class == &quot;obese&quot;, col = &quot;red&quot;, data = boys2)</code></pre>
+</div>
+<div id="section-1" class="section level2">
+<h2><img src="Practical_E_walkthrough_files/figure-html/unnamed-chunk-8-1.png" width="672" /></h2>
+<ol start="3" style="list-style-type: decimal">
+<li><strong>Create a histogram for <code>age</code> in the
+<code>boys</code> data set.</strong></li>
+</ol>
+<p>With the standard plotting device in <code>R</code>:</p>
+<pre class="r"><code>hist(boys$age, breaks = 50)</code></pre>
+<p><img src="Practical_E_walkthrough_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>The <code>breaks = 50</code> overrides the default breaks between the
+bars. By default the plot would be</p>
+<pre class="r"><code>hist(boys$age)</code></pre>
+<p><img src="Practical_E_walkthrough_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p>The title and axis label need to be fixed:</p>
+<pre class="r"><code>hist(boys$age, breaks = 50, xlab = &quot;Age&quot;, main = &quot;Histogram&quot;)</code></pre>
+<p><img src="Practical_E_walkthrough_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<hr />
+<ol start="4" style="list-style-type: decimal">
+<li><strong>Create a bar chart for <code>reg</code> in the boys data
+set.</strong></li>
+</ol>
+<p>With a standard plotting device in <code>R</code>:</p>
+<pre class="r"><code>boys %$%
+  table(reg) %&gt;%
+  barplot()</code></pre>
+<p><img src="Practical_E_walkthrough_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<hr />
+<ol start="5" style="list-style-type: decimal">
+<li><strong>Create a box plot for <code>hgt</code> with different boxes
+for <code>reg</code> in the <code>boys</code> data set.</strong></li>
+</ol>
+<p>With a standard plotting device in <code>R</code>:</p>
+<pre class="r"><code>boys %$%
+  boxplot(hgt ~ reg)</code></pre>
+<p><img src="Practical_E_walkthrough_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<hr />
+<ol start="6" style="list-style-type: decimal">
+<li><strong>Create a density plot for <code>age</code> with different
+curves for boys from the <code>city</code> and boys from rural areas
+(<code>!city</code>).</strong></li>
+</ol>
+<p>With a standard plotting device in <code>R</code>:</p>
+<pre class="r"><code>d1 &lt;- boys %&gt;%
+  subset(reg == &quot;city&quot;) %$%
+  density(age)
+d2 &lt;- boys %&gt;%
+  subset(reg != &quot;city&quot;) %$%
+  density(age)
+
+plot(d1, col = &quot;red&quot;, ylim = c(0, .08))
+lines(d2, col = &quot;blue&quot;)</code></pre>
+<p><img src="Practical_E_walkthrough_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p>The above plot can also be generated without pipes, but results in an
+<em>ugly</em> main title. You may edit the title via the
+<code>main</code> argument in the <code>plot()</code> function.</p>
+<pre class="r"><code>plot(density(boys$age[!is.na(boys$reg) &amp; boys$reg == &quot;city&quot;]),
+     col = &quot;red&quot;,
+     ylim = c(0, .08))
+lines(density(boys$age[!is.na(boys$reg) &amp; boys$reg != &quot;city&quot;]),
+      col = &quot;blue&quot;)</code></pre>
+<p><img src="Practical_E_walkthrough_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<!-- With `ggplot2` everything looks much nicer: -->
+<!-- ```{r cache=TRUE} -->
+<!-- boys %>% -->
+<!--   mutate(area = ifelse(reg == "city", "city", "rural")) %>% -->
+<!--   filter(!is.na(area)) %>% -->
+<!--   ggplot(aes(age, fill = area)) + -->
+<!--   geom_density(alpha = .3) # some transparency -->
+<!-- ``` -->
+<hr />
+<ol start="7" style="list-style-type: decimal">
+<li><strong>Create a diverging bar chart for <code>hgt</code> in the
+<code>boys</code> data set, that displays for every <code>age</code>
+year that year’s mean height in deviations from the overall average
+<code>hgt</code>.</strong></li>
+</ol>
+<p>Let’s not make things too complicated and just focus on
+<code>ggplot2</code>:</p>
+<pre class="r"><code>boys %&gt;%
+  mutate(Hgt = hgt - mean(hgt, na.rm = TRUE),
+         Age = cut(age, 0:22, labels = 0:21)) %&gt;%
+  group_by(Age) %&gt;%
+  summarize(Hgt = mean(Hgt, na.rm = TRUE)) %&gt;% 
+  mutate(Diff = cut(Hgt, c(-Inf, 0, Inf),
+                    labels = c(&quot;Below Average&quot;, &quot;Above Average&quot;))) %&gt;%
+  ggplot(aes(x = Age, y = Hgt, fill = Diff)) + 
+  geom_bar(stat = &quot;identity&quot;) +
+  coord_flip()</code></pre>
+<p><img src="Practical_E_walkthrough_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p>We can clearly see that the average height in the group is reached
+just before age 7.</p>
+<p>The <code>group_by()</code> and <code>summarize()</code> function are
+advanced <code>dplyr</code> functions used to return the
+<code>mean()</code> of deviation <code>Hgt</code> for every group in
+<code>Age</code>. For example, if we would like the mean and sd of
+height <code>hgt</code> for every region <code>reg</code> in the
+<code>boys</code> data, we could call:</p>
+<pre class="r"><code>boys %&gt;%
+  group_by(reg) %&gt;% 
+  summarize(mean_hgt = mean(hgt, na.rm = TRUE), 
+            sd_hgt   = sd(hgt, na.rm = TRUE))</code></pre>
+<pre><code>## # A tibble: 6 × 3
+##   reg   mean_hgt sd_hgt
+##   &lt;fct&gt;    &lt;dbl&gt;  &lt;dbl&gt;
+## 1 north    152.    43.8
+## 2 east     134.    43.2
+## 3 west     130.    48.0
+## 4 south    128.    46.3
+## 5 city     126.    46.9
+## 6 &lt;NA&gt;      73.0   29.3</code></pre>
+<p>The <code>na.rm</code> argument ensures that the mean and sd of only
+the observed values in each category are used.</p>
+<hr />
+<ol start="8" style="list-style-type: decimal">
+<li><strong>Read in the <code>sf</code> package, and open the shapefiles
+on the Danish municipalities from the course homepage. Plot the
+<code>REGIONNAVN</code> variable to see the Danish regions. Plot the
+municipal-level population.</strong></li>
+</ol>
+<p>With the standard plotting device in <code>R</code>:</p>
+<pre class="r"><code>library(sf)</code></pre>
+<pre><code>## Linking to GEOS 3.9.1, GDAL 3.4.3, PROJ 7.2.1; sf_use_s2() is TRUE</code></pre>
+<pre class="r"><code>denmark &lt;- st_read(&quot;DK_map.shp&quot;)</code></pre>
+<pre><code>## Reading layer `DK_map&#39; from data source 
+##   `C:\Mikkel\Dropbox\Work\RWORK\DSTStuff\Ghana\RGhana\Contents\Material\Part E - Data visualization\DK_map.shp&#39; 
+##   using driver `ESRI Shapefile&#39;
+## Simple feature collection with 306 features and 6 fields
+## Geometry type: POLYGON
+## Dimension:     XY
+## Bounding box:  xmin: 441524.8 ymin: 6049785 xmax: 892800.8 ymax: 6402308
+## CRS:           NA</code></pre>
+<pre class="r"><code>class(denmark)</code></pre>
+<pre><code>## [1] &quot;sf&quot;         &quot;data.frame&quot;</code></pre>
+<p>The default plot for an object of class <code>sf</code> is a
+multi-plot of all attributes, up to a reasonable maximum:</p>
+<pre class="r"><code>plot(denmark)</code></pre>
+<p><img src="Practical_E_walkthrough_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p>If we want to view the shapes themselves without the attributes, we
+can plot the <code>st_geometry</code></p>
+<pre class="r"><code>plot(st_geometry(denmark))</code></pre>
+<p><img src="Practical_E_walkthrough_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p>Say we want to colour the maps by the administrative regions coded in
+the <code>REGIONNAVN</code> variable:</p>
+<pre class="r"><code>denmark &lt;- denmark %&gt;% mutate( REGIONNAVN = word( REGIONNAVN , 2))
+plot(denmark[&quot;REGIONNAVN&quot;], key.pos = 1, key.length = 1)</code></pre>
+<p><img src="Practical_E_walkthrough_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p>The legend is being bothersome here, though. The <code>ggplot</code>
+default is prettier.</p>
+<p>We plot the municipal-level population</p>
+<pre class="r"><code>denmark &lt;- denmark %&gt;% mutate( population = population/1000) 
+
+plot(denmark[&quot;population&quot;], main = &quot;Population,\nthousands&quot;)</code></pre>
+<p><img src="Practical_E_walkthrough_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<p>But perhaps population per square kilometer might be more informative
+than just population</p>
+<pre class="r"><code>denmark$area &lt;- st_area(denmark)/(1000^2)
+
+denmark1 &lt;- denmark %&gt;% 
+  group_by(KOMKODE) %&gt;% 
+  summarise( total.area = sum( as.numeric( area ) ), 
+             population = first( population )) %&gt;% 
+  mutate( pop.area = population/total.area)
+
+plot(denmark1[&quot;pop.area&quot;], main = &quot;Population per square kilometer&quot;)</code></pre>
+<p><img src="Practical_E_walkthrough_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<p>Our <code>sf</code> object contains more than one feature for some of
+the municipalities. The population number given is for the total
+municipality, so we need to compute the total area for each
+municipality.</p>
+<hr />
+<p>End of Practical</p>
+<hr />
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
