@@ -35,9 +35,32 @@ output:
 
 # Overview of this course
 ## Program
-<center>
-<img src="figures/schedule.png" alt="HTML5 Icon" width = 90%>
-</center>
+
+<font size="1">  
+
+
+| Time        | Topic                                           |
+|:------------|:------------------------------------------------|
+| *Monday*    |                                                 |
+| 10.00-12.00 | Installation of R and RStudio                   |
+|             | *Break*                                         |     
+| 13.30-16.00 | Introduction to R and Rstudio (A+B)             |
+| *Tuesday*   |                                                 |
+| 09.00-12.00 | Data manipulation (C)                           |
+|             | *Break*                                         |             
+| 13.30-16.30 | Analyzing data (D)                              |
+| *Wednesday* |                                                 |
+| 09.00-12.00 | Data visualization  (E)                         |
+|             | *Break*                                         |
+| 13.30-16.30 | Loops and functions (F)                         |
+| *Thursday*  |                                                 |
+| 09.00-11.30 | Outstanding issues, Q and A                     |
+
+</font>
+
+<!-- <center> -->
+<!-- <img src="figures/schedule.png" alt="HTML5 Icon" width = 90%> -->
+<!-- </center> -->
 
 <!-- # Goal of this course -->
 <!-- ## Learn to keep your *cool* -->
