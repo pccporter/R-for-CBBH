@@ -131,10 +131,10 @@ We adapt the course as we go. To ensure that you work with the latest iteration 
     - [`markdown.Rmd`](Contents/Material/Part A - Introduction/markdown.Rmd){target="_blank"}
 
 - Part B: How is `R` organized?
-    - [XXXXLecture B](Contents/Material/Part B - How is R organized/Lecture_B.html){target="_blank"}
-    - [XXXXPractical B](Contents/Material/Part B - How is R organized/Practical_B.html){target="_blank"}
-    - [XXXXPractical B with solutions](Contents/Material/Part B - How is R organized/Practical_B_walkthrough.html){target="_blank"}
-    - [XXXX`boys.RData`](Contents/Material/Part B - How is R organized/boys.RData)
+    - [Lecture B](Contents/Material/Part B - How is R organized/Lecture_B.html){target="_blank"}
+    - [Practical B](Contents/Material/Part B - How is R organized/Practical_B.html){target="_blank"}
+    - [Practical B with solutions](Contents/Material/Part B - How is R organized/Practical_B_walkthrough.html){target="_blank"}
+    - [`boys.RData`](Contents/Material/Part B - How is R organized/boys.RData)
 
 All lectures are in `html` format. Practicals are are provided both as naked questions but also with ample explanations and solutions - choose according to your taste!
 
