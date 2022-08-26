@@ -1,11 +1,21 @@
 ---
-title: "Practical A"
-author: "Peter Stoltze and Anne Vinkel Hansen"
-date: "Statistical Programming with R"
-output: html_document
+title: "Practical A - walkthrough"
+author: "Statistical Programming with R"
+date: ""
+output: 
+  html_document:
+    self_contained: false
+    lib_dir: libs
 ---
 
----
+
+<!-- --- -->
+<!-- title: "Practical A" -->
+<!-- author: "Peter Stoltze and Anne Vinkel Hansen" -->
+<!-- date: "Statistical Programming with R" -->
+<!-- output: html_document -->
+<!-- --- -->
+
 
 Today we are going to get acquainted with `R`. A convenient way to work with `R` is through `RStudio` which adds many features and convenient options to the plain `R` interface. Most of these features go beyond the scope of this course, but as you will develop your `R` skillset, you might run into the need for them and hence `RStudio` so it is worthwhile to get to know `RStudio` right from the beginning. 
  
