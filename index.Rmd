@@ -166,7 +166,7 @@ The above links are useful references that connect to today's materials.
 height = "300" width="450" frameborder="0"> </iframe>
 
 <br>
-See also [this `rmarkdown` cheat sheet](Contents/Material/Part A - Introduction/rmarkdown-reference_sheet.pdf).
+See also [this `rmarkdown` cheat sheet](Contents/Material/Part A - Introduction/rmarkdown_cheat_sheet.pdf).
 
 # Tuesday
 
