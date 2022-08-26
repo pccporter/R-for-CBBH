@@ -1,5 +1,5 @@
 ---
-title: 'Data manipulation'
+title: 'Introduction'
 author: "Statistical Programming with R"
 date: ""
 output:
