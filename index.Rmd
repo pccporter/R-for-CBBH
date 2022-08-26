@@ -209,7 +209,7 @@ We adapt the course as we go. To ensure that you work with the latest iteration 
     - [Practical E](Contents/Material/Part E - Data visualization/Practical_E.html){target="_blank"}
     - [Practical E with solutions](Contents/Material/Part E - Data visualization/Practical_E_walkthrough.html){target="_blank"}
     - [Practical E with solutions - using ggplot](Contents/Material/Part E - Data visualization/Practical_E_walkthrough_ggplot.html){target="_blank"}
-    - [`DK_map.shp`](Contents/Material/Part E - Data visualization/DK_map.shp), [`DK_map.shx`](Contents/Material/Part E - Data visualization/DK_map.shx), [`DK_map.dbf`](Contents/Material/Part E - Data visualization/DK_map.dbf), [`DK_map.prj`](Contents/Material/Part E - Data visualization/DK_map.prj)  shapefiles for mapping data on Danish municipalities
+    - [`DK_map.shp`](Contents/Material/Part E - Data visualization/DK_map.shp), [`DK_map.shx`](Contents/Material/Part E - Data visualization/DK_map.shx), [`DK_map.dbf`](Contents/Material/Part E - Data visualization/DK_map.dbf) shapefiles for mapping data on Danish municipalities
 - Part F: Loops and functions
     - [Lecture F](Contents/Material/Part F - Loops and functions/Lecture_F.html){target="_blank"}
     - [Practical F](Contents/Material/Part F - Loops and functions/Practical_F.html){target="_blank"}
