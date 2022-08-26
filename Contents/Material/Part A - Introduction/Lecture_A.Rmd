@@ -1,22 +1,37 @@
 ---
-title: "Introduction"
-author: "Peter Stoltze and Anne Vinkel Hansen"
-date: "Statistical Programming with R"
+title: 'Data manipulation'
+author: "Statistical Programming with R"
+date: ""
 output:
   ioslides_presentation:
-    css: css/style.css
-    logo: figures/logo_en.png
-    transition: 0
-    # smaller: yes
-    # widescreen: yes
-  # html_document:
-  #   # css: style_ho.css
-  #   toc: true
-  #   toc_depth: 5
-  #   toc_float: true
-  #   number_sections: false
-    
+    fig_height: 5
+    fig_width: 8
+    logo: logo_en.png
+    transition: faster
+    smaller: true
+  beamer_presentation: default
 ---
+
+
+<!-- --- -->
+<!-- title: "Introduction" -->
+<!-- author: "Peter Stoltze and Anne Vinkel Hansen" -->
+<!-- date: "Statistical Programming with R" -->
+<!-- output: -->
+<!--   ioslides_presentation: -->
+<!--     css: css/style.css -->
+<!--     logo: figures/logo_en.png -->
+<!--     transition: 0 -->
+<!--     # smaller: yes -->
+<!--     # widescreen: yes -->
+<!--   # html_document: -->
+<!--   #   # css: style_ho.css -->
+<!--   #   toc: true -->
+<!--   #   toc_depth: 5 -->
+<!--   #   toc_float: true -->
+<!--   #   number_sections: false -->
+
+<!-- --- -->
 
 # Overview of this course
 ## Program
