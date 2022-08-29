@@ -50,17 +50,17 @@ The course starts at a very basic level and builds up gradually. No previous exp
 | Time        | Topic                                           |
 |:------------|:------------------------------------------------|
 | *Monday*    |                                                 |
-| 10.00-12.00 | Installation of R and RStudio                   |
+| 10.00-13.00 | Installation of R and RStudio                   |
 |             | *Break*                                         |     
-| 13.30-16.00 | Introduction to R and Rstudio (A+B)             |
+| 14.00-17.15 | Introduction to R and Rstudio (A+B)             |
 | *Tuesday*   |                                                 |
-| 09.00-12.00 | Data manipulation (C)                           |
+| 09.00-13.00 | Data manipulation (C)                           |
 |             | *Break*                                         |             
-| 13.30-16.30 | Analyzing data (D)                              |
+| 14.00-16.30 | Analyzing data (D)                              |
 | *Wednesday* |                                                 |
-| 09.00-12.00 | Data visualization  (E)                         |
+| 09.00-13.00 | Data visualization  (E)                         |
 |             | *Break*                                         |
-| 13.30-16.30 | Loops and functions (F)                         |
+| 14.00-16.30 | Loops and functions (F)                         |
 | *Thursday*  |                                                 |
 | 09.00-11.30 | Outstanding issues, Q and A                     |
 
