@@ -231,20 +231,18 @@ cats %>%
 ```{r}
 mycats <- data.frame(Sex = as.factor(c("F","M",NA)),
                      Bwt = c(1.9,NA, 2.1),
-                     Hwt = c(8.2, NA, 7.8))
+                     Hwt = c(8.2, 8.0, NA))
 mycats
 ```
 
-
 ```{r}
-mycats %>% filter(is.na(Sex))
+mycats %>% filter(!is.na(Sex))
 ```
 
-```{r}
-mycats %>% filter(if_all(everything(), ~ !is.na(.)))
-```
 
-<!-- mycats %>% filter_at(vars(Bwt,Hwt), all_vars(is.na(.))) -->
+<!-- mycats %>% filter_at(vars(Bwt,Hwt), any_vars(is.na(.))) -->
+
+<!-- mycats %>% filter(if_all(everything(), ~ !is.na(.))) -->
 
 # More pipe stuff
 
