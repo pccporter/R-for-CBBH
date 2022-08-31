@@ -249,15 +249,26 @@ The `sf` setup for `R` is relatively new, and a lot of material about spatial da
 
 # GSS
 
-## Examples
+## column 1
 
-Later...
+### Example with data from GSS
 
-- Part A: Introduction
-    - [Lecture A](Contents/Material/Part A - Introduction/Lecture_A.html){target="_blank"}
-    - [Practical A](Contents/Material/Part A - Introduction/Practical_A_walkthrough.html){target="_blank"}
-    - [`notebook.R`](Contents/Material/Part A - Introduction/notebook.R){target="_blank"}
-    - [`markdown.Rmd`](Contents/Material/Part A - Introduction/markdown.Rmd){target="_blank"}
+Data and code for read and write examples:
+
+
+
+
+- [`00_GHA_BASICINFO.dta`](Contents/Material/GSS/00_GHA_BASICINFO.dta){target="_blank"}  GSS Stata file
+- [`01_GHA_EXPFOOD.dta`](Contents/Material/GSS/01_GHA_EXPFOOD.dta){target="_blank"} GSS Stata file
+- [`glss7.csv`](Contents/Material/GSS/glss7.csv){target="_blank"} GSS csv file
+- [`glss7.xlsx`](Contents/Material/GSS/glss7.xlsx){target="_blank"} GSS Excel file
+
+
+<!-- - Part A: Introduction -->
+<!--     - [Lecture A](Contents/Material/Part A - Introduction/Lecture_A.html){target="_blank"} -->
+<!--     - [Practical A](Contents/Material/Part A - Introduction/Practical_A_walkthrough.html){target="_blank"} -->
+<!--     - [`notebook.R`](Contents/Material/Part A - Introduction/notebook.R){target="_blank"} -->
+<!--     - [`markdown.Rmd`](Contents/Material/Part A - Introduction/markdown.Rmd){target="_blank"} -->
 
 
 
