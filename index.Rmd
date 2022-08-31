@@ -253,6 +253,14 @@ The `sf` setup for `R` is relatively new, and a lot of material about spatial da
 
 Later...
 
+- Part A: Introduction
+    - [Lecture A](Contents/Material/Part A - Introduction/Lecture_A.html){target="_blank"}
+    - [Practical A](Contents/Material/Part A - Introduction/Practical_A_walkthrough.html){target="_blank"}
+    - [`notebook.R`](Contents/Material/Part A - Introduction/notebook.R){target="_blank"}
+    - [`markdown.Rmd`](Contents/Material/Part A - Introduction/markdown.Rmd){target="_blank"}
+
+
+
 
 # Further studies
 
