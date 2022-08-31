@@ -219,6 +219,12 @@ We adapt the course as we go. To ensure that you work with the latest iteration 
     - [Lecture F](Contents/Material/Part F - Loops and functions/Lecture_F.html){target="_blank"}
     - [Practical F](Contents/Material/Part F - Loops and functions/Practical_F.html){target="_blank"}
     - [Practical F with solutions](Contents/Material/Part F - Loops and functions/Practical_F_walkthrough.html){target="_blank"}
+    - [New Lecture F](Contents/Material/Part F - Loops and functions/Lecture_F_new.html){target="_blank"}
+    - [New Practical F](Contents/Material/Part F - Loops and functions/Practical_F_new.html){target="_blank"}
+    - [New Practical F with solutions](Contents/Material/Part F - Loops and functions/Practical_F_walkthrough_new.html){target="_blank"}
+    
+    
+    
 
 
 <!-- - Part F: Loops and functions -->
@@ -254,9 +260,6 @@ The `sf` setup for `R` is relatively new, and a lot of material about spatial da
 ### Example with data from GSS
 
 Data and code for read and write examples:
-
-
-
 
 - [`00_GHA_BASICINFO.dta`](Contents/Material/GSS/00_GHA_BASICINFO.dta){target="_blank"}  GSS Stata file
 - [`01_GHA_EXPFOOD.dta`](Contents/Material/GSS/01_GHA_EXPFOOD.dta){target="_blank"} GSS Stata file
