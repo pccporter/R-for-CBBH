@@ -17,7 +17,7 @@ output:
 
 # Intro {.sidebar}
 
-This dashboard covers the materials for the course introducing R. Course held in Ghana, August 29 - September 1, 2022.
+This dashboard covers the materials for the course introducing R. Course held in Ghana, November 29 - December 2, 2022.
 
 ---
 
@@ -29,7 +29,7 @@ Instructors:
 
 ---
 
-Material adopted from [Gerko Vink](https://github.com/gerkovink/R)
+Material adopted from [Gerko Vink](https://github.com/gerkovink/R) and Statistics Denmark.
 
 
 ---
@@ -49,19 +49,19 @@ The course starts at a very basic level and builds up gradually. No previous exp
 
 | Time        | Topic                                           |
 |:------------|:------------------------------------------------|
-| *Monday*    |                                                 |
-| 10.00-13.00 | Installation of R and RStudio                   |
-|             | *Break*                                         |     
-| 14.00-17.15 | Introduction to R and Rstudio (A+B)             |
 | *Tuesday*   |                                                 |
-| 09.00-13.00 | Data manipulation (C)                           |
-|             | *Break*                                         |             
-| 14.00-16.30 | Analyzing data (D)                              |
+| 09.00-12.00 | Installation of R and RStudio                   |
+|             | *Break*                                         |     
+| 12.30-16.00 | Introduction to R and Rstudio (A+B)             |
 | *Wednesday* |                                                 |
-| 09.00-13.00 | Data visualization  (E)                         |
+| 09.00-12.00 | Data manipulation (C)                           |
+|             | *Break*                                         |             
+| 13.30-16.30 | Analyzing data (D)                              |
+| *Thurday*   |                                                 |
+| 09.00-12.00 | Data visualization  (E)                         |
 |             | *Break*                                         |
-| 14.00-16.30 | Loops and functions (F)                         |
-| *Thursday*  |                                                 |
+| 13.30-16.30 | Loops and functions (F)                         |
+| *Friday*    |                                                 |
 | 09.00-11.30 | Outstanding issues, Q and A                     |
 
 
@@ -87,7 +87,7 @@ Bring a laptop computer to the course and make sure that you have full write acc
 
 ### **2. Install `RStudio` Desktop**
 
-Rstudio is an Integrated Development Environment (IDE). It can be obtained as stand-alone software [here](https://www.rstudio.com/products/rstudio/download/#download). The free and open source `RStudio Desktop` version is sufficient.
+Rstudio is an Integrated Development Environment (IDE). It can be obtained as stand-alone software [here](https://www.posit.co/downloads/). The free and open source `RStudio Desktop` version is sufficient.
 
 ### **3. Start RStudio and install the following packages. **
 
@@ -117,11 +117,11 @@ compilation? (Yes/no/cancel)
 
 type `Yes` in the console and press the return key. 
 
-# Monday
+# Tuesday
 
 ## Column 1
 
-### Monday's materials
+### Tuesdays's materials
 We adapt the course as we go. To ensure that you work with the latest iteration of the course materials, we advice all course participants to access the materials online.
 
 - Part A: Introduction
@@ -168,11 +168,11 @@ height = "300" width="450" frameborder="0"> </iframe>
 <br>
 See also [this `rmarkdown` cheat sheet](Contents/Material/Part A - Introduction/rmarkdown_cheat_sheet.pdf).
 
-# Tuesday
+# Wednesday
 
 ## Column 1
 
-### Tuesday's materials
+### Wednesday's materials
 We adapt the course as we go. To ensure that you work with the latest iteration of the course materials, we advice all course participants to access the materials online.
 
 - Part C: Data manipulation
@@ -202,11 +202,11 @@ All lectures are in `html` format. Practicals are are provided both as naked que
 
 The above links are useful references that connect to today's materials.
 
-# Wednesday
+# Thursday
 
 ## Column 1
 
-### Wednesday's materials
+### Thursdays's materials
 We adapt the course as we go. To ensure that you work with the latest iteration of the course materials, we advice all course participants to access the materials online.
 
 - Part E: Data visualization
