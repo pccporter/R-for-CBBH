@@ -1,0 +1,36 @@
+---
+title: 'R Markdown'
+author: "Statistical Programming in R"
+date: ""
+output:
+  ioslides_presentation:
+    logo: logo_en.png
+    smaller: yes
+    widescreen: no
+    self_contained: false
+    lib_dir: libs
+  beamer_presentation:
+    colortheme: beaver
+---
+
+## We use the following packages
+```{r, message=FALSE, warning=FALSE}
+library(magrittr) # Pipes
+library(ggplot2)  # Plotting suite
+library(knitr)
+library(kableExtra)
+```
+
+## XXXX
+
+New functions: 
+
+- `plot()`: R's plotting device 
+- `barplot()`: bar plot function 
+- `pie()`: pie plot function 
+- `hist()`: histogram 
+- `density()`: function that calculates the density 
+- `boxplot()`: box plot function 
+
+# Practical
+
