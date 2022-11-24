@@ -153,7 +153,7 @@ ggplot( data = boys,  aes(reg, hgt)) +
 
 #### Exercise 6
 
-Create a density plot for `age` with different curves for boys from the `city` and boys from rural areas (`!city`).**
+Create a density plot for `age` with different curves for boys from the `city` and boys from rural areas (`!city`).
 
 
 `r hide("Solution")` 

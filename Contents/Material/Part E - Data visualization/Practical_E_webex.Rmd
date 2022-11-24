@@ -142,7 +142,7 @@ hist(boys$age, breaks = 50, xlab = "Age", main = "Histogram")
 
 #### Exercise 4
 
-Create a bar chart for `reg` in the boys data set.**
+Create a bar chart for `reg` in the boys data set.
 
 `r hide("Solution")`
 
@@ -158,7 +158,7 @@ boys %$%
 
 #### Exercise 5
 
-Create a box plot for `hgt` with different boxes for `reg` in the `boys` data set.**
+Create a box plot for `hgt` with different boxes for `reg` in the `boys` data set.
 
 `r hide("Solution")`
 
