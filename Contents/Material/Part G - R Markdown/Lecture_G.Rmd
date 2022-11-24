@@ -13,6 +13,24 @@ output:
     colortheme: beaver
 ---
 
+
+```{r, include = F}
+
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+
+inline <- function(x = "") paste0("`` `r ", x, "` ``")
+
+knitr::opts_chunk$set(message = F, echo = F)
+
+
+dt <- mtcars[1:5, 1:6]
+
+```
+
+
+
 ## We use the following packages
 ```{r, message=FALSE, warning=FALSE}
 library(magrittr) # Pipes
@@ -31,6 +49,158 @@ New functions:
 - `hist()`: histogram 
 - `density()`: function that calculates the density 
 - `boxplot()`: box plot function 
+
+
+## Rmarkdown
+
+**What is it**
+* R Markdown is a file format for making dynamic documents
+
+**Who is it for**
+* For communicating to decision makers, who want to focus on the conclusions, not the code behind the analysis.
+
+* For collaborating with other data scientists (including future you!), who are interested in both your conclusions, and how you reached them (i.e. the code).
+
+* As an environment in which to do data science, as a modern day lab notebook where you can capture not only what you did, but also what you were thinking.
+
+
+## What does Rmarkdown contains
+
+It contains three important types of content:
+
+* An (optional) YAML header surrounded by ---s.
+* Chunks of R code surrounded by ```.
+* Text mixed with simple text formatting like # heading and _italics_.
+
+## How does R Markdown works
+
+```{r}
+#knitr::include_graphics("Lecture E-figure/Rmarkdown how it works 2.PNG")
+```
+
+
+# How does R Markdown works
+
+```{r}
+#knitr::include_graphics("Lecture E-figure/Rmarkdown how it works.PNG")
+```
+
+
+## Bullet points
+
+*   Bulleted list item 1
+
+*   Item 2
+
+    * Item 2a
+
+    * Item 2b
+
+1.  Numbered list item 1
+
+1.  Item 2. The numbers are incremented automatically in the output.
+
+
+## Writing text
+
+If you want to use latex just write `r str_c("$$")` 'some math' and end with two dollar signs
+
+
+* Get italic text. Set \*italic\* which gives you *italic*.  
+* Get bold text. Set \*\*bold\** which gives you **bold**.      
+* If you want to use r programming in the text use `r inline()`.
+
+
+## Examples with code in text
+
+1. We have data about `r inline('nrow(diamonds)')` diamonds.  
+  1.1. We have data about `r nrow(diamonds)` diamonds.
+1. Only `r inline('diamonds %>% filter(carat>2.5) %>% nrow()diamonds %>% filter(carat>2.5) %>% nrow()')` are larger than 2.5  
+  1.1 Only `r diamonds %>% filter(carat>2.5) %>% nrow()` are larger than 2.5
+  
+
+## Tables in markdown
+
+Printing tables to markdown aren't pretty. But with the package *kableExtra* it is easy to make readable tabels.
+
+Example (Normal print)
+```{r}
+# tibble::rownames_to_column(mtcars, var = "cartype") %>% 
+#   separate(col = cartype, into = c("brand", "car"),
+#            sep = fixed(" "),
+#            extra = "merge") %>% 
+#   group_by(brand) %>% 
+#   summarise(number = n(), mean_mpg_brand = mean(mpg), .groups = "drop") %>% head()
+```
+
+
+## Tables in markdown
+
+Example (kableExtra print)
+```{r eval = TRUE}
+dt %>% kable('html') %>% 
+  kable_paper("hover", full_width = F)
+```
+
+## Example (kableExtra print)
+
+
+```{r eval = TRUE}
+dt %>%
+  kbl() %>%
+  kable_minimal()
+```
+
+## Example (kableExtra print)
+```{r}
+
+mtcars %>% 
+  slice(1:5) %>% 
+  select(mpg:wt) %>%
+  rownames_to_column('cars') %>% # used to store row names (mutate deletes them)
+  mutate(
+  cyl = cell_spec(cyl, color = ifelse(cyl > 6, "white", "black"),
+                  background = ifelse(cyl > 6, "red", "white"),
+                  bold = ifelse(cyl > 6, T, F), align = "r")) %>%
+  column_to_rownames('cars') %>% # used to put row names back in place
+  kable(escape = F, table.attr = "style='width:90%;'") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = T)
+
+```
+
+## Example (kableExtra print)
+```{r}
+# library(editrules)
+# people <- read.csv( file = "data/people.txt", stringsAsFactors = F, strip.white = T)
+# people %>% # used to store row names (mutate deletes them)
+#   mutate(
+#     age = cell_spec(age, color = case_when(age > 0 & age>=150~"white",
+#                                            age<18 & agegroup != "child" & status != "single"~"white",
+#                                            T~ "black"),
+#                     background = case_when(age > 0 & age>=150~"red",
+#                                            age<18 & agegroup != "child" & status != "single"~"red",
+#                                            T~ "white"),
+#                     bold = case_when(age > 0 & age>=150~T,
+#                                      age<18 & agegroup != "child" & status != "single"~T,
+#                                      T~ F), align = "r"),
+#     
+#     height = cell_spec(height, color = ifelse( height <=0, "white", "black"),
+#                     background = ifelse( height <=0, "red", "white"),
+#                     bold = ifelse( height <=0, T, F), align = "r")) %>% # used to put row names back in place
+#   kable(escape = F, table.attr = "style='width:90%;'") %>%
+#   kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = T)
+  
+
+```
+## Your turn
+
+Do the following:  
+1. *File > New File > R Markdown*  
+2. Type in a **Title**  
+3. press **knit**  
+
+
+
 
 # Practical
 
