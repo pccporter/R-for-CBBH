@@ -51,7 +51,7 @@ New functions:
 - `boxplot()`: box plot function 
 
 
-## Rmarkdown
+## R Markdown
 
 **What is it**
 * R Markdown is a file format for making dynamic documents
@@ -64,7 +64,7 @@ New functions:
 * As an environment in which to do data science, as a modern day lab notebook where you can capture not only what you did, but also what you were thinking.
 
 
-## What does Rmarkdown contains
+## What does R Markdown contains
 
 It contains three important types of content:
 
@@ -74,9 +74,15 @@ It contains three important types of content:
 
 ## How does R Markdown works
 
-```{r}
-#knitr::include_graphics("Lecture E-figure/Rmarkdown how it works 2.PNG")
-```
+<center>
+<img src="RMarkdownMachine.png" alt="HTML5 Icon" width = 75%>
+</center>
+
+<br><br><br><br>
+<br><br><br><br>
+
+
+...but just push (ctrl+shift+K) the Knit icon.
 
 
 # How does R Markdown works
