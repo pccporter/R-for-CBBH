@@ -64,6 +64,9 @@ New functions:
 * As an environment in which to do data science, as a modern day lab notebook where you can capture not only what you did, but also what you were thinking.
 
 
+## Types of R Markdown output
+
+
 
 ## R Markdown code 
 
@@ -213,6 +216,9 @@ mtcars %>%
   
 
 ```
+
+## Shiny
+
 
 
 # Practical
