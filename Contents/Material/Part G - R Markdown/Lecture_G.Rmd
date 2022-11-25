@@ -213,14 +213,6 @@ mtcars %>%
   
 
 ```
-## Your turn
-
-Do the following:  
-1. *File > New File > R Markdown*  
-2. Type in a **Title**  
-3. press **knit**  
-
-
 
 
 # Practical
