@@ -93,6 +93,13 @@ It contains three important types of content:
 ...but just push (ctrl+shift+K) the Knit icon.
 
 
+## YAML
+
+## Text
+
+## Code chunks
+
+
 
 
 ```{r}
