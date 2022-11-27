@@ -429,7 +429,7 @@ the random seed</p>
 <li>draw 1000 values from a normal distribution with
 <code>mean = 5</code> and <code>sd = 1</code> - <span class="math inline">\(N(5, 1)\)</span>,</li>
 <li>create a matrix where the first 500 values are the first column and
-the second 500 values are the second column **</li>
+the second 500 values are the second column</li>
 <li>make a scatterplot of these two columns</li>
 </ul>
 <div class="webex-solution">
@@ -441,7 +441,7 @@ numbers. Try <code>help(rnorm)</code>.</p>
 </div>
 <div class="webex-solution">
 <button>
-Answer
+Solution
 </button>
 <pre class="r"><code>rnorm(1000, 5) %&gt;%
   matrix(ncol = 2) %&gt;%
@@ -491,7 +491,14 @@ Answer
 <code>anscombe</code> data set.</p>
 <div class="webex-solution">
 <button>
-Answer
+Hint
+</button>
+<p>What is the input for the function <code>cor</code>? Is it vectors, a
+matrix or a dataframe?</p>
+</div>
+<div class="webex-solution">
+<button>
+Solution
 </button>
 <pre class="r"><code>anscombe %&gt;%
   cor()</code></pre>
@@ -523,7 +530,14 @@ Answer
 set.</p>
 <div class="webex-solution">
 <button>
-Answer
+Hint
+</button>
+<p>What is the input for the function <code>cor</code>? Is it vectors, a
+matrix or a dataframe?</p>
+</div>
+<div class="webex-solution">
+<button>
+Solution
 </button>
 <p>Using the standard <code>%&gt;%</code> pipe:</p>
 <pre class="r"><code>anscombe %&gt;%
@@ -535,7 +549,7 @@ Answer
 </div>
 <div class="webex-solution">
 <button>
-Alternative answer
+Alternative solution
 </button>
 <p>Alternatively, we can use the <code>%$%</code> pipe from package
 <code>magrittr</code> to make this process much more efficient.</p>
@@ -552,7 +566,14 @@ Alternative answer
 <code>mice</code>.</p>
 <div class="webex-solution">
 <button>
-Answer
+Hint
+</button>
+<p>How does <code>cor</code> handle missing numbers? Find a solution in
+the help documentation for <code>cor</code>.</p>
+</div>
+<div class="webex-solution">
+<button>
+Solution
 </button>
 <p>Because <code>boys</code> has missings values for almost all
 variables, we must first select <code>wgt</code> and <code>hgt</code>
@@ -576,7 +597,7 @@ look like:</p>
 </div>
 <div class="webex-solution">
 <button>
-Alternative answer
+Alternative solution
 </button>
 <p>Alternatively, we can use the <code>%$%</code> pipe:</p>
 <pre class="r"><code>boys %$% 
@@ -596,13 +617,27 @@ centimeters. Use a pipe to transform <code>hgt</code> in the
 transformation.</p>
 <div class="webex-solution">
 <button>
-Answer
+Solution
 </button>
 <p>Using the standard <code>%&gt;%</code> and the <code>%$%</code>
 pipes:</p>
 <pre class="r"><code>boys %&gt;%
   transform(hgt = hgt / 100) %$%
   mean(hgt, na.rm = TRUE)</code></pre>
+<pre><code>## [1] 1.321518</code></pre>
+</div>
+<div class="webex-solution">
+<button>
+Alternative solution
+</button>
+<p>Instead of the base function <code>transform</code> it is possible to
+apply the dplyr function <code>mutate</code>. And instead of the
+<code>$</code> pipe it is possible to use ´pull´ and the &#39;%&gt;%&#39;
+pipe:</p>
+<pre class="r"><code>boys %&gt;%
+  mutate(hgt = hgt / 100) %&gt;% 
+  pull(hgt) %&gt;%
+  mean(na.rm = TRUE)</code></pre>
 <pre><code>## [1] 1.321518</code></pre>
 </div>
 <hr />
@@ -615,7 +650,7 @@ in centimeters. Make the points in the &#39;centimeter&#39; plot
 <code>red</code> and in the &#39;meter&#39; plot <code>blue</code>.</p>
 <div class="webex-solution">
 <button>
-Answer
+Solution
 </button>
 <p>This is best done with the <code>%T&gt;%</code> pipe:</p>
 <pre class="r"><code>boys %&gt;%

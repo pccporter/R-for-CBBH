@@ -35,7 +35,7 @@ set.seed(123)
 Use a pipe to do the following:
 
 - draw 1000 values from a normal distribution with `mean = 5` and `sd = 1` - $N(5, 1)$, 
-- create a matrix where the first 500 values are the first column and the second 500 values are the second column **
+- create a matrix where the first 500 values are the first column and the second 500 values are the second column 
 - make a scatterplot of these two columns
 
 
@@ -43,7 +43,7 @@ Use a pipe to do the following:
 The function `rnorm` generates random normal distributed numbers. Try `help(rnorm)`.
 `r unhide()`
 
-`r hide("Answer")`
+`r hide("Solution")`
 ```{r}
 
 rnorm(1000, 5) %>%
@@ -100,8 +100,11 @@ rnorm(1000, 5) %>%
 
 Use a pipe to calculate the correlation matrix on the `anscombe` data set.
 
+`r hide ("Hint")`
+What is the input for the function `cor`? Is it vectors, a matrix or a dataframe?
+`r unhide()`
 
-`r hide("Answer")`
+`r hide("Solution")`
 ```{r}
 anscombe %>%
   cor()
@@ -115,7 +118,11 @@ anscombe %>%
 
 Now use a pipe to calculate the correlation for the pair (`x4`, `y4`) on the `anscombe` data set.
 
-`r hide("Answer")`
+`r hide ("Hint")`
+What is the input for the function `cor`? Is it vectors, a matrix or a dataframe?
+`r unhide()`
+
+`r hide("Solution")`
 
 Using the standard `%>%` pipe:
 
@@ -126,7 +133,7 @@ anscombe %>%
 ```
 `r unhide()`
 
-`r hide("Alternative answer")`
+`r hide("Alternative solution")`
 
 Alternatively, we can use the `%$%` pipe from package `magrittr` to make this process much more efficient.
 
@@ -142,8 +149,12 @@ anscombe %$%
 
 Use a pipe to calculate the correlation between `hgt` and `wgt` in the `boys` data set from package `mice`.
 
+`r hide ("Hint")`
+How does `cor` handle missing numbers? Find a solution in the help documentation for `cor`. 
+`r unhide()`
 
-`r hide("Answer")`
+
+`r hide("Solution")`
 Because `boys` has missings values for almost all variables, we must first select `wgt` and `hgt` and then omit the rows that have missing values, before we can calculate the correlation. Using the standard `%>%` pipe, this would look like:
 
 ```{r}
@@ -160,7 +171,7 @@ boys %>%
 ```
 `r unhide()`
 
-`r hide("Alternative answer")`
+`r hide("Alternative solution")`
 Alternatively, we can use the `%$%` pipe:
 ```{r}
 boys %$% 
@@ -174,7 +185,7 @@ The `%$%` pipe *unfolds* the listed dimensions of the `boys` dataset, such that 
 
 In the `boys` data set, `hgt` is recorded in centimeters. Use a pipe to transform `hgt` in the `boys` dataset to height in meters and verify the transformation.
 
-`r hide("Answer")`
+`r hide("Solution")`
 
 Using the standard `%>%` and the `%$%` pipes:
 ```{r}
@@ -183,13 +194,27 @@ boys %>%
   mean(hgt, na.rm = TRUE)
 ```
 `r unhide()`
+
+
+`r hide("Alternative solution")`
+Instead of the base function `transform` it is possible to apply the dplyr function `mutate`. And instead of the `$` pipe it is possible to use ´pull´ and the '%>%' pipe:
+
+```{r}
+boys %>%
+  mutate(hgt = hgt / 100) %>% 
+  pull(hgt) %>%
+  mean(na.rm = TRUE)
+```
+`r unhide()`
+
 ---
+
 
 #### Exercise 6
 
 Use a pipe to plot the pair (`hgt`, `wgt`) two times: once for `hgt` in meters and once for `hgt` in centimeters. Make the points in the 'centimeter' plot `red` and in the 'meter' plot `blue`. 
 
-`r hide("Answer")` 
+`r hide("Solution")` 
 This is best done with the `%T>%` pipe:
 ```{r}
 boys %>%
