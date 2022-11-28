@@ -6,7 +6,8 @@ output:
     vertical_layout: scroll
 ---
 
-<!-- asghasg -->
+
+Hi Ghana!
 
 <!-- ```{r setup, include=FALSE} -->
 <!-- knitr::opts_chunk$set(echo = TRUE) -->
