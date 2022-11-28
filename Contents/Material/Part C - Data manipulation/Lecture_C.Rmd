@@ -39,12 +39,13 @@ library(magrittr) # for pipes
 
 <!-- XXXX Check and add some plot stuff -->
 
-- `transform()`: changing and adding columns
+<!-- - `transform()`: changing and adding columns -->
 - `dplyr::filter()`: row-wise selection (of cases)
 - `table()`: frequency tables
 - `class()`: object class
 - `levels()`: levels of a factor
 - `order()`: data entries in increasing order
+- `dplyr::arrange()`: sorting
 - `haven::read_sav()`: import SPSS data
 - `cor()`: bivariate correlation
 - `sample()`: drawing a sample

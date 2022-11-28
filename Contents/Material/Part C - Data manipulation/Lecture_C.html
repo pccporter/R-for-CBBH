@@ -3242,13 +3242,15 @@ library(magrittr) # for pipes</pre>
 
 <!-- XXXX Check and add some plot stuff -->
 
+<!-- - `transform()`: changing and adding columns -->
+
 <ul>
-<li><code>transform()</code>: changing and adding columns</li>
 <li><code>dplyr::filter()</code>: row-wise selection (of cases)</li>
 <li><code>table()</code>: frequency tables</li>
 <li><code>class()</code>: object class</li>
 <li><code>levels()</code>: levels of a factor</li>
 <li><code>order()</code>: data entries in increasing order</li>
+<li><code>dplyr::arrange()</code>: sorting</li>
 <li><code>haven::read_sav()</code>: import SPSS data</li>
 <li><code>cor()</code>: bivariate correlation</li>
 <li><code>sample()</code>: drawing a sample</li>
@@ -3530,7 +3532,7 @@ boys4 &lt;- subset(boys3, select = c(hgt, wgt, bmi))</pre>
 
 <pre class = 'prettyprint lang-r'>rnorm(10) %&gt;% mean()</pre>
 
-<pre >## [1] -0.3964664</pre>
+<pre >## [1] 0.5469957</pre>
 
 <ul>
 <li><code>f(x, y)</code> becomes <code>x %&gt;% f(y)</code></li>
