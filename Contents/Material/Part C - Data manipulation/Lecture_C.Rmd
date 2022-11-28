@@ -21,6 +21,9 @@ output:
 
 - Pipes
 
+<!-- - Tidy data -->
+
+
 ## New packages we use
 ```{r warning=FALSE, message=FALSE}
 library(MASS)     # for the cats data
@@ -104,6 +107,14 @@ head(cats)
 sorted.cats <- cats[order(cats$Bwt), ]
 head(sorted.cats)
 ```
+
+## another way:dplyr 
+
+```{r}
+sorted.cats2 <- arrange(cats,Bwt)
+head(sorted.cats2)
+```
+
 
 
 ## Combining matrices or dataframes
@@ -214,15 +225,16 @@ boys %>% subset(select = wgt) %>% na.omit() %>% max()
 ```{r}
 nrow(cats)
 
-cats.outl <- 
+cats.nooutl <- 
   cats %>% 
   filter(Hwt < mean(Hwt) + 3 * sd(Hwt), 
          Hwt > mean(Hwt) - 3 * sd(Hwt))
+nrow(cats.nooutl)
 
+cats.outl <- 
+  cats %>% 
+  filter(Hwt >= mean(Hwt) + 3 * sd(Hwt) | Hwt <= mean(Hwt) - 3 * sd(Hwt))
 nrow(cats.outl)
-
-cats %>%  
-  filter(Hwt > mean(Hwt) + 3 * sd(Hwt))
 ```
 
 
@@ -243,6 +255,38 @@ mycats %>% filter(!is.na(Sex))
 <!-- mycats %>% filter_at(vars(Bwt,Hwt), any_vars(is.na(.))) -->
 
 <!-- mycats %>% filter(if_all(everything(), ~ !is.na(.))) -->
+
+
+## The role of `.` in a pipe
+In `a %>% b(arg1, arg2, arg3)`, `a` will become `arg1`. With `.` we can change this.
+```{r error=TRUE}
+set.seed(123)
+1:5 %>%
+  mean() %>%
+  rnorm(10)
+```
+VS
+```{r}
+set.seed(123)
+1:5 %>%
+  mean() %>%
+  rnorm(n = 10, mean = .)
+```
+The `.` can be used as a placeholder in the pipe.
+
+## Placeholder example
+Remember: `sample()` takes a random sample from a vector
+```{r}
+sample(x = c(1, 1, 2, 3, 5, 8), size = 2)
+```
+
+Sample 3 positions from the alphabet and show the position and the letter
+```{r}
+set.seed(123)
+1:26 %>%
+  sample(3) %>%
+  paste(., LETTERS[.])
+```
 
 # More pipe stuff
 
@@ -272,11 +316,11 @@ mycats %>% filter(!is.na(Sex))
 <!-- VS -->
 <!-- ```{r} -->
 <!-- set.seed(123) -->
-<!-- 1:5 %>%  -->
+<!-- 1:5 %>% -->
 <!--   mean() %>% -->
 <!--   rnorm(n = 10, mean = .) -->
 <!-- ``` -->
-<!-- The `.` can be used as a placeholder in the pipe.  -->
+<!-- The `.` can be used as a placeholder in the pipe. -->
 
 <!-- ## Placeholder example -->
 <!-- Remember: `sample()` takes a random sample from a vector -->
@@ -326,6 +370,26 @@ cats.test <-
 
 cats.test
 ```
+
+## New pipe in town 
+
+<font size="18">|></font>
+
+Native pipe (|>) vs Magrittr pipe (%>%):
+
+* Differences in placeholder syntax
+  - In R 4.1, there was no placeholder syntax for the native pipe
+  - In R 4.2, the native pipe can use _ as a placeholder but only with named arguments.
+* Some other differences, but mostly the same 
+
+```{r}
+3 %>% rnorm(5, .) 
+3 |> rnorm(5, mean = _)
+```
+
+
+
+
 # Practical 
 
 
