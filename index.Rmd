@@ -132,7 +132,8 @@ We adapt the course as we go. To ensure that you work with the latest iteration 
     - [`markdown.Rmd`](Contents/Material/Part A - Introduction/markdown.Rmd){target="_blank"}
 
 - Part B: How is `R` organized?
-    - [Lecture B](Contents/Material/Part B - How is R organized/Lecture_B.html){target="_blank"}
+    <!-- - [Lecture B](Contents/Material/Part B - How is R organized/Lecture_B.html){target="_blank"} -->
+    - [Lecture B](Contents/Material/Part B - How is R organized/Lecture-B_november.html){target="_blank"}
     - [Practical B](Contents/Material/Part B - How is R organized/Practical_B.html){target="_blank"}
     - [Practical B with solutions](Contents/Material/Part B - How is R organized/Practical_B_walkthrough.html){target="_blank"}
     - [`boys.RData`](Contents/Material/Part B - How is R organized/boys.RData)
