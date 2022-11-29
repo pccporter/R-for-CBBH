@@ -50,8 +50,10 @@ The course starts at a very basic level and builds up gradually. No previous exp
 
 | Time        | Topic                                           |
 |:------------|:------------------------------------------------|
+| *Monday*    |                                                 |
+| 11.00-14.00 | Introduction to R and RStudio (A)               |
 | *Tuesday*   |                                                 |
-| 09.00-12.00 | Installation of R and RStudio                   |
+| 09.00-12.00 | How is R organized? (B)                         |
 |             | *Break*                                         |     
 | 12.30-16.00 | Introduction to R and Rstudio (A+B)             |
 | *Wednesday* |                                                 |
@@ -278,16 +280,7 @@ All lectures are in `html` format. Practicals are are provided both as naked que
 
 <!-- - [`magrittr`](https://magrittr.tidyverse.org) -->
 <!-- - [`R` for Data Science](http://r4ds.had.co.nz) - [Chapter 18 on pipes](http://r4ds.had.co.nz/pipes.html) -->
-- [The `ggplot2` reference page](https://ggplot2.tidyverse.org/reference/)
-
-The above link details pretty much all you can do with package `ggplot2`.
-
-- [Geocomputation with `R`](https://bookdown.org/robinlovelace/geocompr/)
-
-The `sf` setup for `R` is relatively new, and a lot of material about spatial data in `R` uses the older `sp` setup. This book is an introduction to spatial data the `sf` way.
-
-
-
+- [XXXX](https://ggplot2.tidyverse.org/reference/)
 
 # GSS
 
