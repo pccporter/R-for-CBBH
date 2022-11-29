@@ -118,11 +118,11 @@ compilation? (Yes/no/cancel)
 
 type `Yes` in the console and press the return key. 
 
-# Tuesday
+# Monday
 
 ## Column 1
 
-### Tuesdays's materials
+### Mondays's materials
 We adapt the course as we go. To ensure that you work with the latest iteration of the course materials, we advice all course participants to access the materials online.
 
 - Part A: Introduction
@@ -130,13 +130,6 @@ We adapt the course as we go. To ensure that you work with the latest iteration 
     - [Practical A](Contents/Material/Part A - Introduction/Practical_A_walkthrough.html){target="_blank"}
     - [`notebook.R`](Contents/Material/Part A - Introduction/notebook.R){target="_blank"}
     - [`markdown.Rmd`](Contents/Material/Part A - Introduction/markdown.Rmd){target="_blank"}
-
-- Part B: How is `R` organized?
-    <!-- - [Lecture B](Contents/Material/Part B - How is R organized/Lecture_B.html){target="_blank"} -->
-    - [Lecture B](Contents/Material/Part B - How is R organized/Lecture-B_november.html){target="_blank"}
-    - [Practical B](Contents/Material/Part B - How is R organized/Practical_B.html){target="_blank"}
-    - [Practical B with solutions](Contents/Material/Part B - How is R organized/Practical_B_walkthrough.html){target="_blank"}
-    - [`boys.RData`](Contents/Material/Part B - How is R organized/boys.RData)
 
 All lectures are in `html` format. Practicals are are provided both as naked questions but also with ample explanations and solutions - choose according to your taste!
 
@@ -170,12 +163,19 @@ height = "300" width="450" frameborder="0"> </iframe>
 <br>
 See also [this `rmarkdown` cheat sheet](Contents/Material/Part A - Introduction/rmarkdown_cheat_sheet.pdf).
 
-# Wednesday
+# Tuesday
 
 ## Column 1
 
-### Wednesday's materials
+### Tuesday's materials
 We adapt the course as we go. To ensure that you work with the latest iteration of the course materials, we advice all course participants to access the materials online.
+
+- Part B: How is `R` organized?
+    <!-- - [Lecture B](Contents/Material/Part B - How is R organized/Lecture_B.html){target="_blank"} -->
+    - [Lecture B](Contents/Material/Part B - How is R organized/Lecture-B_november.html){target="_blank"}
+    - [Practical B](Contents/Material/Part B - How is R organized/Practical_B.html){target="_blank"}
+    - [Practical B with solutions](Contents/Material/Part B - How is R organized/Practical_B_walkthrough.html){target="_blank"}
+    - [`boys.RData`](Contents/Material/Part B - How is R organized/boys.RData)
 
 - Part C: Data manipulation
     - [Lecture C](Contents/Material/Part C - Data manipulation/Lecture_C.html)
@@ -207,11 +207,11 @@ All lectures are in `html` format. Practicals are are provided both as naked que
 
 The above links are useful references that connect to today's materials.
 
-# Thursday
+# Wednesday
 
 ## Column 1
 
-### Thursdays's materials
+### Wednesdays's materials
 We adapt the course as we go. To ensure that you work with the latest iteration of the course materials, we advice all course participants to access the materials online.
 
 - Part E: Data visualization
