@@ -41,7 +41,7 @@
     };
   </script>
 
-  <script src="libs/header-attrs-2.14/header-attrs.js"></script>
+  <script src="libs/header-attrs-2.18/header-attrs.js"></script>
   <link href="libs/ioslides-13.5.1/fonts/fonts.css" rel="stylesheet" />
   <link href="libs/ioslides-13.5.1/theme/css/default.css" rel="stylesheet" />
   <link href="libs/ioslides-13.5.1/theme/css/phone.css" rel="stylesheet" />
@@ -135,7 +135,7 @@ slide:not(.current) .plotly.html-widget{
             code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
             code span.at { color: #7d9029; } /* Attribute */
             code span.bn { color: #40a070; } /* BaseN */
-            code span.bu { } /* BuiltIn */
+            code span.bu { color: #008000; } /* BuiltIn */
             code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
             code span.ch { color: #4070a0; } /* Char */
             code span.cn { color: #880000; } /* Constant */
@@ -148,7 +148,7 @@ slide:not(.current) .plotly.html-widget{
             code span.ex { } /* Extension */
             code span.fl { color: #40a070; } /* Float */
             code span.fu { color: #06287e; } /* Function */
-            code span.im { } /* Import */
+            code span.im { color: #008000; font-weight: bold; } /* Import */
             code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
             code span.kw { color: #007020; font-weight: bold; } /* Keyword */
             code span.op { color: #666666; } /* Operator */
@@ -479,7 +479,7 @@ counts</pre>
   
   ggplot(aes(x      = hgt, 
              y      = wgt, 
-             pch    = reg, 
+             shape  = reg, 
              colour = age)) +
   
   geom_point( alpha = 0.5) +
@@ -487,7 +487,7 @@ counts</pre>
   labs(title  = &quot;Trend for boys&quot;,
        x      = &quot;Height&quot;, 
        y      = &quot;Weight&quot;, 
-       pch    = &quot;Region&quot;,
+       shape    = &quot;Region&quot;,
        colour = &quot;Age&quot;) +
   theme_minimal()</pre>
 
@@ -549,6 +549,30 @@ counts</pre>
 
 <!-- ``` -->
 
+</article></slide><slide class=""><hgroup><h2>Facets</h2></hgroup><article  id="facets" class="smaller ">
+
+<p><code>facet_wrap()</code> and <code>facet_grid()</code> divide figures into panels.</p>
+
+<pre class = 'prettyprint lang-r'>boys %&gt;%
+  ggplot(aes(x = age, y = bmi)) +
+  geom_point() +
+  geom_smooth() + 
+  facet_wrap(~ reg)</pre>
+
+</article></slide><slide class=""><hgroup><h2>Facets</h2></hgroup><article  id="facets-1" class="smaller ">
+
+<p><img src="Lecture_E_files/figure-html/unnamed-chunk-30-1.png" width="720" /></p>
+
+</article></slide><slide class=""><hgroup><h2>Export figure</h2></hgroup><article  id="export-figure" class="smaller ">
+
+<p>Easy with <code>ggsave()</code></p>
+
+<pre class = 'prettyprint lang-r'># save as pdf
+ggssave(&quot;plot.pdf&quot;, myplot)
+
+# save as png and specify dimensions 
+ggssave(&quot;plot.png&quot;, myplot, width = 7, height = 5, units=&quot;in&quot;)</pre>
+
 </article></slide><slide class=""><hgroup><h2>Helpful link in RStudio</h2></hgroup><article  id="helpful-link-in-rstudio" class="smaller ">
 
 <p><img src="cheatsheet.png" style="display:block;width:90%;margin:0 auto;"></img></p>
@@ -572,7 +596,7 @@ counts</pre>
 
 <pre class = 'prettyprint lang-r'>plot(st_geometry(denmark))</pre>
 
-<p><img src="Lecture_E_files/figure-html/unnamed-chunk-31-1.png" width="720" style="display: block; margin: auto;" /></p>
+<p><img src="Lecture_E_files/figure-html/unnamed-chunk-34-1.png" width="720" style="display: block; margin: auto;" /></p>
 
 </article></slide><slide class=""><hgroup><h2>Plotting regional attributes</h2></hgroup><article  id="plotting-regional-attributes" class="smaller ">
 
@@ -581,13 +605,13 @@ counts</pre>
 plot(denmark[&quot;proportion.over.70&quot;],
      main = &quot;Proportion of population aged 70 years and above&quot;)</pre>
 
-<p><img src="Lecture_E_files/figure-html/unnamed-chunk-32-1.png" width="720" style="display: block; margin: auto;" /></p>
+<p><img src="Lecture_E_files/figure-html/unnamed-chunk-35-1.png" width="720" style="display: block; margin: auto;" /></p>
 
 </article></slide><slide class=""><hgroup><h2>Or we can <code>ggplot</code></h2></hgroup><article  id="or-we-can-ggplot" class="smaller ">
 
 <pre class = 'prettyprint lang-r'>denmark %&gt;% ggplot(aes(fill=proportion.over.70)) + geom_sf()</pre>
 
-<p><img src="Lecture_E_files/figure-html/unnamed-chunk-33-1.png" width="720" style="display: block; margin: auto;" /></p>
+<p><img src="Lecture_E_files/figure-html/unnamed-chunk-36-1.png" width="720" style="display: block; margin: auto;" /></p>
 
 </article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Practical</h2></hgroup><article  id="practical" class="smaller "></article></slide>
 

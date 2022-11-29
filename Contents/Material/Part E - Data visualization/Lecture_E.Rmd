@@ -274,7 +274,7 @@ gg <-
   
   ggplot(aes(x      = hgt, 
              y      = wgt, 
-             pch    = reg, 
+             shape  = reg, 
              colour = age)) +
   
   geom_point( alpha = 0.5) +
@@ -282,7 +282,7 @@ gg <-
   labs(title  = "Trend for boys",
        x      = "Height", 
        y      = "Weight", 
-       pch    = "Region",
+       shape    = "Region",
        colour = "Age") +
   theme_minimal()
 ```
@@ -367,6 +367,43 @@ boys %>%
 <!--        fill  = "Region") + -->
 <!--   theme_minimal() -->
 <!-- ``` -->
+
+## Facets 
+
+`facet_wrap()` and `facet_grid()` divide figures into panels.
+
+```{r, eval=FALSE}
+boys %>%
+  ggplot(aes(x = age, y = bmi)) +
+  geom_point() +
+  geom_smooth() + 
+  facet_wrap(~ reg)
+```
+
+## Facets 
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE}
+boys %>%
+  ggplot(aes(x = age, y = bmi)) +
+  geom_point() +
+  geom_smooth() + 
+  facet_wrap(~ reg)
+```
+
+## Export figure
+
+Easy with `ggsave()`
+
+```{r, eval=FALSE}
+# save as pdf
+ggssave("plot.pdf", myplot)
+
+# save as png and specify dimensions 
+ggssave("plot.png", myplot, width = 7, height = 5, units="in")
+```
+
+
+
 
 
 ## Helpful link in RStudio
