@@ -257,6 +257,38 @@ The above link details pretty much all you can do with package `ggplot2`.
 
 The `sf` setup for `R` is relatively new, and a lot of material about spatial data in `R` uses the older `sp` setup. This book is an introduction to spatial data the `sf` way.
 
+
+# Thursday
+
+## Column 1
+
+### Thursday's materials
+We adapt the course as we go. To ensure that you work with the latest iteration of the course materials, we advice all course participants to access the materials online.
+
+- Part G: R Markdown
+    - [Lecture G](Contents/Material/Part E - Data visualization/Lecture_E.html){target="_blank"}
+    - [Practical G](Contents/Material/Part E - Data visualization/Practical_E_webex.html){target="_blank"}
+
+All lectures are in `html` format. Practicals are are provided both as naked questions but also with ample explanations and solutions - choose according to your taste!
+
+
+## Column 2
+
+### Useful references
+
+<!-- - [`magrittr`](https://magrittr.tidyverse.org) -->
+<!-- - [`R` for Data Science](http://r4ds.had.co.nz) - [Chapter 18 on pipes](http://r4ds.had.co.nz/pipes.html) -->
+- [The `ggplot2` reference page](https://ggplot2.tidyverse.org/reference/)
+
+The above link details pretty much all you can do with package `ggplot2`.
+
+- [Geocomputation with `R`](https://bookdown.org/robinlovelace/geocompr/)
+
+The `sf` setup for `R` is relatively new, and a lot of material about spatial data in `R` uses the older `sp` setup. This book is an introduction to spatial data the `sf` way.
+
+
+
+
 # GSS
 
 ## column 1
