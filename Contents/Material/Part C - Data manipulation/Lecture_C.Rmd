@@ -39,7 +39,7 @@ library(magrittr) # for pipes
 
 <!-- XXXX Check and add some plot stuff -->
 
-<!-- - `transform()`: changing and adding columns -->
+- `transform()`: changing and adding columns
 - `dplyr::filter()`: row-wise selection (of cases)
 - `table()`: frequency tables
 - `class()`: object class
