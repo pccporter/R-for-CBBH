@@ -197,7 +197,7 @@ boys %>%
 
 
 `r hide("Alternative solution")`
-Instead of the base function `transform` it is possible to apply the dplyr function `mutate`. And instead of the `$` pipe it is possible to use ´pull´ and the '%>%' pipe:
+Instead of the base function `transform` it is possible to apply the dplyr function `mutate`. And instead of the `$` pipe it is possible to use `pull` and the `%>%` pipe:
 
 ```{r}
 boys %>%
@@ -234,7 +234,7 @@ boys %>%
 ![](flow_t_pipe.png)
 
 We can see that there is indeed a literal T-junction. Naturally, we can expand this process with more `%T>%` pipes. However, once a pipe gets too long or too complicated, it is perhaps more useful to cut the piped problem into smaller, manageble pieces. 
-`r unhide()``
+`r unhide()`
 
 ---
 

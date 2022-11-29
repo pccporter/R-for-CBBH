@@ -632,8 +632,8 @@ Alternative solution
 </button>
 <p>Instead of the base function <code>transform</code> it is possible to
 apply the dplyr function <code>mutate</code>. And instead of the
-<code>$</code> pipe it is possible to use ´pull´ and the &#39;%&gt;%&#39;
-pipe:</p>
+<code>$</code> pipe it is possible to use <code>pull</code> and the
+<code>%&gt;%</code> pipe:</p>
 <pre class="r"><code>boys %&gt;%
   mutate(hgt = hgt / 100) %&gt;% 
   pull(hgt) %&gt;%
@@ -673,7 +673,6 @@ can expand this process with more <code>%T&gt;%</code> pipes. However,
 once a pipe gets too long or too complicated, it is perhaps more useful
 to cut the piped problem into smaller, manageble pieces.</p>
 </div>
-<p>`</p>
 <hr />
 <p>End of Practical</p>
 <hr />
