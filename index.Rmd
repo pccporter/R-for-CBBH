@@ -187,18 +187,11 @@ We adapt the course as we go. To ensure that you work with the latest iteration 
 - Part C: Data manipulation
     - [Lecture C](Contents/Material/Part C - Data manipulation/Lecture_C.html)
     - [Practical C](Contents/Material/Part C - Data manipulation/Practical_C_webex.html)
-    <!-- - [Practical C](Contents/Material/Part C - Data manipulation/Practical_C.html) -->
-    <!-- - [Practical C with solutions](Contents/Material/Part C - Data manipulation/Practical_C_walkthrough.html) -->
 - Part D: Analyzing data 
     - [Lecture D](Contents/Material/Part D - Analyzing data/Lecture_D.html)
     - [Practical D](Contents/Material/Part D - Analyzing data/Practical_D_november.html)
     - [Practical D with solutions](Contents/Material/Part D - Analyzing data/Practical_D_walkthrough_november.html)
-    <!-- - [Practical D](Contents/Material/Part D - Analyzing data/Practical_D.html) -->
-    <!-- - [Practical D with solutions](Contents/Material/Part D - Analyzing data/Practical_D_walkthrough.html) -->
-    <!-- - [Lecture D - GSS version](Contents/Material/Part D - Analyzing data/Lecture_D_GSS.html) -->
-    <!-- - [Practical D - GSS version](Contents/Material/Part D - Analyzing data/Practical_D_GSS.html) -->
-    <!-- - [Practical D with solutions - GSS version](Contents/Material/Part D - Analyzing data/Practical_D_GSS_walkthrough.html) -->
-    
+
     
     
 All lectures are in `html` format. Practicals are are provided both as naked questions but also with ample explanations and solutions - choose according to your taste!
@@ -221,6 +214,10 @@ The above links are useful references that connect to today's materials.
 ### Wednesdays's materials
 We adapt the course as we go. To ensure that you work with the latest iteration of the course materials, we advice all course participants to access the materials online.
 
+- Part D: Analyzing data (continued) 
+    - [Lecture D](Contents/Material/Part D - Analyzing data/Lecture_D.html)
+    - [Practical D](Contents/Material/Part D - Analyzing data/Practical_D_november.html)
+    - [Practical D with solutions](Contents/Material/Part D - Analyzing data/Practical_D_walkthrough_november.html)
 - Part E: Data visualization
     - [Lecture E](Contents/Material/Part E - Data visualization/Lecture_E.html){target="_blank"}
     - [Practical E with base R](Contents/Material/Part E - Data visualization/Practical_E_webex.html){target="_blank"}
