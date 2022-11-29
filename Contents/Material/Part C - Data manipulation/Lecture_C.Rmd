@@ -169,9 +169,8 @@ plot(formula = Hwt ~ Sex, data = cats)
 
 ## This is a pipe:
 
-```{r message=FALSE}
-boys <- 
-  read_sav("boys.sav") %>%
+```{r}
+read_sav("boys.sav") %>%
   head()
 ```
 
