@@ -36,8 +36,12 @@ set.seed(123)
 
 Create a scatterplot between `age` and `bmi` in the `mice::boys` data set.
 
-`r hide("Solution")`
+`r hide("Hint")`
+The point geom (`geom_points()`) is used to create scatterplots.
+`r unhide()`
 
+
+`r hide("Solution")`
 ```{r cache=TRUE}
 p <- ggplot( data = boys, aes(age, bmi))
 p + geom_point()
@@ -68,9 +72,13 @@ Now recreate the plot with the following specifications:
 - If `bmi > 25 & bmi < 30` use `color = "orange"`
 - If `bmi > 30` use `color = "red"`
 
-Hint: it may help to expand the data set with a new variable. 
+`r hide("Hint 1")`
+It may help to expand the data set with a new variable. 
+`r unhide()`
 
-It may be easier to create a new variable that creates the specified categories. We can use the `cut()` function to do this quickly
+`r hide("Hint 2")`
+It may be easier to create a new variable that creates the specified categories. We can use `mutate()` and the `cut()` function to do this quickly
+`r unhide()`
 
 `r hide("Solution")`
 ```{r cache=TRUE}
@@ -114,8 +122,11 @@ Specifying a filter on the feature `class` is sufficient: age has no missings an
 
 Create a histogram for `age` in the `boys` data set.
 
-`r hide("Solution")`
+`r hide("Hint")`
+The geom `geom_histogram()`) is used to create histograms.
+`r unhide()`
 
+`r hide("Solution")`
 ```{r cache=TRUE}
 ggplot( data = boys ) + 
   geom_histogram(aes(age), binwidth = .4)
@@ -128,6 +139,10 @@ Please note that the plots from `geom_histogram()` and `hist` use different calc
 #### Exercise 4
 
 Create a bar chart for `reg` in the boys data set.
+
+`r hide("Hint")`
+The geom `geom_bar()`) is used to create bar charts.
+`r unhide()`
 
 `r hide("Solution")`
 ```{r cache=TRUE}
@@ -143,9 +158,13 @@ Note that `geom_bar` by default plots the `NA`'s, while `barplot()` omits the `N
 
 Create a box plot for `hgt` with different boxes for `reg` in the `boys` data set.
 
+`r hide("Hint")`
+The geom `geom_boxplot()`) is used to create box plots.
+`r unhide()`
+
 `r hide("Solution")`
 ```{r cache=TRUE}
-ggplot( data = boys,  aes(reg, hgt)) +
+ggplot( data = boys, aes(reg, hgt)) +
   geom_boxplot()
 ```
 `r unhide()`
@@ -155,6 +174,13 @@ ggplot( data = boys,  aes(reg, hgt)) +
 
 Create a density plot for `age` with different curves for boys from the `city` and boys from rural areas (`!city`).
 
+`r hide("Hint 1")`
+Create a new variable that indicates whether the area is urban or rural. Filter out missing values.
+`r unhide()`
+
+`r hide("Hint 2")`
+The geom `geom_density()`) is used to create density plots.
+`r unhide()`
 
 `r hide("Solution")` 
 With `ggplot2`:
@@ -172,6 +198,31 @@ boys %>%
 #### Exercise 7
 
 Create a diverging bar chart for `hgt` in the `boys` data set, that displays for every `age` year that year's mean height in deviations from the overall average `hgt`.
+
+`r hide("Hint 1")`
+First create 2 new variabels. One for the height deviations and one for the (22?) age categories.
+```{r eval=FALSE}
+boys %>%
+  mutate(Hgt = hgt - mean(hgt, na.rm = TRUE),
+         Age = cut(age, 0:22, labels = 0:21)) 
+```
+`r unhide()`
+
+`r hide("Hint 2")`
+Find the mean height deviations in each age group
+```{r eval=FALSE }
+group_by(Age)
+  summarize(Hgt = mean(Hgt, na.rm = TRUE))
+```  
+`r unhide()`
+
+`r hide("Hint 3")`
+Define a new variable that indikates wether the height deviations is below or above average. You can apply `cut()`.
+```{r eval=FALSE }
+mutate(Diff = cut(Hgt, c(-Inf, 0, Inf),
+                  labels = c("Below Average", "Above Average")))
+```  
+`r unhide()`
 
 `r hide("Solution")`
 ```{r}
