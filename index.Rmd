@@ -270,8 +270,8 @@ The `sf` setup for `R` is relatively new, and a lot of material about spatial da
 We adapt the course as we go. To ensure that you work with the latest iteration of the course materials, we advice all course participants to access the materials online.
 
 - Part G: R Markdown
-    - [Lecture G](Contents/Material/Part E - Data visualization/Lecture_E.html){target="_blank"}
-    - [Practical G](Contents/Material/Part E - Data visualization/Practical_E_webex.html){target="_blank"}
+    - [Lecture G](Contents/Material/Part G - R Markdown/Lecture_G.html){target="_blank"}
+    - [Practical G](Contents/Material/Part G - R Markdown/Practical_G_webex.html){target="_blank"}
 
 All lectures are in `html` format. Practicals are are provided both as naked questions but also with ample explanations and solutions - choose according to your taste!
 
