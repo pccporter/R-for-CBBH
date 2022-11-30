@@ -8,7 +8,7 @@ output:
     logo: logo_en.png
     smaller: yes
     widescreen: no
-    self_contained: false
+    self_contained: true
     lib_dir: libs
   beamer_presentation:
     colortheme: beaver
