@@ -13,6 +13,8 @@ output:
     colortheme: beaver
 ---
 
+<!-- test -->
+
 ## We use the following packages
 ```{r, message=FALSE, warning=FALSE}
 library(MASS)     # Datasets
