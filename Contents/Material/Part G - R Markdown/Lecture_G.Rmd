@@ -61,9 +61,21 @@ options("kableExtra.html.bsTable" = T) #For kableExtra with ioslides
 
 ## Types of R Markdown output
 
-* blabre blabre 
-  - Mere blabre 
-  - Lidt mere blabre 
+* Documents (HTML, PDF, Word,  RTF, Markdown)
+* Presentations 
+  - ioslides (HTML) 
+  - Beamer (PDF)
+  - PowerPoint (PowerPoint)
+* Journals
+  - elsevier_article
+  _ jss_article
+* Dashboards
+  - Flexdashboard
+* Websites and blogs
+  - blogdown
+* Books
+  - bookdown (HTML, PDF, ePUB and Kindle books)
+  
 
 
 ## R Markdown code 
@@ -109,15 +121,53 @@ RStudio creates a YAML header when starting from scratch with *File $\rightarrow
 
 ## Text
 
-<!-- If you want to use latex just write `r str_c("$$")` 'some math' and end with two dollar signs -->
+Examples 
 
 * \*italic\*  gives *italic*
 * \*\*bold\**  gives **bold**
 * \~\~Strikethrough\~\~ gives ~~Strikethrough~~
 * superscript\^2\^subscript\~2\~ gives superscript^2^/subscript~2~ 
+* \$e\^{i\\pi}+1=0\$ gives $e^{i\pi}+1=0$
+* `r inline('nrow(mice::boys)')` gives `r nrow(mice::boys)`
+* 
+Headers:
 
+* \# Level 1 header
+* \#\# Level 2 header
 
+## Simple table
 
+` Right | Left | Default | Center | `  
+`|-------:|:------|-----------|:---------:|`   
+`| 12 | 12 | 12 | 12 |`   
+`| 123 | 123 | 123 | 123 | `  
+`| 1 | 1 | 1 | 1 |`
+
+Gives:
+
+Right | Left | Default | Center | 
+|-------:|:------|-----------|:---------:|   
+| 12 | 12 | 12 | 12 |   
+| 123 | 123 | 123 | 123 |  
+| 1 | 1 | 1 | 1 |
+
+## Lists
+
+`* Blah Blah`  
+`* Blah`
+
+gives 
+
+* Blah Blah  
+* Blah
+
+`1. Blah Blah`  
+`2. Blah`
+
+gives 
+
+1. Blah Blah  
+2. Blah
 
 
 # Code chunks
@@ -127,21 +177,37 @@ RStudio creates a YAML header when starting from scratch with *File $\rightarrow
 Eksamples of code chunks
 
 ````{verbatim}
-```{r}
+```{r ShowCode, eval=FALSE}
+#No evaluation but shows code
 ggplot(data = mice::boys, aes(age, bmi)) +
   geom_point()
 ```
 ````
+gives 
 
+```{r ShowCode, eval=FALSE}
+#No evaluation but shows code
+ggplot(data = mice::boys, aes(age, bmi)) +
+  geom_point()
+```
 
 ````{verbatim}
-```{r}
+```{r OnlyFig, echo=FALSE, warning=FALSE}
+#Shows only figure - no warnings
 ggplot(data = mice::boys, aes(age, bmi)) +
   geom_point()
 ```
 ````
 
+## XXXX
 
+
+## YYYY
+
+```{r OnlyFig, echo=FALSE, warning=FALSE}
+ggplot(data = mice::boys, aes(age, bmi)) +
+  geom_point()
+```
 
 ## Tables - (normal print)
 
@@ -182,41 +248,13 @@ boys %>%
 
 
 
-## Bullet points
-
-*   Bulleted list item 1
-
-*   Item 2
-
-    * Item 2a
-
-    * Item 2b
-
-1.  Numbered list item 1
-
-1.  Item 2. The numbers are incremented automatically in the output.
-
-
-## Writing text
-
-If you want to use latex just write `r str_c("$$")` 'some math' and end with two dollar signs
-
-
-* Get italic text. Set \*italic\* which gives you *italic*.  
-* Get bold text. Set \*\*bold\** which gives you **bold**.      
-* If you want to use r programming in the text use `r inline()`.
-
-
-## Examples with code in text
-
-1. We have data about `r inline('nrow(diamonds)')` diamonds.  
-  1.1. We have data about `r nrow(diamonds)` diamonds.
-1. Only `r inline('diamonds %>% filter(carat>2.5) %>% nrow()diamonds %>% filter(carat>2.5) %>% nrow()')` are larger than 2.5  
-  1.1 Only `r diamonds %>% filter(carat>2.5) %>% nrow()` are larger than 2.5
-  
 
 ## Shiny
 
+"Shiny is an R package that makes it easy to build interactive web apps straight from R. You can host standalone apps on a webpage or embed them in R Markdown documents or build dashboards. You can also extend your Shiny apps with CSS themes, htmlwidgets, and JavaScript actions."
+
+
+From https://shiny.rstudio.com/
 
 
 # Practical
