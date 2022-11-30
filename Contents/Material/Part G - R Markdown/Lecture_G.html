@@ -54,6 +54,8 @@
   <script src="libs/ioslides-13.5.1/js/slide-deck.js"></script>
   <script src="libs/kePrint-0.0.1/kePrint.js"></script>
   <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+  <link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+  <script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
 
   <style type="text/css">
 
@@ -197,27 +199,21 @@ slide:not(.current) .plotly.html-widget{
           </hgroup>
   </slide>
 
-<slide class=""><hgroup><h2>We use the following packages</h2></hgroup><article  id="we-use-the-following-packages" class="smaller ">
+<!-- ## We use the following packages -->
 
-<pre class = 'prettyprint lang-r'>library(magrittr) # Pipes
-library(ggplot2)  # Plotting suite
-library(knitr)
-library(kableExtra)</pre>
+<!-- ```{r, message=FALSE, warning=FALSE} -->
 
-</article></slide><slide class=""><hgroup><h2>XXXX</h2></hgroup><article  id="xxxx" class="smaller ">
+<!-- library(magrittr) # Pipes -->
 
-<p>New functions:</p>
+<!-- library(ggplot2)  # Plotting suite -->
 
-<ul>
-<li><code>plot()</code>: R’s plotting device</li>
-<li><code>barplot()</code>: bar plot function</li>
-<li><code>pie()</code>: pie plot function</li>
-<li><code>hist()</code>: histogram</li>
-<li><code>density()</code>: function that calculates the density</li>
-<li><code>boxplot()</code>: box plot function</li>
-</ul>
+<!-- library(knitr) -->
 
-</article></slide><slide class=""><hgroup><h2>R Markdown</h2></hgroup><article  id="r-markdown" class="smaller ">
+<!-- library(kableExtra) -->
+
+<!-- ``` -->
+
+<slide class=""><hgroup><h2>R Markdown</h2></hgroup><article  id="r-markdown" class="smaller ">
 
 <p><strong>What is it</strong> * R Markdown is a file format for making dynamic documents</p>
 
@@ -269,57 +265,52 @@ library(kableExtra)</pre>
 
 <p>…but just push (ctrl+shift+K) the Knit icon.</p>
 
-</article></slide><slide class=""><hgroup><h2>YAML</h2></hgroup><article  id="yaml" class="smaller ">
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>YAML</h2></hgroup><article  id="yaml" class="smaller ">
 
-<p>Blabre blabre….</p>
+</article></slide><slide class=""><hgroup><h2>YAML</h2></hgroup><article  id="yaml-1" class="smaller ">
 
-</article></slide><slide class=""><hgroup><h2>Text</h2></hgroup><article  id="text" class="smaller ">
-
-<p>Der skal flyttes noget op</p>
-
-</article></slide><slide class=""><hgroup><h2>Code chunks</h2></hgroup><article  id="code-chunks" class="smaller ">
-
-<pre class = 'prettyprint lang-r'>#knitr::include_graphics(&quot;Lecture E-figure/Rmarkdown how it works.PNG&quot;)</pre>
-
-</article></slide><slide class=""><hgroup><h2>Bullet points</h2></hgroup><article  id="bullet-points" class="smaller ">
+<p>YAML - &ldquo;yet another markup language&rdquo;</p>
 
 <ul>
-<li><p>Bulleted list item 1</p></li>
-<li><p>Item 2</p>
-
-<ul>
-<li><p>Item 2a</p></li>
-<li><p>Item 2b</p></li>
-</ul></li>
+<li>Controls many &ldquo;whole document&rdquo; settings</li>
+<li>Possible to set document parameters</li>
+<li>Possible to specify bibliography</li>
 </ul>
 
-<ol>
-<li><p>Numbered list item 1</p></li>
-<li><p>Item 2. The numbers are incremented automatically in the output.</p></li>
-</ol>
+<p>RStudio creates a YAML header when starting from scratch with <em>File \(\rightarrow\) New File \(\rightarrow\) R Markdown…</em></p>
 
-</article></slide><slide class=""><hgroup><h2>Writing text</h2></hgroup><article  id="writing-text" class="smaller ">
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Text</h2></hgroup><article  id="text" class="smaller ">
 
-<p>If you want to use latex just write $$ &lsquo;some math&rsquo; and end with two dollar signs</p>
+</article></slide><slide class=""><hgroup><h2>Text</h2></hgroup><article  id="text-1" class="smaller ">
+
+<!-- If you want to use latex just write $$ 'some math' and end with two dollar signs -->
 
 <ul>
-<li>Get italic text. Set *italic* which gives you <em>italic</em>.<br/></li>
-<li>Get bold text. Set **bold** which gives you <strong>bold</strong>.<br/></li>
-<li>If you want to use r programming in the text use <code>`r `</code>.</li>
+<li>*italic* gives <em>italic</em></li>
+<li>**bold** gives <strong>bold</strong></li>
+<li>~~Strikethrough~~ gives <del>Strikethrough</del></li>
+<li>superscript^2^subscript~2~ gives superscript<sup>2</sup>/subscript<sub>2</sub></li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>Examples with code in text</h2></hgroup><article  id="examples-with-code-in-text" class="smaller ">
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Code chunks</h2></hgroup><article  id="code-chunks" class="smaller ">
 
-<ol>
-<li>We have data about <code>`r nrow(diamonds)`</code> diamonds.<br/>1.1. We have data about 53940 diamonds.</li>
-<li>Only <code>`r diamonds %&gt;% filter(carat&gt;2.5) %&gt;% nrow()diamonds %&gt;% filter(carat&gt;2.5) %&gt;% nrow()`</code> are larger than 2.5<br/>1.1 Only 126 are larger than 2.5</li>
-</ol>
+</article></slide><slide class=""><hgroup><h2>Code chunks</h2></hgroup><article  id="code-chunks-1" class="smaller ">
 
-</article></slide><slide class=""><hgroup><h2>Tables in markdown</h2></hgroup><article  id="tables-in-markdown" class="smaller ">
+<p>Eksamples of code chunks</p>
+
+<pre class = 'prettyprint lang-default'>```{r}
+ggplot(data = mice::boys, aes(age, bmi)) +
+  geom_point()
+```</pre>
+
+<pre class = 'prettyprint lang-default'>```{r}
+ggplot(data = mice::boys, aes(age, bmi)) +
+  geom_point()
+```</pre>
+
+</article></slide><slide class=""><hgroup><h2>Tables - (normal print)</h2></hgroup><article  id="tables---normal-print" class="smaller ">
 
 <p>Printing tables to markdown aren’t pretty. But with the package <em>kableExtra</em> it is easy to make readable tabels.</p>
-
-<p>Example (Normal print)</p>
 
 <pre class = 'prettyprint lang-r'>boys %&gt;% 
   select(-gen, -phb, -tv) %&gt;%
@@ -332,9 +323,16 @@ library(kableExtra)</pre>
 ## 4 0.060 54.5 4.27 14.37 36.7 south
 ## 5 0.062 57.5 5.03 15.21 37.3 south</pre>
 
-</article></slide><slide class=""><hgroup><h2>Tables in markdown</h2></hgroup><article  id="tables-in-markdown-1" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>Tables - <code>knitr::kable</code></h2></hgroup><article  id="tables---knitrkable" class="smaller ">
 
-<p>Example (<code>knitr::kable</code>)</p>
+<pre class = 'prettyprint lang-r'>boys %&gt;% 
+  select(-gen, -phb, -tv, -hc) %&gt;%
+  arrange(age) %&gt;%
+  slice_head(n=5) %&gt;%
+  knitr::kable(format = &quot;html&quot;,
+               col.names = c(&quot;Age&quot;,&quot;Height&quot;,&quot;Weight&quot;,&quot;BMI&quot;, &quot;Region&quot;),
+               align = &quot;ccccc&quot;,
+               caption = &quot;The 5 youngest boys&quot;)</pre>
 
 <table>
 
@@ -558,55 +556,57 @@ south
 
 </table>
 
-</article></slide><slide class=""><hgroup><h2>Example (<code>KableExtra</code>)</h2></hgroup><article  id="example-kableextra" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>Tables - <code>knitr::kable</code> and <code>KableExtra</code></h2></hgroup><article  id="tables---knitrkable-and-kableextra" class="smaller ">
 
-<pre class = 'prettyprint lang-r'>dt %&gt;%
-  kbl() %&gt;%
-  kable_minimal()</pre>
+<pre class = 'prettyprint lang-r'>boys %&gt;% 
+  select(-gen, -phb, -tv, -hc) %&gt;%
+  arrange(age) %&gt;%
+  slice_head(n=5) %&gt;%
+  knitr::kable(col.names = c(&quot;Age&quot;,&quot;Height&quot;,&quot;Weight&quot;,&quot;BMI&quot;, &quot;Region&quot;),
+               align = &quot;ccccc&quot;,
+               caption = &quot;&lt;font size=3&gt;The 5 youngest boys&lt;/font&gt;&quot;) %&gt;% 
+  kable_styling(bootstrap_options = c(&quot;hover&quot;),
+                full_width = FALSE, position = &quot;left&quot;) </pre>
 
-<table class=" lightable-minimal" style="font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
+<table class="table table-hover" style="width: auto !important; ">
+
+<caption>
+
+<font size="3">The 5 youngest boys</font>
+
+</caption>
 
 <thead>
 
 <tr>
 
-<th style="text-align:left;">
+<th style="text-align:center;">
+
+Age
 
 </th>
 
-<th style="text-align:right;">
+<th style="text-align:center;">
 
-mpg
-
-</th>
-
-<th style="text-align:right;">
-
-cyl
+Height
 
 </th>
 
-<th style="text-align:right;">
+<th style="text-align:center;">
 
-disp
-
-</th>
-
-<th style="text-align:right;">
-
-hp
+Weight
 
 </th>
 
-<th style="text-align:right;">
+<th style="text-align:center;">
 
-drat
+BMI
 
 </th>
 
-<th style="text-align:right;">
+<th style="text-align:center;">
 
-wt
+Region
 
 </th>
 
@@ -618,45 +618,33 @@ wt
 
 <tr>
 
-<td style="text-align:left;">
+<td style="text-align:center;">
 
-Mazda RX4
-
-</td>
-
-<td style="text-align:right;">
-
-21.0
+0.035
 
 </td>
 
-<td style="text-align:right;">
+<td style="text-align:center;">
 
-6
-
-</td>
-
-<td style="text-align:right;">
-
-160
+50.1
 
 </td>
 
-<td style="text-align:right;">
+<td style="text-align:center;">
 
-110
-
-</td>
-
-<td style="text-align:right;">
-
-3.90
+3.65
 
 </td>
 
-<td style="text-align:right;">
+<td style="text-align:center;">
 
-2.620
+14.54
+
+</td>
+
+<td style="text-align:center;">
+
+south
 
 </td>
 
@@ -664,45 +652,33 @@ Mazda RX4
 
 <tr>
 
-<td style="text-align:left;">
+<td style="text-align:center;">
 
-Mazda RX4 Wag
-
-</td>
-
-<td style="text-align:right;">
-
-21.0
+0.038
 
 </td>
 
-<td style="text-align:right;">
+<td style="text-align:center;">
 
-6
-
-</td>
-
-<td style="text-align:right;">
-
-160
+53.5
 
 </td>
 
-<td style="text-align:right;">
+<td style="text-align:center;">
 
-110
-
-</td>
-
-<td style="text-align:right;">
-
-3.90
+3.37
 
 </td>
 
-<td style="text-align:right;">
+<td style="text-align:center;">
 
-2.875
+11.77
+
+</td>
+
+<td style="text-align:center;">
+
+south
 
 </td>
 
@@ -710,45 +686,33 @@ Mazda RX4 Wag
 
 <tr>
 
-<td style="text-align:left;">
+<td style="text-align:center;">
 
-Datsun 710
-
-</td>
-
-<td style="text-align:right;">
-
-22.8
+0.057
 
 </td>
 
-<td style="text-align:right;">
+<td style="text-align:center;">
 
-4
-
-</td>
-
-<td style="text-align:right;">
-
-108
+50.0
 
 </td>
 
-<td style="text-align:right;">
+<td style="text-align:center;">
 
-93
-
-</td>
-
-<td style="text-align:right;">
-
-3.85
+3.14
 
 </td>
 
-<td style="text-align:right;">
+<td style="text-align:center;">
 
-2.320
+12.56
+
+</td>
+
+<td style="text-align:center;">
+
+south
 
 </td>
 
@@ -756,45 +720,33 @@ Datsun 710
 
 <tr>
 
-<td style="text-align:left;">
+<td style="text-align:center;">
 
-Hornet 4 Drive
-
-</td>
-
-<td style="text-align:right;">
-
-21.4
+0.060
 
 </td>
 
-<td style="text-align:right;">
+<td style="text-align:center;">
 
-6
-
-</td>
-
-<td style="text-align:right;">
-
-258
+54.5
 
 </td>
 
-<td style="text-align:right;">
+<td style="text-align:center;">
 
-110
-
-</td>
-
-<td style="text-align:right;">
-
-3.08
+4.27
 
 </td>
 
-<td style="text-align:right;">
+<td style="text-align:center;">
 
-3.215
+14.37
+
+</td>
+
+<td style="text-align:center;">
+
+south
 
 </td>
 
@@ -802,45 +754,33 @@ Hornet 4 Drive
 
 <tr>
 
-<td style="text-align:left;">
+<td style="text-align:center;">
 
-Hornet Sportabout
-
-</td>
-
-<td style="text-align:right;">
-
-18.7
+0.062
 
 </td>
 
-<td style="text-align:right;">
+<td style="text-align:center;">
 
-8
-
-</td>
-
-<td style="text-align:right;">
-
-360
+57.5
 
 </td>
 
-<td style="text-align:right;">
+<td style="text-align:center;">
 
-175
-
-</td>
-
-<td style="text-align:right;">
-
-3.15
+5.03
 
 </td>
 
-<td style="text-align:right;">
+<td style="text-align:center;">
 
-3.440
+15.21
+
+</td>
+
+<td style="text-align:center;">
+
+south
 
 </td>
 
@@ -850,332 +790,143 @@ Hornet Sportabout
 
 </table>
 
-</article></slide><slide class=""><hgroup><h2>Example (kableExtra print)</h2></hgroup><article  id="example-kableextra-print" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>Figures</h2></hgroup><article  id="figures" class="smaller ">
 
-<pre class = 'prettyprint lang-r'>mtcars %&gt;% 
-  slice(1:5) %&gt;% 
-  select(mpg:wt) %&gt;%
-  rownames_to_column(&#39;cars&#39;) %&gt;% # used to store row names (mutate deletes them)
-  mutate(
-  cyl = cell_spec(cyl, color = ifelse(cyl &gt; 6, &quot;white&quot;, &quot;black&quot;),
-                  background = ifelse(cyl &gt; 6, &quot;red&quot;, &quot;white&quot;),
-                  bold = ifelse(cyl &gt; 6, T, F), align = &quot;r&quot;)) %&gt;%
-  column_to_rownames(&#39;cars&#39;) %&gt;% # used to put row names back in place
-  kable(escape = F, table.attr = &quot;style=&#39;width:90%;&#39;&quot;) %&gt;%
-  kable_styling(bootstrap_options = c(&quot;striped&quot;, &quot;hover&quot;, &quot;condensed&quot;, &quot;responsive&quot;), full_width = T)</pre>
+<!-- ```{r, results='asis'} -->
 
-<table style="width:90%; margin-left: auto; margin-right: auto;" class="table table-striped table-hover table-condensed table-responsive">
+<!-- ``` -->
 
-<thead>
+</article></slide><slide class=""><hgroup><h2>Bullet points</h2></hgroup><article  id="bullet-points" class="smaller ">
 
-<tr>
+<ul>
+<li><p>Bulleted list item 1</p></li>
+<li><p>Item 2</p>
 
-<th style="text-align:left;">
+<ul>
+<li><p>Item 2a</p></li>
+<li><p>Item 2b</p></li>
+</ul></li>
+</ul>
 
-</th>
+<ol>
+<li><p>Numbered list item 1</p></li>
+<li><p>Item 2. The numbers are incremented automatically in the output.</p></li>
+</ol>
 
-<th style="text-align:right;">
+</article></slide><slide class=""><hgroup><h2>Writing text</h2></hgroup><article  id="writing-text" class="smaller ">
 
-mpg
+<p>If you want to use latex just write $$ &lsquo;some math&rsquo; and end with two dollar signs</p>
 
-</th>
+<ul>
+<li>Get italic text. Set *italic* which gives you <em>italic</em>.<br/></li>
+<li>Get bold text. Set **bold** which gives you <strong>bold</strong>.<br/></li>
+<li>If you want to use r programming in the text use <code>`r `</code>.</li>
+</ul>
 
-<th style="text-align:left;">
+</article></slide><slide class=""><hgroup><h2>Examples with code in text</h2></hgroup><article  id="examples-with-code-in-text" class="smaller ">
 
-cyl
+<ol>
+<li>We have data about <code>`r nrow(diamonds)`</code> diamonds.<br/>1.1. We have data about 53940 diamonds.</li>
+<li>Only <code>`r diamonds %&gt;% filter(carat&gt;2.5) %&gt;% nrow()diamonds %&gt;% filter(carat&gt;2.5) %&gt;% nrow()`</code> are larger than 2.5<br/>1.1 Only 126 are larger than 2.5</li>
+</ol>
 
-</th>
+<!-- ## Tables in markdown -->
 
-<th style="text-align:right;">
+<!-- Printing tables to markdown aren't pretty. But with the package *kableExtra* it is easy to make readable tabels. -->
 
-disp
+<!-- Example (Normal print) -->
 
-</th>
+<!-- ```{r} -->
 
-<th style="text-align:right;">
+<!-- boys %>%  -->
 
-hp
+<!--   select(-gen, -phb, -tv) %>% -->
 
-</th>
+<!--   slice_head(n=5) -->
 
-<th style="text-align:right;">
+<!-- ``` -->
 
-drat
+<!-- ## Tables in markdown -->
 
-</th>
+<!-- Example (`knitr::kable`) -->
 
-<th style="text-align:right;">
+<!-- ```{r echo=FALSE, results='asis'} -->
 
-wt
+<!-- boys %>%  -->
 
-</th>
+<!--   select(-gen, -phb, -tv, -hc) %>% -->
 
-</tr>
+<!--   arrange(age) %>% -->
 
-</thead>
+<!--   slice_head(n=5) %>% -->
 
-<tbody>
+<!--   knitr::kable(format = "html", -->
 
-<tr>
+<!--                col.names = c("Age","Height","Weight","BMI", "Region"), -->
 
-<td style="text-align:left;">
+<!--                align = "ccccc", -->
 
-Mazda RX4
+<!--                caption = "The 5 youngest boys") -->
 
-</td>
+<!-- ``` -->
 
-<td style="text-align:right;">
+<!-- ## Example (`KableExtra`) -->
 
-21.0
+<!-- ```{r echo=FALSE, results='asis'} -->
 
-</td>
+<!-- boys %>%  -->
 
-<td style="text-align:left;">
+<!--   select(-gen, -phb, -tv, -hc) %>% -->
 
-<span style="     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: white !important;text-align: r;">
-6</span>
+<!--   arrange(age) %>% -->
 
-</td>
+<!--   slice_head(n=5) %>% -->
 
-<td style="text-align:right;">
+<!--   knitr::kable(format = "html", -->
 
-160
+<!--                col.names = c("Age","Height","Weight","BMI", "Region"), -->
 
-</td>
+<!--                align = "ccccc", -->
 
-<td style="text-align:right;">
+<!--                caption = "The 5 youngest boys") %>%  -->
 
-110
+<!--   kable_styling(bootstrap_options = c("hover", "bordered"), -->
 
-</td>
+<!--                 full_width = FALSE, -->
 
-<td style="text-align:right;">
+<!--                 position = "left") #%>% -->
 
-3.90
+<!-- #    add_header_above(c(" "= 1,"Samlet"=2, "Take-none"=2, "Take-some"=2, "Take-all"=2)) -->
 
-</td>
+<!-- ``` -->
 
-<td style="text-align:right;">
+<!-- ## Example (kableExtra print) -->
 
-2.620
+<!-- ```{r} -->
 
-</td>
+<!-- mtcars %>%  -->
 
-</tr>
+<!--   slice(1:5) %>%  -->
 
-<tr>
+<!--   select(mpg:wt) %>% -->
 
-<td style="text-align:left;">
+<!--   rownames_to_column('cars') %>% # used to store row names (mutate deletes them) -->
 
-Mazda RX4 Wag
+<!--   mutate( -->
 
-</td>
+<!--   cyl = cell_spec(cyl, color = ifelse(cyl > 6, "white", "black"), -->
 
-<td style="text-align:right;">
+<!--                   background = ifelse(cyl > 6, "red", "white"), -->
 
-21.0
+<!--                   bold = ifelse(cyl > 6, T, F), align = "r")) %>% -->
 
-</td>
+<!--   column_to_rownames('cars') %>% # used to put row names back in place -->
 
-<td style="text-align:left;">
+<!--   kable(escape = F, table.attr = "style='width:90%;'") %>% -->
 
-<span style="     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: white !important;text-align: r;">
-6</span>
+<!--   kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = T) -->
 
-</td>
-
-<td style="text-align:right;">
-
-160
-
-</td>
-
-<td style="text-align:right;">
-
-110
-
-</td>
-
-<td style="text-align:right;">
-
-3.90
-
-</td>
-
-<td style="text-align:right;">
-
-2.875
-
-</td>
-
-</tr>
-
-<tr>
-
-<td style="text-align:left;">
-
-Datsun 710
-
-</td>
-
-<td style="text-align:right;">
-
-22.8
-
-</td>
-
-<td style="text-align:left;">
-
-<span style="     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: white !important;text-align: r;">
-4</span>
-
-</td>
-
-<td style="text-align:right;">
-
-108
-
-</td>
-
-<td style="text-align:right;">
-
-93
-
-</td>
-
-<td style="text-align:right;">
-
-3.85
-
-</td>
-
-<td style="text-align:right;">
-
-2.320
-
-</td>
-
-</tr>
-
-<tr>
-
-<td style="text-align:left;">
-
-Hornet 4 Drive
-
-</td>
-
-<td style="text-align:right;">
-
-21.4
-
-</td>
-
-<td style="text-align:left;">
-
-<span style="     color: black !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: white !important;text-align: r;">
-6</span>
-
-</td>
-
-<td style="text-align:right;">
-
-258
-
-</td>
-
-<td style="text-align:right;">
-
-110
-
-</td>
-
-<td style="text-align:right;">
-
-3.08
-
-</td>
-
-<td style="text-align:right;">
-
-3.215
-
-</td>
-
-</tr>
-
-<tr>
-
-<td style="text-align:left;">
-
-Hornet Sportabout
-
-</td>
-
-<td style="text-align:right;">
-
-18.7
-
-</td>
-
-<td style="text-align:left;">
-
-<span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;text-align: r;">
-8</span>
-
-</td>
-
-<td style="text-align:right;">
-
-360
-
-</td>
-
-<td style="text-align:right;">
-
-175
-
-</td>
-
-<td style="text-align:right;">
-
-3.15
-
-</td>
-
-<td style="text-align:right;">
-
-3.440
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-
-</article></slide><slide class=""><hgroup><h2>Example (kableExtra print)</h2></hgroup><article  id="example-kableextra-print-1" class="smaller ">
-
-<pre class = 'prettyprint lang-r'># library(editrules)
-# people &lt;- read.csv( file = &quot;data/people.txt&quot;, stringsAsFactors = F, strip.white = T)
-# people %&gt;% # used to store row names (mutate deletes them)
-#   mutate(
-#     age = cell_spec(age, color = case_when(age &gt; 0 &amp; age&gt;=150~&quot;white&quot;,
-#                                            age&lt;18 &amp; agegroup != &quot;child&quot; &amp; status != &quot;single&quot;~&quot;white&quot;,
-#                                            T~ &quot;black&quot;),
-#                     background = case_when(age &gt; 0 &amp; age&gt;=150~&quot;red&quot;,
-#                                            age&lt;18 &amp; agegroup != &quot;child&quot; &amp; status != &quot;single&quot;~&quot;red&quot;,
-#                                            T~ &quot;white&quot;),
-#                     bold = case_when(age &gt; 0 &amp; age&gt;=150~T,
-#                                      age&lt;18 &amp; agegroup != &quot;child&quot; &amp; status != &quot;single&quot;~T,
-#                                      T~ F), align = &quot;r&quot;),
-#     
-#     height = cell_spec(height, color = ifelse( height &lt;=0, &quot;white&quot;, &quot;black&quot;),
-#                     background = ifelse( height &lt;=0, &quot;red&quot;, &quot;white&quot;),
-#                     bold = ifelse( height &lt;=0, T, F), align = &quot;r&quot;)) %&gt;% # used to put row names back in place
-#   kable(escape = F, table.attr = &quot;style=&#39;width:90%;&#39;&quot;) %&gt;%
-#   kable_styling(bootstrap_options = c(&quot;striped&quot;, &quot;hover&quot;, &quot;condensed&quot;, &quot;responsive&quot;), full_width = T)</pre>
+<!-- ``` -->
 
 </article></slide><slide class=""><hgroup><h2>Shiny</h2></hgroup><article  id="shiny" class="smaller ">
 
