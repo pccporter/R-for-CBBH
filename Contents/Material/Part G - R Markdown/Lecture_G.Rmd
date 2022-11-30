@@ -17,12 +17,14 @@ output:
 ```{r, include = F}
 
 library(tidyverse)
+library(magrittr)
 library(knitr)
 library(kableExtra)
+library(mice)   
 
 inline <- function(x = "") paste0("`` `r ", x, "` ``")
 
-knitr::opts_chunk$set(message = F, echo = F)
+#knitr::opts_chunk$set(message = F, echo = F)
 
 
 dt <- mtcars[1:5, 1:6]
@@ -66,6 +68,9 @@ New functions:
 
 ## Types of R Markdown output
 
+* blabre blabre 
+  - Mere blabre 
+  - Lidt mere blabre 
 
 
 ## R Markdown code 
@@ -98,11 +103,13 @@ It contains three important types of content:
 
 ## YAML
 
+Blabre blabre....
+
 ## Text
 
+Der skal flyttes noget op 
+
 ## Code chunks
-
-
 
 
 ```{r}
@@ -148,25 +155,30 @@ If you want to use latex just write `r str_c("$$")` 'some math' and end with two
 Printing tables to markdown aren't pretty. But with the package *kableExtra* it is easy to make readable tabels.
 
 Example (Normal print)
+
 ```{r}
-# tibble::rownames_to_column(mtcars, var = "cartype") %>% 
-#   separate(col = cartype, into = c("brand", "car"),
-#            sep = fixed(" "),
-#            extra = "merge") %>% 
-#   group_by(brand) %>% 
-#   summarise(number = n(), mean_mpg_brand = mean(mpg), .groups = "drop") %>% head()
+boys %>% 
+  select(-gen, -phb, -tv) %>%
+  slice_head(n=5)
 ```
 
 
 ## Tables in markdown
 
-Example (kableExtra print)
-```{r eval = TRUE}
-dt %>% kable('html') %>% 
-  kable_paper("hover", full_width = F)
+Example (`knitr::kable`)
+
+```{r echo=FALSE, results='asis'}
+boys %>% 
+  select(-gen, -phb, -tv, -hc) %>%
+  arrange(age) %>%
+  slice_head(n=5) %>%
+  knitr::kable(format = "html",
+               col.names = c("Age","Height","Weight","BMI", "Region"),
+               align = "ccccc",
+               caption = "The 5 youngest boys")
 ```
 
-## Example (kableExtra print)
+## Example (`KableExtra`)
 
 
 ```{r eval = TRUE}
@@ -189,7 +201,6 @@ mtcars %>%
   column_to_rownames('cars') %>% # used to put row names back in place
   kable(escape = F, table.attr = "style='width:90%;'") %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = T)
-
 ```
 
 ## Example (kableExtra print)
