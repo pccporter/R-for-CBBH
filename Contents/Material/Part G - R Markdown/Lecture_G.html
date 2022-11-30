@@ -790,12 +790,6 @@ south
 
 </table>
 
-</article></slide><slide class=""><hgroup><h2>Figures</h2></hgroup><article  id="figures" class="smaller ">
-
-<!-- ```{r, results='asis'} -->
-
-<!-- ``` -->
-
 </article></slide><slide class=""><hgroup><h2>Bullet points</h2></hgroup><article  id="bullet-points" class="smaller ">
 
 <ul>
@@ -829,104 +823,6 @@ south
 <li>We have data about <code>`r nrow(diamonds)`</code> diamonds.<br/>1.1. We have data about 53940 diamonds.</li>
 <li>Only <code>`r diamonds %&gt;% filter(carat&gt;2.5) %&gt;% nrow()diamonds %&gt;% filter(carat&gt;2.5) %&gt;% nrow()`</code> are larger than 2.5<br/>1.1 Only 126 are larger than 2.5</li>
 </ol>
-
-<!-- ## Tables in markdown -->
-
-<!-- Printing tables to markdown aren't pretty. But with the package *kableExtra* it is easy to make readable tabels. -->
-
-<!-- Example (Normal print) -->
-
-<!-- ```{r} -->
-
-<!-- boys %>%  -->
-
-<!--   select(-gen, -phb, -tv) %>% -->
-
-<!--   slice_head(n=5) -->
-
-<!-- ``` -->
-
-<!-- ## Tables in markdown -->
-
-<!-- Example (`knitr::kable`) -->
-
-<!-- ```{r echo=FALSE, results='asis'} -->
-
-<!-- boys %>%  -->
-
-<!--   select(-gen, -phb, -tv, -hc) %>% -->
-
-<!--   arrange(age) %>% -->
-
-<!--   slice_head(n=5) %>% -->
-
-<!--   knitr::kable(format = "html", -->
-
-<!--                col.names = c("Age","Height","Weight","BMI", "Region"), -->
-
-<!--                align = "ccccc", -->
-
-<!--                caption = "The 5 youngest boys") -->
-
-<!-- ``` -->
-
-<!-- ## Example (`KableExtra`) -->
-
-<!-- ```{r echo=FALSE, results='asis'} -->
-
-<!-- boys %>%  -->
-
-<!--   select(-gen, -phb, -tv, -hc) %>% -->
-
-<!--   arrange(age) %>% -->
-
-<!--   slice_head(n=5) %>% -->
-
-<!--   knitr::kable(format = "html", -->
-
-<!--                col.names = c("Age","Height","Weight","BMI", "Region"), -->
-
-<!--                align = "ccccc", -->
-
-<!--                caption = "The 5 youngest boys") %>%  -->
-
-<!--   kable_styling(bootstrap_options = c("hover", "bordered"), -->
-
-<!--                 full_width = FALSE, -->
-
-<!--                 position = "left") #%>% -->
-
-<!-- #    add_header_above(c(" "= 1,"Samlet"=2, "Take-none"=2, "Take-some"=2, "Take-all"=2)) -->
-
-<!-- ``` -->
-
-<!-- ## Example (kableExtra print) -->
-
-<!-- ```{r} -->
-
-<!-- mtcars %>%  -->
-
-<!--   slice(1:5) %>%  -->
-
-<!--   select(mpg:wt) %>% -->
-
-<!--   rownames_to_column('cars') %>% # used to store row names (mutate deletes them) -->
-
-<!--   mutate( -->
-
-<!--   cyl = cell_spec(cyl, color = ifelse(cyl > 6, "white", "black"), -->
-
-<!--                   background = ifelse(cyl > 6, "red", "white"), -->
-
-<!--                   bold = ifelse(cyl > 6, T, F), align = "r")) %>% -->
-
-<!--   column_to_rownames('cars') %>% # used to put row names back in place -->
-
-<!--   kable(escape = F, table.attr = "style='width:90%;'") %>% -->
-
-<!--   kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = T) -->
-
-<!-- ``` -->
 
 </article></slide><slide class=""><hgroup><h2>Shiny</h2></hgroup><article  id="shiny" class="smaller ">
 
