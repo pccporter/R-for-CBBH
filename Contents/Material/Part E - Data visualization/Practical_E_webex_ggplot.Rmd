@@ -123,7 +123,7 @@ Specifying a filter on the feature `class` is sufficient: age has no missings an
 Create a histogram for `age` in the `boys` data set.
 
 `r hide("Hint")`
-The geom `geom_histogram()`) is used to create histograms.
+The geom `geom_histogram()` is used to create histograms.
 `r unhide()`
 
 `r hide("Solution")`
@@ -141,7 +141,7 @@ Please note that the plots from `geom_histogram()` and `hist` use different calc
 Create a bar chart for `reg` in the boys data set.
 
 `r hide("Hint")`
-The geom `geom_bar()`) is used to create bar charts.
+The geom `geom_bar()` is used to create bar charts.
 `r unhide()`
 
 `r hide("Solution")`
@@ -159,7 +159,7 @@ Note that `geom_bar` by default plots the `NA`'s, while `barplot()` omits the `N
 Create a box plot for `hgt` with different boxes for `reg` in the `boys` data set.
 
 `r hide("Hint")`
-The geom `geom_boxplot()`) is used to create box plots.
+The geom `geom_boxplot()` is used to create box plots.
 `r unhide()`
 
 `r hide("Solution")`
@@ -179,7 +179,7 @@ Create a new variable that indicates whether the area is urban or rural. Filter 
 `r unhide()`
 
 `r hide("Hint 2")`
-The geom `geom_density()`) is used to create density plots.
+The geom `geom_density()` is used to create density plots.
 `r unhide()`
 
 `r hide("Solution")` 
