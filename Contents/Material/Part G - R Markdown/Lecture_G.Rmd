@@ -172,9 +172,18 @@ gives
 
 # Code chunks
 
-## Code chunks
+## Chunk header
 
-Eksamples of code chunks
+2 parts:
+
+* Name (optional)
+  - easier navigation with drop-down code navigator
+  - easier debugging
+  - Graphics produced will have names that make them easier to use elsewhere
+* options (optional)
+  - customises chunk output
+
+## Example
 
 ````{verbatim}
 ```{r ShowCode, eval=FALSE}
@@ -191,6 +200,9 @@ ggplot(data = mice::boys, aes(age, bmi)) +
   geom_point()
 ```
 
+## Example
+
+
 ````{verbatim}
 ```{r OnlyFig, echo=FALSE, warning=FALSE}
 #Shows only figure - no warnings
@@ -198,16 +210,18 @@ ggplot(data = mice::boys, aes(age, bmi)) +
   geom_point()
 ```
 ````
+gives $\rightarrow$
 
-## XXXX
+## Example
 
-
-## YYYY
 
 ```{r OnlyFig, echo=FALSE, warning=FALSE}
+#Shows only figure - no warnings
 ggplot(data = mice::boys, aes(age, bmi)) +
   geom_point()
 ```
+
+
 
 ## Tables - (normal print)
 
