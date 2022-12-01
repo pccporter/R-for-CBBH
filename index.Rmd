@@ -272,7 +272,9 @@ We adapt the course as we go. To ensure that you work with the latest iteration 
 - Part G: R Markdown
     - [Lecture G](Contents/Material/Part G - R Markdown/Lecture_G.html){target="_blank"}
     - [Practical G](Contents/Material/Part G - R Markdown/Practical_G_webex.html){target="_blank"}
-
+    - [Ideas for practical](Contents/Material/Part G - R Markdown/Some_graphs.html){target="_blank"}
+    - [`Some_graphs.Rmd`](Contents/Material/Part G - R Markdown/Some_graphs.Rmd) Corresponding Rmd file for the Ideas.
+    
 All lectures are in `html` format. Practicals are are provided both as naked questions but also with ample explanations and solutions - choose according to your taste!
 
 

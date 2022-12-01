@@ -1,0 +1,197 @@
+---
+output:
+  ioslides_presentation:
+    logo: logo.png
+    smaller: yes
+    widescreen: no
+  beamer_presentation: default
+  
+---
+
+## Packages we use
+
+
+```{r echo=TRUE, warning=FALSE, message=FALSE}
+library(dplyr) 
+library(magrittr)
+library(tidyselect)
+library(tidyverse)
+library(datasets)
+library(ggplot2)
+```
+
+
+## GSS census data
+
+We read in the .csv-file. 
+
+- the function `read_sav()` from package `haven` reads SPSS files.
+
+- the function `read_stata` from the same package reads STATA .DTA files.
+
+```{r echo=T, warning=FALSE, message=FALSE}
+
+path <- "C:/Users/DstMove/Desktop/RGhana/GSS_data/CSV/"
+
+cens10pct <- read.csv2(file = paste0("C:/Users/DstMove/Desktop/RGhana/GSS_data/CSV/",
+                                     "defactopopn_10%_20221011d.csv"), sep = ",")
+
+``` 
+
+##
+
+In order to decrease computation time, we select a 10 % sample of the 10 % sample for these exercises:
+
+```{r echo=T, warning=FALSE, message=FALSE}
+
+samprows <- sample(nrow(cens10pct), size = 0.10*nrow(cens10pct), replace = F)
+
+samp10pct <- cens10pct[samprows,]
+
+head(samp10pct)
+
+``` 
+
+## Reasons why people are not seeking work
+
+First, do the calculation (we only count those who actually answered the question):
+
+```{r echo=T, warning=FALSE, message=FALSE}
+
+#Remove those without an answer
+Wpop <- samp10pct[samp10pct$p13e != "",]
+
+#Count the population
+npop <- nrow(Wpop)
+
+#Calculate percentages
+No_work <- group_by(Wpop, p13e) %>% 
+                       summarise(reasons = n(),
+                       pct = reasons/npop*100)
+
+``` 
+
+##
+
+Then, do the plot:
+
+```{r echo=T, warning=FALSE, message=FALSE}
+
+ggplot(data=No_work, aes(x=pct, y=p13e, fill=p13e)) +
+  geom_bar(stat="identity") + ggtitle("Reasons for not seeking work") +
+                              xlab("Percent")
+
+
+``` 
+
+
+## A plot of education by region
+
+First, do the calculation:
+
+```{r echo=T, warning=FALSE, message=FALSE}
+
+edu_by_reg <- group_by(samp10pct, region) %>% 
+                       summarise(all = n(),
+                       educount = sum(p12a == "Attended earlier" | p12a == "Attending now", na.rm = T),
+                       edupct = educount/all*100)
+
+``` 
+
+##
+
+Then, do the plot (here, we have reversed the order of the legend using `guides` so that it's in the same order as the graph):
+
+```{r echo=T, warning=FALSE, message=FALSE}
+
+ggplot(data=edu_by_reg, aes(x=edupct, y=region,fill=region)) +
+  geom_bar(stat="identity") + guides(fill = guide_legend(reverse = TRUE)) +
+                              ggtitle("School Attendance by Region") +
+                              xlab("Percentage ever attended school") 
+                              
+
+
+``` 
+
+
+##
+
+we could also do this as deviation from the norm:
+
+```{r echo=T, warning=FALSE, message=FALSE}
+
+edu_by_reg$meanpct <- mean(edu_by_reg$edupct)
+edu_by_reg$edudev <- edu_by_reg$edupct - edu_by_reg$meanpct  
+```
+
+## Deviation from the norm-plot
+
+```{r echo=T, warning=FALSE, message=FALSE}
+
+ggplot(edu_by_reg, aes(x=region, y=edudev, fill = region)) + 
+  guides(fill = guide_legend(reverse = TRUE)) +
+  geom_bar(stat='identity', width=.75) + coord_flip()
+
+```
+
+
+## ICT device-ownership by type of tenancy
+
+```{r echo=T, warning=FALSE, message=FALSE}
+
+#Remove those without an answer
+Hpop <- samp10pct[samp10pct$h05 != "",]
+
+ICT_pop <- Hpop[!is.na(Hpop$p19atotal), ]
+
+#Calculate percentages
+ICT_own <- group_by(ICT_pop, p19atotal, h05) %>% 
+           summarise(count = n()) 
+
+ICT_own1 <- ICT_own
+
+ICT_own1$percentages <- 0
+
+ICT_own1[ICT_own1$p19atotal == 0,]$percentages <- ICT_own1[ICT_own1$p19atotal == 0,]$count/78460*100
+ICT_own1[ICT_own1$p19atotal == 1,]$percentages <- ICT_own1[ICT_own1$p19atotal == 1,]$count/114908*100
+ICT_own1[ICT_own1$p19atotal == 2,]$percentages <- ICT_own1[ICT_own1$p19atotal == 2,]$count/63530*100
+ICT_own1[ICT_own1$p19atotal == 3,]$percentages <- ICT_own1[ICT_own1$p19atotal == 3,]$count/4622*100
+ICT_own1[ICT_own1$p19atotal == 4,]$percentages <- ICT_own1[ICT_own1$p19atotal == 4,]$count/606*100
+
+``` 
+
+##
+
+Then plot:
+
+```{r echo=T, warning=FALSE, message=FALSE}
+
+ggplot(ICT_own1, aes(fill=h05, y=percentages, x=p19atotal)) + 
+    geom_bar(position="dodge", stat="identity")
+```
+
+##
+
+We could also make it stacked:
+
+```{r echo=T, warning=FALSE, message=FALSE}
+
+ggplot(ICT_own, aes(fill=h05, y=count, x=p19atotal)) + 
+    geom_bar(position="fill", stat="identity")
+```
+
+## Education by source of lightning:
+
+A density plot
+
+```{r echo=T, warning=FALSE, message=FALSE}
+edu_light <- samp10pct %>% filter(restype == "Occupied housing unit") %>% group_by(h08a) %>% summarise(all = n(),
+                              educount = sum(p12a == "Attended in the past" | p12a == "Attending now", na.rm = T),
+                              edupct = educount/all*100)
+
+ggplot(edu_light, aes(x=edupct, y=h08a)) + 
+  guides(fill = guide_legend(reverse = T)) +
+  geom_point(aes(col=h08a, size=edupct))
+
+```
+
