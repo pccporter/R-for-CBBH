@@ -221,6 +221,11 @@ ggplot(data = mice::boys, aes(age, bmi)) +
   geom_point()
 ```
 
+## Options
+
+<center>
+<img src="Options.png" alt="HTML5 Icon" width = 100%>
+</center>
 
 
 ## Tables - (normal print)
