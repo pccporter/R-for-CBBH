@@ -18,14 +18,14 @@ output:
 
 # Intro {.sidebar}
 
-This dashboard covers the materials for the course introducing R. Course held in Ghana, November 29 - December 2, 2022.
+This dashboard covers the materials for the course introducing R. Course held in Sarajevo, May 8 - May 11, 2023.
 
 ---
 
 Instructors: 
 
- - Signe Hermann (she@dst.dk)
- - Mikkel Mollerup (mim@dst.dk)
+ - Philip Porter (php@dst.dk)
+ - Morten Hallas (mhl@dst.dk)
 
 
 ---
@@ -39,7 +39,7 @@ Material adopted from [Gerko Vink](https://github.com/gerkovink/R) and Statistic
 ## Column 1
 
 ### Outline
-R is rapidly becoming the standard platform for data manipulation, visualization and analysis and has a number of advantages over other statistical software packages. A wide community of users contribute to R, resulting in an enormous coverage of statistical procedures, including many that are not available in any other statistical program. Furthermore, it is highly flexible for programming and scripting purposes, for example when manipulating data or creating professional plots. However, R lacks standard GUI menus, as in SPSS for example, from which to choose what statistical test to perform or which graph to create. As a consequence, R is more challenging to master. Therefore, this course offers an introduction to statistical programming in R. Students learn to operate R, make plots, and do advanced statistical programming and data manipulation. 
+R is rapidly becoming the standard platform for data manipulation, visualization and analysis and has a number of advantages over other statistical software packages. A wide community of users contribute to R, resulting in an enormous coverage of statistical procedures, including many that are not available in any other statistical program. Furthermore, it is highly flexible for programming and scripting purposes, for example when manipulating data or creating professional plots. However, R lacks standard GUI menus, as in SPSS for example, from which to choose what statistical test to perform or which graph to create. As a consequence, R is more challenging to master. Therefore, this course offers an introduction to statistical programming in R. Students learn to operate R and do advanced statistical programming and data manipulation. 
 
 
 The course starts at a very basic level and builds up gradually. No previous experience with R is required.
@@ -51,26 +51,22 @@ The course starts at a very basic level and builds up gradually. No previous exp
 | Time        | Topic                                           |
 |:------------|:------------------------------------------------|
 | *Monday*    |                                                 |
-| 11.00-14.00 | Introduction to R and RStudio (A)               |
-| *Tuesday*   |                                                 |
-| 09.00-13.00 | How is R organized? (B)                         |
-|             | Data manipulation (C), lecture                  |
-|             | *Break*                                         |     
-| 14.00-17.00 | Data manipulation (C), practical                |
-|             | Analyzing data (D), lecture                     |
-| *Wednesday* |                                                 |
-| 09.00-13.00 | Analyzing data(D), practical                    |
-|             | Data visualization (E), lecture                 |
-|             | *Break*                                         |             
-| 14.00-17.00 | Data visualization (E), practical               |
-|             | Loop and functions (F), lecture                 |
-| *Thursday*  |                                                 |
-| 09.00-13.00 | Loops and functions (F), practical              |
-|             | R Markdown, lecture                             |
+| 10.00-12.00 | Introduction to R and RStudio                   |
 |             | *Break*                                         |
-| 14.00-17.00 | R Markdown, practical                           |
-| *Friday*    |                                                 |
-| 09.00-11.30 | Outstanding issues, Q and A                     |
+| 13.00-15.30 | Datatypes in R and basic syntax                 |
+| *Tuesday*   |                                                 |
+| 09.00-12.00 | Reading external data into R                    |
+|             | *Break*                                         |     
+| 13.00-15.30 | Data manipulation and tidyverse                 |
+| *Wednesday* |                                                 |
+| 08.30-10.30/| More data manipulation                          |
+| 09.00-12.00 | *Exact timeslot not determined*                 |
+|             | *Break*                                         |             
+| 13.00-15.30 | Grouping and summarizing data                   |
+| *Thursday*  |                                                 |
+| 08.30-10.30 | Examples with data from CBBH                    |
+|             | *Break*                                         |
+| 13.00-15.30 | Introduction to visualization and reports       |
 
 
 # How to prepare
@@ -82,13 +78,13 @@ Dear all,
 
 The below steps guide you through installing both `R` as well as the necessary additions.
 
-We look forward to see you all in Accra,  
+We look forward to see you all in Sarajevo,  
 
-*Signe and Mikkel*
+*Philip and Morten*
 
 ### **System requirements**
 
-Bring a laptop computer to the course and make sure that you have full write access and administrator rights to the machine. We will explore programming and compiling in this course. This means that you need full access to your machine. Some corporate laptops come with limited access for their users, we therefore advice you to bring a personal laptop computer, if you have one. 
+Bring a computer to the course and make sure that you have full write access and administrator rights to the machine. We will explore programming and compiling in this course. This means that you need full access to your machine. Some corporate laptops come with limited access for their users, we therefore advice you to bring a personal laptop computer, if you have one. 
 
 ### **1. Install `R`**
 `R` can be obtained [here](https://cran.r-project.org). We won't use `R` directly in the course, but rather call `R` through `RStudio`. Therefore it needs to be installed. 
@@ -102,10 +98,8 @@ Rstudio is an Integrated Development Environment (IDE). It can be obtained as st
 Execute the following lines of code in the console window:
 
 ```{r eval=FALSE, echo = TRUE}
-install.packages(c("ggplot2", "stats","tidyverse", "magrittr", "micemd", "jomo", "pan", 
-                 "lme4", "knitr", "rmarkdown", "plotly", "ggplot2", "shiny", 
-                 "devtools", "boot", "class", "car", "MASS", "ggplot2movies", 
-                 "ISLR", "DAAG", "mice", "mitml", "miceadds", "sf"), 
+install.packages(c("tidyverse", "knitr", "rmarkdown", "haven",
+                   "DBI", "devtools", "mice", "MASS", "sf", "lubridate"), 
                  dependencies = TRUE)
 ```
 
@@ -127,201 +121,22 @@ type `Yes` in the console and press the return key.
 
 # Monday
 
-## Column 1
+Lecture presentation and exercises will be made available here
 
-### Mondays's materials
-We adapt the course as we go. To ensure that you work with the latest iteration of the course materials, we advice all course participants to access the materials online.
-
-- Part A: Introduction
-    - [Lecture A](Contents/Material/Part A - Introduction/Lecture_A.html){target="_blank"}
-    - [Practical A](Contents/Material/Part A - Introduction/Practical_A_walkthrough.html){target="_blank"}
-    - [`notebook.R`](Contents/Material/Part A - Introduction/notebook.R){target="_blank"}
-    - [`markdown.Rmd`](Contents/Material/Part A - Introduction/markdown.Rmd){target="_blank"}
-
-All lectures are in `html` format. Practicals are are provided both as naked questions but also with ample explanations and solutions - choose according to your taste!
-
-<!-- All lectures are in `html` format. Practicals are walkthrough files that guide you through the exercises. `Impractical` files contain the exercises, without walkthrough, explanations and solutions.  -->
-
-## Column 2
-
-### Useful references
-
-- [The tidyverse style guide](https://style.tidyverse.org)
-
-The above links are useful references that connect to today's materials. 
-
-### About `rmarkdown`
-
-
-<!-- ```{r, echo=FALSE} -->
-<!-- knitr::opts_chunk$set(echo = TRUE) -->
-<!-- library(vembedr) -->
-
-<!-- knitr::include_url("https://player.vimeo.com/video/178485416?color=428bca&title=0&byline=0&portrait=0", height="360px") -->
-<!-- ``` -->
-
-
-<!-- <iframe src="https://player.vimeo.com/video/178485416?color=428bca&title=0&byline=0&portrait=0" data-external= "1" -->
-<!-- height = "315" width="500" frameborder="0"> </iframe> -->
-
-<iframe src="https://player.vimeo.com/video/178485416?color=428bca&title=0&byline=0&portrait=0" data-external= "1"
-height = "300" width="450" frameborder="0"> </iframe>
-
-<br>
-See also [this `rmarkdown` cheat sheet](Contents/Material/Part A - Introduction/rmarkdown_cheat_sheet.pdf).
 
 # Tuesday
 
-## Column 1
-
-### Tuesday's materials
-We adapt the course as we go. To ensure that you work with the latest iteration of the course materials, we advice all course participants to access the materials online.
-
-- Part B: How is `R` organized?
-    <!-- - [Lecture B](Contents/Material/Part B - How is R organized/Lecture_B.html){target="_blank"} -->
-    - [Lecture B](Contents/Material/Part B - How is R organized/Lecture-B_november.html){target="_blank"}
-    - [Practical B](Contents/Material/Part B - How is R organized/Practical_B.html){target="_blank"}
-    - [Practical B with solutions](Contents/Material/Part B - How is R organized/Practical_B_walkthrough.html){target="_blank"}
-    - [`boys.RData`](Contents/Material/Part B - How is R organized/boys.RData)
-
-- Part C: Data manipulation
-    - [Lecture C](Contents/Material/Part C - Data manipulation/Lecture_C.html)
-    - [Practical C](Contents/Material/Part C - Data manipulation/Practical_C_webex.html)
-- Part D: Analyzing data 
-    - [Lecture D](Contents/Material/Part D - Analyzing data/Lecture_D.html)
-    - [Practical D](Contents/Material/Part D - Analyzing data/Practical_D_november.html)
-    - [Practical D with solutions](Contents/Material/Part D - Analyzing data/Practical_D_walkthrough_november.html)
-
-    
-    
-All lectures are in `html` format. Practicals are are provided both as naked questions but also with ample explanations and solutions - choose according to your taste!
-
-## Column 2
-
-### Useful references
-<!-- - [The Google R style guide](https://google.github.io/styleguide/Rguide.xml) -->
-- [`magrittr`](https://magrittr.tidyverse.org)
-- [`R` for Data Science](http://r4ds.had.co.nz) - [Chapter 18 on pipes](http://r4ds.had.co.nz/pipes.html)
-- [R-bloggers tutorial on pipes](https://www.r-bloggers.com/2017/12/pipes-in-r-tutorial-for-beginners/)
-- [pipe tutorial on datacamp](https://www.datacamp.com/community/tutorials/pipe-r-tutorial)
-
-The above links are useful references that connect to today's materials.
-
-# Wednesday
-
-## Column 1
-
-### Wednesdays's materials
-We adapt the course as we go. To ensure that you work with the latest iteration of the course materials, we advice all course participants to access the materials online.
-
-- Part D: Analyzing data (continued) 
-    - [Lecture D](Contents/Material/Part D - Analyzing data/Lecture_D.html)
-    - [Practical D](Contents/Material/Part D - Analyzing data/Practical_D_november.html)
-    - [Practical D with solutions](Contents/Material/Part D - Analyzing data/Practical_D_walkthrough_november.html)
-- Part E: Data visualization
-    - [Lecture E](Contents/Material/Part E - Data visualization/Lecture_E.html){target="_blank"}
-    - [Practical E with base R](Contents/Material/Part E - Data visualization/Practical_E_webex.html){target="_blank"}
-    - [Practical E with ggplot](Contents/Material/Part E - Data visualization/Practical_E_webex_ggplot.html){target="_blank"}
-    <!-- - [Practical E](Contents/Material/Part E - Data visualization/Practical_E.html){target="_blank"} -->
-    <!-- - [Practical E with solutions](Contents/Material/Part E - Data visualization/Practical_E_walkthrough.html){target="_blank"} -->
-    <!-- - [Practical E with solutions - using ggplot](Contents/Material/Part E - Data visualization/Practical_E_walkthrough_ggplot.html){target="_blank"} -->
-    - [`DK_map.shp`](Contents/Material/Part E - Data visualization/DK_map.shp), [`DK_map.shx`](Contents/Material/Part E - Data visualization/DK_map.shx), [`DK_map.dbf`](Contents/Material/Part E - Data visualization/DK_map.dbf) shapefiles for mapping data on Danish municipalities
-- Part F: Loops and functions
-    - [Lecture F](Contents/Material/Part F - Loops and functions/Lecture_F.html){target="_blank"}
-    - [Practical F](Contents/Material/Part F - Loops and functions/Practical_F.html){target="_blank"}
-    - [Practical F with solutions](Contents/Material/Part F - Loops and functions/Practical_F_walkthrough.html){target="_blank"}
-    - [New Lecture F](Contents/Material/Part F - Loops and functions/Lecture_F_new.html){target="_blank"}
-    - [New Practical F](Contents/Material/Part F - Loops and functions/Practical_F_new.html){target="_blank"}
-    - [New Practical F with solutions](Contents/Material/Part F - Loops and functions/Practical_F_walkthrough_new.html){target="_blank"}
-    
-
-<!-- - Part F: Loops and functions -->
-<!--     - [Lecture E](Contents/Material/Part E - Functions apply and looping/Lecture_E.html){target="_blank"} -->
-<!--     - [Lecture E Handout](Contents/Material/Part E - Functions apply and looping/Lecture_E_handout.html){target="_blank"} -->
-<!--     - [Practical E](Contents/Material/Part E - Functions apply and looping/Practical_E_barebone.html){target="_blank"} -->
-<!--     - [Practical E with solutions](Contents/Material/Part E - Functions apply and looping/Practical_E_walkthrough.html){target="_blank"} -->
+Lecture presentation and exercises will be made available here
 
 
-All lectures are in `html` format. Practicals are are provided both as naked questions but also with ample explanations and solutions - choose according to your taste!
+# Wednessday
 
-
-<!-- All lectures are in `html` format. Practicals are walkthrough files that guide you through the exercises. `Impractical` files contain the exercises, without walkthrough, explanations and solutions. -->
-
-## Column 2
-
-### Useful references
-
-<!-- - [`magrittr`](https://magrittr.tidyverse.org) -->
-<!-- - [`R` for Data Science](http://r4ds.had.co.nz) - [Chapter 18 on pipes](http://r4ds.had.co.nz/pipes.html) -->
-- [The `ggplot2` reference page](https://ggplot2.tidyverse.org/reference/)
-
-The above link details pretty much all you can do with package `ggplot2`.
-
-- [Geocomputation with `R`](https://bookdown.org/robinlovelace/geocompr/)
-
-The `sf` setup for `R` is relatively new, and a lot of material about spatial data in `R` uses the older `sp` setup. This book is an introduction to spatial data the `sf` way.
+Lecture presentation and exercises will be made available here
 
 
 # Thursday
 
-## Column 1
-
-### Thursday's materials
-We adapt the course as we go. To ensure that you work with the latest iteration of the course materials, we advice all course participants to access the materials online.
-
-- Part G: R Markdown
-    - [Lecture G](Contents/Material/Part G - R Markdown/Lecture_G.html){target="_blank"}
-    - [Practical G](Contents/Material/Part G - R Markdown/Practical_G_webex.html){target="_blank"}
-    - [Ideas for practical](Contents/Material/Part G - R Markdown/Some_graphs.html){target="_blank"}
-    - [`Some_graphs.Rmd`](Contents/Material/Part G - R Markdown/Some_graphs.Rmd) Corresponding Rmd file for the Ideas.
-    
-All lectures are in `html` format. Practicals are are provided both as naked questions but also with ample explanations and solutions - choose according to your taste!
-
-
-## Column 2
-
-### Useful references
-
-<!-- - [`magrittr`](https://magrittr.tidyverse.org) -->
-<!-- - [`R` for Data Science](http://r4ds.had.co.nz) - [Chapter 18 on pipes](http://r4ds.had.co.nz/pipes.html) -->
-- [Create awesome HTML tables with `knitr::kable` and `kableExtra`](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html)
-
-- [R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)
-
-
-# GSS
-
-## column 1
-
-### Example with data from GSS
-
-In the example we
-
-- Read and write data in different formats
-- Learn about file paths
-- Learn to find and set working directory
-- Make a two-way table
-- Make a scatter plot in ggplot
-- Draw a sample
-- Make a scatter plot with regression line
-
-Example code and data:
-
-- [`Example_GSS.R`](Contents/Material/GSS/Example_GSS.R){target="_blank"}  R file!
-- [`00_GHA_BASICINFO.dta`](Contents/Material/GSS/00_GHA_BASICINFO.dta){target="_blank"}  GSS Stata file
-- [`01_GHA_EXPFOOD.dta`](Contents/Material/GSS/01_GHA_EXPFOOD.dta){target="_blank"} GSS Stata file
-- [`glss7.csv`](Contents/Material/GSS/glss7.csv){target="_blank"} GSS csv file
-- [`glss7.xlsx`](Contents/Material/GSS/glss7.xlsx){target="_blank"} GSS Excel file
-
-
-<!-- - Part A: Introduction -->
-<!--     - [Lecture A](Contents/Material/Part A - Introduction/Lecture_A.html){target="_blank"} -->
-<!--     - [Practical A](Contents/Material/Part A - Introduction/Practical_A_walkthrough.html){target="_blank"} -->
-<!--     - [`notebook.R`](Contents/Material/Part A - Introduction/notebook.R){target="_blank"} -->
-<!--     - [`markdown.Rmd`](Contents/Material/Part A - Introduction/markdown.Rmd){target="_blank"} -->
-
-
-
+Lecture presentation and exercises will be made available here
 
 # Further studies
 
