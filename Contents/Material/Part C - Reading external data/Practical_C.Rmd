@@ -1,0 +1,50 @@
+---
+title: "Practical C - walkthrough"
+author: "Statistical Programming with R"
+date: ""
+output: 
+  webexercises::webexercises_default:
+    self_contained: false
+    lib_dir: libs
+---
+#### Exercises
+In this exercise we will learn to use packages and write data to/from external sources
+---
+
+1. **Install the package called "RSQLite" using the console and skim the console-output.** 
+
+---
+
+2. **Load the package `dplyr` and read the output in the console. What do you think it means?**
+
+---
+
+3. **Open the vignette for the package `DBI`. If you do not have it installed, do so. This might come in handy later**
+
+---
+
+4. **Together with 3-4 coleagues make a dataframe with three columns. One column should be a character column with your names. The second column should be a numeric column with your shoe size. The third column should be a logical columnd with `TRUE` if you have used `R` before and `FALSE` if you have not. Assign the dataframe to a name you choose yourselves**
+
+---
+
+5. **Write your dataframe to an excel-file (.xlsx).**
+
+----
+
+6. **Open your file in Excel and edit a value. Save it and load it back into R. Does it look like you expected?**
+
+---
+
+7. **Open a connection to a SQLite database and write the dataset to it using the functions from the lecture. Check that there is a table created in the database.**
+
+---
+
+8. **Read the dataset from the database back into R and inspect it. Does it look like you expected?** 
+
+
+9. **Remove your table from the database and disconnect**
+
+---
+
+End of practical
+

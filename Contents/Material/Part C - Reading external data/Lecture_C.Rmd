@@ -1,0 +1,261 @@
+---
+title: 'Packages and reading external data'
+author: "Statistical Programming with R"
+date: ""
+output:
+  ioslides_presentation:
+    fig_height: 5
+    fig_width: 8
+    logo: logo_en.png
+    transition: faster
+    smaller: true
+  beamer_presentation: default
+---
+
+## Lecture C - Introduction to R and Rstudio
+In this lecture we will look at:
+* Packages
+* Reading CSV, SAS and Excel-files
+* Writing CSV and Excel
+* Reading and writing to a database
+
+# Packages
+## Packages
+- Until now we have worked with only the functionality in `base`
+  - All R-installations have it
+  - Powerful, robust and basic 
+- Often we need more... That's where packages come in.
+
+## Packages
+What is a package?
+ - Installation
+```{r, eval = FALSE}
+install.packages("mice")
+```
+ 
+ - Load it
+```{r message = FALSE}
+library(mice)
+```
+
+ - Use it
+```{r}
+boys[1:5,]
+```
+ 
+ 
+## Installation
+ - New packages are installed with the function `install.packages`
+ - It searches the CRAN-repository for packages with the provided name
+ - More than 19470 packages. Generally of high quality.
+ - Automatically install dependencies if needed
+
+## CRAN
+Can be found at [cran.r-project.org](https://cran.r-project.org/)
+<center>
+<img src="figures/fig1.png" alt="HTML5 Icon" width = 80%>
+</center>
+
+## Load it
+ - Once a package is installed you can load it with `library`.
+ - This attaches it to your session and you can use all the functions and datasets in it
+ - But you can not see it in your environment?
+ 
+## Load it
+ - It is hidden underneath your global environment, so it does not clutter up you workspace
+ 
+![Location of mice](figures/fig2.png)
+
+ - But you can use everything in it as though it is
+ - See help-file for package with `?mice`
+
+## Use it
+ - Now we can call the functions and datasets in the package as other object we
+ have created. For instance we now have acess to the `boys`-dataset without loading
+ the `boys.RData`
+```{r}
+boys[1:5,]
+```
+
+## Use it
+ - Sometimes we only need a single function from a package and we do not want to
+ load everything. Then we can use the `package::object`-notation
+```{r}
+mice::boys[1:5,]
+```
+ 
+ 
+## Packages
+We will work with these packages
+```{r}
+## For reading and writing files
+library(readr)
+library(haven)
+library(readxl)
+
+## For working with databases
+library(DBI)
+library(RSQLite)
+```
+
+## Getting more help
+- Many of the popular packages have more userfriendly documentation called vignettes
+```{r eval = FALSE}
+browseVignettes("readr")
+```
+
+- Some packages also have cheat sheets which you can find on google ("R: readr cheat sheet") or
+on [posit.co/resources/cheatsheets/](https://posit.co/resources/cheatsheets/)
+
+- If no help is found here: Google is your friend
+
+# Reading datafiles
+## Path to files
+ - When you start R it has a Working Directory. It is either your systems userdirectory or the directory of your project.
+ - To see your current Working Directory use the function `getwd`
+```{r eval = FALSE}
+getwd()
+```
+```{r echo = F}
+"C:/Users/Morten"
+```
+
+- R will first look for files in your Working Directory
+
+## Example
+- I have created a small textfile called "example.txt" and put it in the path "C:/Users/Morten/example.txt"
+- R can now find it easily if i just write:
+```{r}
+file("example.txt")
+```
+- Alternatively i could write the full path:
+```{r}
+file("C:/Users/Morten/example.txt")
+```
+- This i called relative and absolute path.
+
+## Writing to files
+- Often you would like to export your datasets into a permanent storage once you
+are done working with them. One such example was `boys.RData`.
+- Today we will export the same dataset to some more common formats
+
+## Writing to files
+
+Simple, but remember `row.names = FALSE`
+```{r eval = F}
+# CSV (using the package readr)
+readr::write_csv2(boys, "boys.csv")
+
+# Excel (using the package xlsx)
+xlsx::write.xlsx(boys, "boys.xlsx",
+                   row.names = FALSE)
+
+## SAS (using the package haven)
+haven::write_sas(boys, "boys.sas7bdat")
+```
+
+## Writing to files - SAS
+
+ - `haven::write_sas` exists... but rarely works
+ - Usually better to write to a CSV and then read that from SAS. But make sure to check your data afterwards! The conversion may introduce errors.
+
+## Reading from files
+Also simple
+```{r eval = F}
+# CSV
+boys_csv <- readr::read_csv2("penguins.csv")
+
+# excel
+boys_xlsx <- readxl::read_xlsx("penguins.xlsx")
+
+#SAS
+boys_sas <- haven::read_sas("penguins.sas7bdat")
+```
+
+# Databases
+## Databases
+- Tabular data can be stored in relational databases s.a.
+  * Oracle (`ROracle`)
+  * PostGres (`RPostgresql`)
+  * MySql (`RMysql`)
+  * SQLite (`RSQLite`)
+- Working with databases is an entire course in itself, but we will look at how
+to use the `DBI`-package to interact with `SQLite`.
+- Very similar syntax when using other database-backends
+
+## DBI
+
+- Short for DataBase Interface
+- Strives to make a common interface to all the different backends, so you only
+have to learn one syntax.
+- All functions start with `db` and then a verb s.a. `dbConnect`
+- Most major backends are supported.
+- Workflow:
+  * Connect to database
+  * Do operations (writing or reading data)
+  * Disconnect
+- Well maintained and good documentation at [dbi.r-dbi.org](https://dbi.r-dbi.org)
+
+## R and Databases
+
+![Database](figures/fig3.png)
+
+## Connecting
+- We will use `SQLite` as an example since we can run it ourselves on our computers.
+- To connect to the database use `dbConnect`:
+```{r results='hide'}
+library(DBI)
+con <- dbConnect(RSQLite::SQLite(), dbname = "database.sqlite")
+con
+```
+
+```{r echo = FALSE}
+cat("<SQLiteConnection>
+  Path: C:\\Users\\Morten\\database.sqlite
+  Extensions: TRUE")
+```
+ 
+## Write to database
+- To write a dataset to a database use  `dbWriteTable`
+```{r}
+dbWriteTable(con,
+             name = "boys_db",
+             value = boys)
+```
+- We can now see that a table has been create
+```{r}
+dbListTables(con)
+```
+
+## Reading from database
+- To read a table into R we use `dbReadTable`
+```{r}
+boys_from_db <- dbReadTable(con, "boys_db")
+boys_from_db[1:5,]
+```
+
+
+## SQL-queries
+- You can also use SQL to make more specific and powerful queries from your database
+- It is beyond the scope of this course, but if you work with databases it is worth it to learn some basic SQL
+- To send a query to the database and fetch the result use `dbGetQuery`
+```{r}
+old_boys <- dbGetQuery(con, "SELECT * FROM BOYS_DB WHERE age > 20")
+old_boys[1:5,]
+```
+## Deleting tables
+- To remove a table from the database use `dbRemoveTable`
+```{r}
+dbRemoveTable(con, "boys_db")
+```
+
+## Disconnecting
+- When you are done working with your database, remember to disconnect:
+```{r}
+dbDisconnect(con)
+```
+
+## Other databases
+- `SQlite` is often not a good candidate for a database. When working with official statistics you want a more featurecomplete database running on a dedicated server.
+- Can be advanced to set up
+- A good start is [solutions.posit.co/connections/db/databases/](https://solutions.posit.co/connections/db/databases/)
