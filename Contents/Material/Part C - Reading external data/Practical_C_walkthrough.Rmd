@@ -2,13 +2,12 @@
 title: "Practical C - walkthrough"
 author: "Statistical Programming with R"
 date: ""
-output: 
-  webexercises::webexercises_default:
-    self_contained: false
-    lib_dir: libs
+output: html_document
+
 ---
 #### Exercises
 In this exercise we will learn to use packages and write data to/from external sources
+
 ---
 
 1. **Install the package called "RSQLite" using the console and skim the console-output.** 

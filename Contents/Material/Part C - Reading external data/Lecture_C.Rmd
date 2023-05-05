@@ -12,8 +12,10 @@ output:
   beamer_presentation: default
 ---
 
-## Lecture C - Introduction to R and Rstudio
-In this lecture we will look at:
+## Program
+
+In this lecture we will look at:  
+
 * Packages
 * Reading CSV, SAS and Excel-files
 * Writing CSV and Excel
@@ -21,6 +23,7 @@ In this lecture we will look at:
 
 # Packages
 ## Packages
+
 - Until now we have worked with only the functionality in `base`
   - All R-installations have it
   - Powerful, robust and basic 
@@ -198,7 +201,9 @@ have to learn one syntax.
 
 ## R and Databases
 
-![Database](figures/fig3.png)
+<center>
+<img src="figures/fig3.png" alt="HTML5 Icon" width = 100%>
+</center>
 
 ## Connecting
 - We will use `SQLite` as an example since we can run it ourselves on our computers.

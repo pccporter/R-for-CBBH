@@ -2,13 +2,12 @@
 title: "Practical C - walkthrough"
 author: "Statistical Programming with R"
 date: ""
-output: 
-  webexercises::webexercises_default:
-    self_contained: false
-    lib_dir: libs
+output: html_document
 ---
-#### Exercises
+#### Exercises  
+
 In this exercise we will learn to use packages and write data to/from external sources
+
 ---
 
 1. **Install the package called "RSQLite" using the console and skim the console-output.** 
@@ -41,6 +40,7 @@ In this exercise we will learn to use packages and write data to/from external s
 
 8. **Read the dataset from the database back into R and inspect it. Does it look like you expected?** 
 
+---
 
 9. **Remove your table from the database and disconnect**
 

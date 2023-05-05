@@ -39,7 +39,9 @@ output:
 || 13.00-15.30 | Introduction to visualization and reports       |
 
 ## Lecture A - Introduction to R and Rstudio
+
 In this lecture we will look at:
+
 * R and RStudio
 * Working environment
 * Objects and assignment

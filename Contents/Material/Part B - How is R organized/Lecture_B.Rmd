@@ -22,13 +22,14 @@ output:
 - Now we will add a bit more building blocks
 
 ## Lecture B - Datatypes and syntax 
-In this lecture we will look at:
-* Basic datatypes
-* Vectors, matrices, arrays and lists
-* Logical operators
-* Factors
-* Functions
-* Missingness
+
+- In this lecture we will look the following subjects:  
+  * Basic datatypes
+  * Vectors, matrices, arrays and lists
+  * Logical operators
+  * Factors
+  * Functions
+  * Missingness
 
 
 ```{r echo=FALSE}
@@ -186,27 +187,26 @@ d
 
 - Here a data frame is constructed with two randomly generated sets from the normal distribution where $V1$ is standard normal and $V2 \sim N(5,2^2)$ and then an interesting character vector
 
-##
+## Data frames
 - Data frames can contain all datatypes
 - Each column can only contain one datatype
 - Each row has the same columns
 
-##
+## Data frames
 - The way to obtain the third row from the data frame `d` is:
 
 ```{r}
 d[3, ]
 ```
 
-##
+## Data frames
 - Calling columns in data frames can be done in precisely the same way
 ```{r}
 d[, "V2"]
 d[, 2]
 ```
 
-
-##
+## Data frames
 - However, we can also use `$` to call variable names in data frame objects
 ```{r}
 d$V2
@@ -222,14 +222,13 @@ d$V2[3:4]
 ## Arrays
 - If you wish to use single datatype objects that have more than two dimensions, an array would be a suitable object.
 
-##
 - The following code yields a 3-dimensional array, which may be thought of as 2 layers of a 3x4 matrix:
 ```{r}
 e <- array(1:24, dim = c(3, 4, 2))
 e
 ```
 
-##
+## Arrays  
 - The square bracket identification works similarly to the identification of matrices and dataframes, but with the added dimension(s).
 - So to get the element in the first row of the third column in the second matrix you type
 ```{r}
@@ -237,7 +236,7 @@ e[1, 3, 2]
 ```
 - This is exactly the downside to an array: it is a series of matrices meaning that characters and numerical elements may not be mixed... 
 
-## 
+## Arrays  
 - So, we get problems if we replace the second matrix in the array by a character version of that same matrix
 ```{r}
 e[, , 2] <- as.character(e[, , 2])
@@ -258,7 +257,7 @@ f
 f[[1]]
 ```
 
-##
+## List  
 - We can simply add an object or element to an existing list
 ```{r}
 f[[2]] <- d
@@ -266,14 +265,14 @@ f
 ```
 - Now our list consists of a vector and a data frame!
 
-##
+## List  
 - We can add names to the list as follows
 ```{r}
 names(f) <- c("vector", "data frame")
 f
 ```
 
-##
+## List  
 - With names to the elements we can call the vector `a` from the list as follows
 ```{r}
 f[[1]]
@@ -288,7 +287,7 @@ f$vector
 g <- list(f, f)
 ```
 
-##
+## Lists in lists
 - To call the vector from the second list within the list `g`, use either of the following code
 ```{r}
 g[[2]][[1]]
@@ -309,7 +308,7 @@ g[[2]]$vector
 - Typing `!` before a logical operator takes the complement of that action
 - There are more operations, but these are the most useful 
 
-##
+## Logical operators  
 - Logical operators are great for subsetting, e.g. if we would like elements out of matrix `c` that are larger than 3, we would type:
 ```{r}
 c[c > 3]
@@ -321,7 +320,7 @@ c > 3
 ```
 - The column values for `TRUE` may be of different length. A vector as a return is therefore more appropriate 
 
-##
+## Logical operators  
 - If we would like the elements that are smaller than 3 or larger than 3, we could type
 ```{r}
 c[c < 3 | c > 3]
@@ -331,7 +330,7 @@ c[c < 3 | c > 3]
 c[c != 3] #c not equal to 3
 ```
 
-##
+## Logical operators  
 - To understand the mechanism see how `c != 3` actually returns a Boolean matrix
 ```{r echo=FALSE}
 c != 3

@@ -6,16 +6,6 @@ output:
     vertical_layout: scroll
 ---
 
-
-
-<!-- ```{r setup, include=FALSE} -->
-<!-- knitr::opts_chunk$set(echo = TRUE) -->
-<!-- library(vembedr) -->
-
-<!-- ``` -->
-
-
-
 # Intro {.sidebar}
 
 This dashboard covers the materials for the course introducing R. Course held in Sarajevo, May 8 - May 11, 2023.
@@ -99,7 +89,8 @@ Execute the following lines of code in the console window:
 
 ```{r eval=FALSE, echo = TRUE}
 install.packages(c("tidyverse", "knitr", "rmarkdown", "haven",
-                   "DBI", "devtools", "mice", "MASS", "sf", "lubridate"), 
+                   "DBI", "devtools", "mice", "MASS", "sf", "lubridate", "xlsx",
+                   "RSQLite"), 
                  dependencies = TRUE)
 ```
 
@@ -119,10 +110,28 @@ compilation? (Yes/no/cancel)
 
 type `Yes` in the console and press the return key. 
 
-# Monday
+# Monday 
 
-Lecture presentation and exercises will be made available here
+## Column 1
 
+### Monday's materials
+
+We adapt the course as we go. To ensure that you work with the latest iteration of the course materials, we advice all course participants to access the materials online.
+
+Lecture presentation and exercises will be made available here. Download the files and put them in their own directory.
+
+- Part A: Introduction
+    - [Lecture A](Contents/Material/Part A - Introduction/Lecture_A.html){target="_blank"}
+    - [Practical A](Contents/Material/Part A - Introduction/Practical_A_walkthrough.html){target="_blank"}
+    - [`notebook.R`](Contents/Material/Part A - Introduction/notebook.R){target="_blank"}
+    - [`markdown.Rmd`](Contents/Material/Part A - Introduction/markdown.Rmd){target="_blank"}
+
+- Part B: Datatypes and Syntax
+    - [Lecture B](Contents/Material/Part B - How is R organized/Lecture_B.html){target="_blank"}
+    - [Practical B](Contents/Material/Part B - How is R organized/Practical_B.html){target="_blank"}
+    - [Practical B - With walkthrough](Contents/Material/Part B - How is R organized/Practical_B_Walkthrough.html){target="_blank"}
+
+All lectures are in `html` format. Practicals are are provided both as naked questions but also with ample explanations and solutions - choose according to your taste!
 
 # Tuesday
 
