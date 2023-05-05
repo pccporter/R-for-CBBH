@@ -6,76 +6,44 @@ output:
   ioslides_presentation:
     fig_height: 5
     fig_width: 8
-    logo: logo_en.png
     transition: faster
+    logo: logo_en.png
     smaller: true
   beamer_presentation: default
 ---
 
-
-<!-- --- -->
-<!-- title: "Introduction" -->
-<!-- author: "Peter Stoltze and Anne Vinkel Hansen" -->
-<!-- date: "Statistical Programming with R" -->
-<!-- output: -->
-<!--   ioslides_presentation: -->
-<!--     css: css/style.css -->
-<!--     logo: figures/logo_en.png -->
-<!--     transition: 0 -->
-<!--     # smaller: yes -->
-<!--     # widescreen: yes -->
-<!--   # html_document: -->
-<!--   #   # css: style_ho.css -->
-<!--   #   toc: true -->
-<!--   #   toc_depth: 5 -->
-<!--   #   toc_float: true -->
-<!--   #   number_sections: false -->
-
-<!-- --- -->
-
 # Overview of this course
+## Scope
+* Familiarity with R and Rstudio
+* Reading and writing data in various formats
+* Data manipulation with tidyverse
+* Aggregating and summarizing
+* Data visualization
+
+## Info
+* All up-to-date info and material on webpage: pccporter.github.io/R-for-CBBH.
+* Two sessions per day
+* Lecture - Exercise
+
 ## Program
 
+|Day | Time        | Topic                                           |
+|:---------|:-----------------|:------------------------------------------------|
+|**Monday**| 10.00-12.00 | Introduction to R and RStudio                   |
+|| 13.00-15.30 | Datatypes in R and basic syntax                 |
+|**Tuesday**| 09.00-12.00 | Reading external data into R                    |
+|| 13.00-15.30 | Data manipulation and tidyverse                 |
+|**Wednesday**| 08.30-10.30/09.00-12.00|  More data manipulation                          |
+|| 13.00-15.30 | Grouping and summarizing data                   |
+|**Thursday**| 08.30-10.30 | Examples with data from CBBH                    |
+|| 13.00-15.30 | Introduction to visualization and reports       |
 
-| Day         | Hours       | Topic                               | 
-|:------------|:------------|:------------------------------------|
-| *Tuesday*   | 09.00-12.00 | Installation of R and RStudio       |
-|             | 12.30-16.00 | Introduction to R and Rstudio (A+B) |
-| *Wednesday* | 09.00-12.00 | Data manipulation (C)               |
-|             | 13.30-16.30 | Analyzing data (D)                  |
-| *Thursday*  | 09.00-12.00 | Data visualization  (E)             |
-|             | 13.30-16.30 | Loops and functions (F)             |
-| *Friday*    | 09.00-11.30 | Outstanding issues, Q and A         |
-
-
-
-<!-- |  Time       | Topic                                           | -->
-<!-- |:------------|:------------------------------------------------| -->
-<!-- | *Monday*    |                                                 | -->
-<!-- | 10.00-12.00 | Installation of R and RStudio                   | -->
-<!-- | 13.30-16.00 | Introduction to R and Rstudio (A+B)             | -->
-<!-- | *Tuesday*   |                                                 | -->
-<!-- | 09.00-12.00 | Data manipulation (C)                           | -->
-<!-- | 13.30-16.30 | Analyzing data (D)                              | -->
-<!-- | *Wednesday* |                                                 | -->
-<!-- | 09.00-12.00 | Data visualization  (E)                         |                                         | -->
-<!-- | 13.30-16.30 | Loops and functions (F)                         | -->
-<!-- | *Thursday*  |                                                 | -->
-<!-- | 09.00-11.30 | Outstanding issues, Q and A                     | -->
-
-
-
-<!-- <center> -->
-<!-- <img src="figures/schedule.png" alt="HTML5 Icon" width = 90%> -->
-<!-- </center> -->
-
-<!-- # Goal of this course -->
-<!-- ## Learn to keep your *cool* -->
-<!-- <center> -->
-<!--   <img src="figures/state_programming.png" alt="HTML5 Icon" width = 100%> -->
-<!-- </center> -->
-
-<!-- and build the foundation for a succesfull scripting career -->
+## Lecture A - Introduction to R and Rstudio
+In this lecture we will look at:
+* R and RStudio
+* Working environment
+* Objects and assignment
+* Writing code and executing
 
 # What is R?
 
@@ -107,7 +75,15 @@ output:
 - Allows you to work in projects
 - Manages your code with highlighting
 - Gives extra functionality (Shiny, knitr, markdown, LaTeX)
-- Allows for integration with version control routines, such as Git.
+- Allows for integration with version control systems, such as Git.
+
+## Editor and Console
+ - Editor is for scripting
+   * Can write multiple commands
+   * Does not execute until you tell it to (Ctrl + Enter)
+ - Console is for executing
+   * One command at a time
+   * Not good for writing long commands
 
 # How does R work
 
@@ -118,17 +94,7 @@ output:
     - A set of objects can be used to perform calculations
     - Calculations can be presented as functions
     - Functions are used to perform calculations and return new objects, containing calculated (or estimated) elements. 
-
-## The help
-- Everything that is published on the Comprehensive `R` Archive Network (CRAN) and is aimed at `R` users, must be accompanied by a help file. 
-- If you know the name of the function that performs an operation, e.g. `anova()`, then you just type `?anova` or `help(anova)` in the console. 
-- If you do not know the name of the function: type `??` followed by your search criterion. For example `??anova` returns a list of all help pages that contain the word 'anova'
-
-- Alternatively, the internet will tell you almost everything you'd like to know (and then some)
-
-- Sites such as http://www.stackoverflow.com and http://www.stackexchange.com, as well as `Google` can be of tremendous help. 
-    - If you google `R` related issues; use 'R:' as a prefix in your search term
-    
+   
 ## Assigning elements to objects
 - Assigning things in R is very straightforward: 
 
@@ -161,5 +127,16 @@ a
 
 This is why we use R-Studio.
 
+
+## The help
+- Everything that is published on the Comprehensive `R` Archive Network (CRAN) and is aimed at `R` users, must be accompanied by a help file. 
+- If you know the name of the function that performs an operation, e.g. `mean()`, then you just type `?mean` or `help(mean)` in the console. 
+- If you do not know the name of the function: type `??` followed by your search criterion. For example `??mean` returns a list of all help pages that contain the word 'mean'
+
+- Alternatively, the internet will tell you almost everything you'd like to know (and then some)
+
+- Sites such as http://www.stackoverflow.com and http://www.stackexchange.com, as well as `Google` can be of tremendous help. 
+    - If you google `R` related issues; use 'R:' as a prefix in your search term
+ 
 # Practical A
 
