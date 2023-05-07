@@ -515,7 +515,7 @@ mean(c(1,2,3,4,5))
  
 ## Functions
   - To check the arguments of a function we use the help
-```{r echo = F, result = 'hide'}
+```{r echo = F, result = 'hide', message=F, warning=F}
 library(printr)
 ```
   
