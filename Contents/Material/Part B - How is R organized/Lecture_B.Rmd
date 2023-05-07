@@ -36,10 +36,24 @@ output:
 set.seed(123)
 ```
 
+## But first...
+- RStudio has a feature where it saves all values in your environment
+- This is bad for reproducibility...
+- To disable it:
+  - Click on Tools
+  - Global Options...
+  - Remove checkmark in "Restore .RData into workspace at startup"
+  - Set the option "Save workspace to .RData on exit" to "Never"
+
+## But first...
+<center>
+<img src="figures/fig1.png" alt="HTML5 Icon" width = 60%>
+</center>
+
 # Datatypes and vectors
 ## Datatypes
-- The smallest object in R is called and atomic element.
-- Three different datatypes:
+- The smallest object in R is called an atomic element.
+- Three basic datatypes:
   * Numeric (double, integer and complex)
   * Character
   * Logical
@@ -90,16 +104,30 @@ TRUE & FALSE
 TRUE | FALSE
 ```
 
-## Conversion
-You can convert types with `as."datatype":
+## Conversion  
+- You can convert types with `as."datatype":
 ```{r error = TRUE}
 a_number + not_a_number
 ```
 ```{r}
 a_number + as.numeric(not_a_number)
 ```
+- Not all conversions are possible
+```{r error = TRUE}
+as.numeric(a_sentence)
+```
+
+## Conversion
+- You can always convert
+  - Logical to numeric (`FALSE=0` and `TRUE=1`)
+  - Numeric to logical (`FALSE` if numeric is `0` else always `TRUE`)
+  - Numeric to character (`6.7` will become `"6.7"`)
+- You can convert convert character to numeric if it **ONLY** contains numbers
+- You can convert character to logical if it is **ONLY** `"TRUE"` or `"FALSE"`
+- If R do not know how to convert you get a missing value (`NA`)
+
 ## Check datatype
-- If you do not know the datatype you can use the `class`-function
+- If you do not know the datatype you can use the `typeof`-function to get it
 ```{r}
 typeof(a_number)
 ```
@@ -114,7 +142,7 @@ a
 ```
 
 ## Character vectors
-- Characters (or character strings) in `R` are indicated by the double quote identifier 
+- Similarly we can add a character to our vector
 ```{r}
 a.new <- c(a, "A")
 a.new
@@ -124,8 +152,8 @@ a.new
 ```{r}
 a
 ```
-
-##
+- This is because vectors can only contain one datatype!
+## Vectors
 - To call single elements in vectors, e.g. if we want to refer to the third element of `a`, we type
 ```{r}
 a[3]
@@ -207,6 +235,17 @@ d[, 2]
 ```
 
 ## Data frames
+- And the intersection can be called, just like with matrices:
+```{r}
+d[3:5,"V2"]
+```
+- Notice the `3:5` notation. In `R` this is shorthand for the integers from 3 to 5
+```{r}
+3:5
+```
+
+
+## Data frames
 - However, we can also use `$` to call variable names in data frame objects
 ```{r}
 d$V2
@@ -252,7 +291,7 @@ f <- list(a)
 f
 ```
 
-- Elements or objects within lists can be called by using double square brackets, e.g the first (and only) element in list `f` is vector `a`
+- Elements or objects within lists can be called by using **double** square brackets, e.g the first (and only) element in list `f` is vector `a`
 ```{r}
 f[[1]]
 ```
@@ -364,7 +403,7 @@ Consider a data frame A:
 
 ```{r echo=FALSE}
 
-A <- as.data.frame(cbind(rep(1:3, 4), rep(c(4, 3, 2, 1), 3)))
+A <- data.frame(V1 = 1:4, V2 = 4:1)
 
 A[,1] <- as.factor(A[,1])
 A[,2] <- as.factor(A[,2])
@@ -379,7 +418,7 @@ We can try to add elements of A:
 
 ```{r echo=T}
 
-A[6,1] + A[3,2]
+A[2,1] + A[2,2]
 
 
 ```
@@ -388,9 +427,9 @@ But it seems logical enough to add them!
 
 ```{r echo=T}
 
-typeof(A[6,1]) 
+typeof(A[2,1]) 
 
-typeof(A[3,2])
+typeof(A[2,2])
 
 ```
 
@@ -401,9 +440,9 @@ Something weird is going on here!
 
 ```{r echo=T}
 
-A[6,1] 
+A[2,1] 
 
-A[3,2]
+A[2,2]
 
 
 ```
@@ -415,7 +454,7 @@ The problem is caused by the elements of A being factors.
 
 ```{r echo=T}
 
-A[3,2]
+A[2,2]
 
 
 ```
@@ -426,9 +465,10 @@ Factors do cause a lot of trouble for this exact reason. So when you troubleshoo
 
 ## Factors in R
 
-- Sometimes R converts data to factors automatically when reading in the data. 
+- Sometimes R converts data to factors automatically when reading in the data.
+  - This is not as big a problem as it used to be, but it is still a good idea to check
 
-- Strings are usually converted to factors automatically (unless you use a data structure called a tibble).
+- Strings are sometimes converted to factors automatically (unless you use a data structure called a tibble).
 
 - Sometimes we have to do it ourselves (if we want the data to be factors).
 
@@ -438,20 +478,10 @@ Factors do cause a lot of trouble for this exact reason. So when you troubleshoo
 
 ```{r echo=T}
 
-as.integer(A[6,1]) + as.integer(A[3,2])
+as.integer(A[2,1]) + as.integer(A[2,2])
 
 ```
 
-
-## Then why use factors?
-
-- The factor is a data structure which is used for fields that take only predefined finite number of values. 
-
-- These are the data objects which are used to categorise the data and to store it on multiple levels. 
-
-- It can store both integers and strings values, and are useful in data that has a limited number of unique values.
-
-- It generates a quick overview of the unique values of the data.
 
 ## Then why use factors?
 

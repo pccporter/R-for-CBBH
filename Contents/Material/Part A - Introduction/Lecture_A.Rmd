@@ -51,11 +51,21 @@ In this lecture we will look at:
 
 ## Software
 <center>
-<img src="figures/fig1.png" alt="HTML5 Icon" width = 90%>
+<img src="figures/fig1_alternative.png" alt="HTML5 Icon" width = 90%>
 </center>
 
+<div class="notes">
+Scripting language unlike compiled language  
+Interactive
+Base R gives you the console  
+Very basic, but enough for very basic  
+</div>
+
 ## The origin of R
-- R is a language and environment for statistical computing and for graphics
+
+- Created in New Zealand to teach statistics in 1993
+
+- R is a language and environment made for statistical computing and for graphics
 
 - GNU project (100% free software)
 
@@ -82,9 +92,11 @@ In this lecture we will look at:
 ## Editor and Console
  - Editor is for scripting
    * Can write multiple commands
+   * You can easily run the commands again
    * Does not execute until you tell it to (Ctrl + Enter)
  - Console is for executing
    * One command at a time
+   * Good for commands you only need to run once (like inspecting objects)
    * Not good for writing long commands
 
 # How does R work

@@ -22,11 +22,11 @@ We start with the very basics and will move towards more advanced operations in 
 1. **Open `RStudio`**
 
 The following window will appear. You might be faced with a bit different layout, but don't dispair. Close to everything can be configured to your likings, including the colour scheme!   
-![alt text](figuresPractical/fig1.png)
+![alt text](figures/fig2.png)
 
-RStudio is divided in 3 panes, namely the console, the environment/history pane and the pane where we can access our files, plots, the help files, make packages and view our data objects. You can change the order of the panes to your liking through `RStudio`'s preferences. I did, that is why your pane layout might differ from the layout in the above screenshot.
+RStudio is divided in 4 panes, namely the editor, the console, the environment pane and the pane where we can access our files, plots, the help files, make packages and view our data objects. You can change the order of the panes to your liking through `RStudio`'s preferences. I did, that is why your pane layout might differ from the layout in the above screenshot.
 
-If we open an `R`-script (i.e. a file that contains `R` code), a fourth pane opens. 
+If your editor pane is not open it will when you open an `R`-script (i.e. a file that contains `R` code). 
 
 ---
 
@@ -124,8 +124,6 @@ Have a look at the code in the script and make sure that you understand what is 
 
 If necessary, install the required packages. Inspect the html file and compare it to the one you have created from the `notebook.R` file. Content should be about just the same, but the layout is nicer and offers many more possibilities.
 
-In the rest of this course we will teach one another about `R` by showing our code and the resulting output in the plenary sessions. The notebook and markdown functionality in `R-Studio` are very convenient ways to do this. One of the reasons for using either format is that we can assess code on every machine, without the need for the packages / functionality that you used but someone else might not have. Please use one of these formats for the other practicals. 
-
 ---
 
 13. **If not open anymore, open your script by clicking on `Practical_A.R` in the files pane. Run both lines of code again and inspect the contents of the global environment by typing and running `ls()`**
@@ -137,7 +135,7 @@ ls()
 
 There is one object in the environment, and it is called `a`. If you look at the environment pane, you can quickly see the corresponding information (i.e. there is no need to type `ls()`) and you can see that object `a` contains a value. You can even see which value. 
 
-A value is the most basic object in `R`. The next step up in objects is a vector, followed by a matrix, followed by an array. Eventually, each of these objects can be stored in a list. We will learn about vectors, matrices and arrays later today. 
+A value is the most basic object in `R`. The next step up in objects is a vector, followed by a matrix, followed by an array. Eventually, each of these objects can be stored in a list. We will learn about vectors, matrices and arrays in the next lecture. 
 
 ---
 
