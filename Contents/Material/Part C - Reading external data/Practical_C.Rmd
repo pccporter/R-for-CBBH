@@ -1,16 +1,16 @@
 ---
-title: "Practical C - walkthrough"
+title: "Practical C"
 author: "Statistical Programming with R"
 date: ""
 output: html_document
----
-#### Exercises  
 
+---
+#### Exercises
 In this exercise we will learn to use packages and write data to/from external sources
 
 ---
 
-1. **Install the package called "RSQLite" using the console and skim the console-output.** 
+1. **Install the package called `RSQLite` using the console and skim the console-output.** 
 
 ---
 
@@ -34,17 +34,35 @@ In this exercise we will learn to use packages and write data to/from external s
 
 ---
 
-7. **Open a connection to a SQLite database and write the dataset to it using the functions from the lecture. Check that there is a table created in the database.**
+7. **Open a connection to a SQLite database on the shared drive and give it a unique name.** Warning: Be sure not to overwrite each others databases. Give it a name that makes it clear it is yours.
 
 ---
 
-8. **Read the dataset from the database back into R and inspect it. Does it look like you expected?** 
+8. **Write the dataset to your database using the functions from the lecture. Check that there is actually create a table in the database.**
 
 ---
 
-9. **Remove your table from the database and disconnect**
+9. **Read the dataset from the database back into R and inspect it. Does it look like you expected?** 
 
 ---
 
+10. **Disconnect from your database**
+
+---
+
+11. **Ask another group for the path to their database and open a connection to it. Use this connection to show the name of their table.**
+
+---
+
+12. **Append your own dataset to the other groups table. Appending is when you add your data the existing data. Read the help-file for `dbWriteTable` to see how it is done. Close the connection when you are done.**
+
+---
+
+13. **Reopen the connection to your own database and read your table. Can you see the new data that has been added?**
+
+---
+
+14. **If you have more time, try making an SQL-query to select only the data where shoe size is greater than 40**
+
+---
 End of practical
-

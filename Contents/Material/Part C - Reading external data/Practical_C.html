@@ -12,7 +12,7 @@
 <meta name="author" content="Statistical Programming with R" />
 
 
-<title>Practical C - walkthrough</title>
+<title>Practical C</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -349,7 +349,7 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">Practical C - walkthrough</h1>
+<h1 class="title toc-ignore">Practical C</h1>
 <h4 class="author">Statistical Programming with R</h4>
 
 </div>
@@ -361,8 +361,8 @@ display: none;
 external sources</p>
 <hr />
 <ol style="list-style-type: decimal">
-<li><strong>Install the package called “RSQLite” using the console and
-skim the console-output.</strong></li>
+<li><strong>Install the package called <code>RSQLite</code> using the
+console and skim the console-output.</strong></li>
 </ol>
 <hr />
 <ol start="2" style="list-style-type: decimal">
@@ -395,19 +395,48 @@ it back into R. Does it look like you expected?</strong></li>
 </ol>
 <hr />
 <ol start="7" style="list-style-type: decimal">
-<li><strong>Open a connection to a SQLite database and write the dataset
-to it using the functions from the lecture. Check that there is a table
-created in the database.</strong></li>
+<li><strong>Open a connection to a SQLite database on the shared drive
+and give it a unique name.</strong> Warning: Be sure not to overwrite
+each others databases. Give it a name that makes it clear it is
+yours.</li>
 </ol>
 <hr />
 <ol start="8" style="list-style-type: decimal">
+<li><strong>Write the dataset to your database using the functions from
+the lecture. Check that there is actually create a table in the
+database.</strong></li>
+</ol>
+<hr />
+<ol start="9" style="list-style-type: decimal">
 <li><strong>Read the dataset from the database back into R and inspect
 it. Does it look like you expected?</strong></li>
 </ol>
 <hr />
-<ol start="9" style="list-style-type: decimal">
-<li><strong>Remove your table from the database and
-disconnect</strong></li>
+<ol start="10" style="list-style-type: decimal">
+<li><strong>Disconnect from your database</strong></li>
+</ol>
+<hr />
+<ol start="11" style="list-style-type: decimal">
+<li><strong>Ask another group for the path to their database and open a
+connection to it. Use this connection to show the name of their
+table.</strong></li>
+</ol>
+<hr />
+<ol start="12" style="list-style-type: decimal">
+<li><strong>Append your own dataset to the other groups table. Appending
+is when you add your data the existing data. Read the help-file for
+<code>dbWriteTable</code> to see how it is done. Close the connection
+when you are done.</strong></li>
+</ol>
+<hr />
+<ol start="13" style="list-style-type: decimal">
+<li><strong>Reopen the connection to your own database and read your
+table. Can you see the new data that has been added?</strong></li>
+</ol>
+<hr />
+<ol start="14" style="list-style-type: decimal">
+<li><strong>If you have more time, try making an SQL-query to select
+only the data where shoe size is greater than 40</strong></li>
 </ol>
 <hr />
 <p>End of practical</p>

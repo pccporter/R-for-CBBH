@@ -89,7 +89,7 @@ Execute the following lines of code in the console window:
 
 ```{r eval=FALSE, echo = TRUE}
 install.packages(c("tidyverse", "knitr", "rmarkdown", "haven",
-                   "DBI", "devtools", "mice", "MASS", "sf", "lubridate", "xlsx",
+                   "DBI", "devtools", "mice", "MASS", "sf", "lubridate", "openxlsx",
                    "RSQLite"), 
                  dependencies = TRUE)
 ```
@@ -135,8 +135,21 @@ Lecture presentation and exercises will be made available here. Download the fil
 All lectures are in `html` format. Practicals are are provided both as naked questions but also with ample explanations and solutions - choose according to your taste!
 
 # Tuesday
+We adapt the course as we go. To ensure that you work with the latest iteration of the course materials, we advice all course participants to access the materials online.
 
-Lecture presentation and exercises will be made available here
+Lecture presentation and exercises will be made available here. Download the files and put them in their own directory.
+
+- Part C: Packages and reading external data
+    - [Lecture C](Contents/Material/Part C - Reading external data/Lecture_C.html){target="_blank"}
+    - [Practical C](Contents/Material/Part C - Reading external data/Practical_C.html){target="_blank"}
+    - [Practical C - With walkthrough](Contents/Material/Part C - Reading external data/Practical_C_walkthrough.html){target="_blank"}
+
+- Part D: Data manipulation and tidyverse
+    - [Lecture D](Contents/Material/Part B - How is R organized/Lecture_B.html){target="_blank"}
+    - [Practical D](Contents/Material/Part B - How is R organized/Practical_B.html){target="_blank"}
+    - [Practical D - With walkthrough](Contents/Material/Part B - How is R organized/Practical_B_Walkthrough.html){target="_blank"}
+
+All lectures are in `html` format. Practicals are are provided both as naked questions but also with ample explanations and solutions - choose according to your taste!
 
 
 # Wednessday

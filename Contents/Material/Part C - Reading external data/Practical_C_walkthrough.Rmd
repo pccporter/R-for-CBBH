@@ -10,9 +10,9 @@ In this exercise we will learn to use packages and write data to/from external s
 
 ---
 
-1. **Install the package called "RSQLite" using the console and skim the console-output.** 
+1. **Install the package called `RSQLite` using the console and skim the console-output.** 
 
-To install packages we use the function `install.packages`
+To install packages we use the function `install.packages`  
 ```{r eval = FALSE}
 install.packages("RSQLite")
 ```
@@ -59,18 +59,17 @@ personal_data <- data.frame(names = c("Morten", "Philip", "Karen", "Emil"),
                             used_r = c(TRUE, TRUE, TRUE, TRUE))
 ```
 Here it is possible to make problems with the names. Spaces should be avoided and
-it is a convention to use snakecase (words seperated by _).
+it is a convention to use *snakecase* (words seperated by _).
 
 ---
 
 5. **Write your dataframe to an excel-file (.xlsx).**
 
-Use the function `xlsx::write.xlsx` (remember the `::`-notation? It is to avoid 
-loading the entire package). Remember the `row.names = FALSE` argument! (What happens if your forget it?)
+Use the function `write.xlsx` from the package `openxlsx`.
 ```{r}
-xlsx::write.xlsx(personal_data,
-                 "personal_file.xlsx",
-                 row.names = FALSE)
+library(openxlsx)
+openxlsx::write.xlsx(personal_data,
+                     "personal_file.xlsx")
 ```
 
 ----
@@ -78,11 +77,9 @@ xlsx::write.xlsx(personal_data,
 6. **Open your file in Excel and edit a value. Save it and load it back into R. Does it look like you expected?**
 
 Hopefully you have excel installed, else this exercise will is difficult. But
-you can read the data into R using the function `read_xlsx`. It is from the `readxl`
-package, so if you have not loaded it yet, do so.
+you can read the data into R using the function `read.xlsx`.
 ```{r}
-library(readxl)
-read_xlsx("personal_file.xlsx")
+read.xlsx("personal_file.xlsx")
 ```
 
 As you can see the logical column has switched from logical to character. This
@@ -92,22 +89,27 @@ to check your data when reading from external sources.
 
 ---
 
-7 **Open a connection to a SQLite database and write the dataset to it using the functions from the lecture. Check that there is a table created in the database.**
+7. **Open a connection to a SQLite database on the shared drive and give it a unique name.** Warning: Be sure not to overwrite each others databases. Give it a name that makes it clear it is yours.
 
-RSQLite is a lightweight database that R can create for us, so we use it as an
-example here. It will automatically be created when we try to connect to it.
+First you should find the path to the shared drive, we will determine this name together before we start the exercises. This might not be possible if you are working on your laptops. So work together with your colleagues who got a desktop. For this example we will assume the path is `"H:/"`  
+
+Once you have the path you need a unique name for your database. Could for instance be your name and two numbers: `"peter23.sqlite"`.  
+
+The database will automatically be created when we try to connect to it.
 Use the function `dbConnect` to from the package `DBI` to open the connection:
-```{r}
+```{r eval = F}
 library(DBI)
-con <- dbConnect(RSQLite::SQLite(),
-                 name = "my_personal_database")
+con <- dbConnect(drv = RSQLite::SQLite(),
+                 dbname = "H:/peter23.sqlite")
 ```
 
-We now have an open connection to our database.  
+---
+
+8. **Write the dataset to your database using the functions from the lecture. Check that there is actually create a table in the database.**
 
 To write our dataset to the database we use the function `dbWriteTable`. Check 
 the help page for the function to see the arguments.
-```{r}
+```{r eval = F}
 dbWriteTable(conn = con,
              name = "my_tablename",
              value = personal_data)
@@ -115,19 +117,22 @@ dbWriteTable(conn = con,
 
 `dbWriteTable` just returns a logical value `TRUE` if it succeeded. But to make 
 sure that the table with our data has been created, use the function `dbListTables`
-```{r}
+```{r eval = F}
 dbListTables(con)
+```
+```{r echo=F}
+c("my_tablename")
 ```
 
 If the name of your table does not show up, something went wrong.
 
 ---
 
-8. **Read the dataset from the database back into R and inspect it. Does it look like you expected?** 
+9. **Read the dataset from the database back into R and inspect it. Does it look like you expected?** 
 
 To read the full dataset we use the function `dbReadTable`. It takes two required
 arguments: A connection to a database and the name of the table you want to read:
-```{r}
+```{r eval=F}
 personal_data_from_db <- dbReadTable(conn = con,
                                      name = "my_tablename")
 ```
@@ -136,13 +141,68 @@ Inspect the data either by printing it in the console or use the `View`-function
 You will see that once again, the logical column has changed datatype. This time
 to a numeric/integer.
 
-9. **Remove your table from the database and disconnect**
-```{r}
-dbRemoveTable(con, "my_tablename")
+---
+
+10. **Disconnect from your database**
+
+This is done using the function `dbDisconnect` which takes your connection as an
+argument.
+```{r eval = F}
 dbDisconnect(con)
 ```
 
 ---
 
-End of practical
+11. **Ask another group for the path to their database and open a connection to it. Use this connection to show the name of their table.**
 
+If the other group named their database `"H:/anna93.sqlite"` then you can connect to it just like if it was your own, so you can reuse your code from exercise 7:
+```{r eval = F}
+con2 <- dbConnect(RSQLite::SQLite(),
+                  dbname = "H:/anna93.sqlite")
+dbListTables(con2)
+```
+```{r echo = F}
+c("their_table_name")
+```
+
+---
+
+12. **Append your own dataset to the other groups table. Appending is when you add your data the existing data. Read the help-file for `dbWriteTable` to see how it is done. Close the connection when you are done.**
+
+The first thing you have to do is make your dataset look like theirs. They may have
+used different names for their columns, so start by reading their table and inspecting it using the tablename you found in exercise 11.
+```{r eval = F}
+their_data <- dbReadTable(con2, "their_table_name")
+View(their_data)
+```
+
+Now rename your dataframe so it matches theirs. This can be done using the `names` function
+```{r eval = F}
+names(personal_data) <- c("Their", "column", "names") ##Remember R is casesensitive!
+```
+
+Now you should be able to add your dataset to their table:
+```{r eval = FALSE}
+dbWriteTable(conn = con2, 
+             name = "their_table_name", 
+             value = personal_data, 
+             append = TRUE)
+```
+
+Disconnect from their database
+```{r eval = FALSE}
+dbDisconnect(con2)
+```
+
+---
+
+13. **Reopen the connection to your own database and read your table. Can you see the new data that has been added?**
+
+Use the same code you made in exercise 7 and 9. If the other group successfully appended their dataset, you should see more rows than you did earlier.
+
+---
+
+14. **If you have more time, try making an SQL-query to select only the data where shoe size is greater than 40**
+
+---
+End of practical

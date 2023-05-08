@@ -361,8 +361,8 @@ display: none;
 external sources</p>
 <hr />
 <ol style="list-style-type: decimal">
-<li><strong>Install the package called “RSQLite” using the console and
-skim the console-output.</strong></li>
+<li><strong>Install the package called <code>RSQLite</code> using the
+console and skim the console-output.</strong></li>
 </ol>
 <p>To install packages we use the function
 <code>install.packages</code></p>
@@ -419,19 +419,18 @@ Speak with your colleagues to get values for your dataframe.</p>
                             shoe_size = c(45, 46, 41, 42),
                             used_r = c(TRUE, TRUE, TRUE, TRUE))</code></pre>
 <p>Here it is possible to make problems with the names. Spaces should be
-avoided and it is a convention to use snakecase (words seperated by
-_).</p>
+avoided and it is a convention to use <em>snakecase</em> (words
+seperated by _).</p>
 <hr />
 <ol start="5" style="list-style-type: decimal">
 <li><strong>Write your dataframe to an excel-file (.xlsx).</strong></li>
 </ol>
-<p>Use the function <code>xlsx::write.xlsx</code> (remember the
-<code>::</code>-notation? It is to avoid loading the entire package).
-Remember the <code>row.names = FALSE</code> argument! (What happens if
-your forget it?)</p>
-<pre class="r"><code>xlsx::write.xlsx(personal_data,
-                 &quot;personal_file.xlsx&quot;,
-                 row.names = FALSE)</code></pre>
+<p>Use the function <code>write.xlsx</code> from the package
+<code>openxlsx</code>.</p>
+<pre class="r"><code>library(openxlsx)</code></pre>
+<pre><code>## Warning: package &#39;openxlsx&#39; was built under R version 4.2.3</code></pre>
+<pre class="r"><code>openxlsx::write.xlsx(personal_data,
+                     &quot;personal_file.xlsx&quot;)</code></pre>
 <hr />
 <ol start="6" style="list-style-type: decimal">
 <li><strong>Open your file in Excel and edit a value. Save it and load
@@ -439,34 +438,45 @@ it back into R. Does it look like you expected?</strong></li>
 </ol>
 <p>Hopefully you have excel installed, else this exercise will is
 difficult. But you can read the data into R using the function
-<code>read_xlsx</code>. It is from the <code>readxl</code> package, so
-if you have not loaded it yet, do so.</p>
-<pre class="r"><code>library(readxl)
-read_xlsx(&quot;personal_file.xlsx&quot;)</code></pre>
-<pre><code>## # A tibble: 4 × 3
-##   names  shoe_size used_r
-##   &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt; 
-## 1 Morten        45 TRUE  
-## 2 Philip        46 TRUE  
-## 3 Karen         41 TRUE  
-## 4 Emil          42 TRUE</code></pre>
+<code>read.xlsx</code>.</p>
+<pre class="r"><code>read.xlsx(&quot;personal_file.xlsx&quot;)</code></pre>
+<pre><code>##    names shoe_size used_r
+## 1 Morten        45   TRUE
+## 2 Philip        46   TRUE
+## 3  Karen        41   TRUE
+## 4   Emil        42   TRUE</code></pre>
 <p>As you can see the logical column has switched from logical to
 character. This is a classical problem when switching between formats.
 In this case it is because Excel doesn’t recognise R’s logical datatype.
 It is always a good idea to check your data when reading from external
 sources.</p>
 <hr />
-<p>7 <strong>Open a connection to a SQLite database and write the
-dataset to it using the functions from the lecture. Check that there is
-a table created in the database.</strong></p>
-<p>RSQLite is a lightweight database that R can create for us, so we use
-it as an example here. It will automatically be created when we try to
-connect to it. Use the function <code>dbConnect</code> to from the
-package <code>DBI</code> to open the connection:</p>
+<ol start="7" style="list-style-type: decimal">
+<li><strong>Open a connection to a SQLite database on the shared drive
+and give it a unique name.</strong> Warning: Be sure not to overwrite
+each others databases. Give it a name that makes it clear it is
+yours.</li>
+</ol>
+<p>First you should find the path to the shared drive, we will determine
+this name together before we start the exercises. This might not be
+possible if you are working on your laptops. So work together with your
+colleagues who got a desktop. For this example we will assume the path
+is <code>&quot;H:/&quot;</code></p>
+<p>Once you have the path you need a unique name for your database.
+Could for instance be your name and two numbers:
+<code>&quot;peter23.sqlite&quot;</code>.</p>
+<p>The database will automatically be created when we try to connect to
+it. Use the function <code>dbConnect</code> to from the package
+<code>DBI</code> to open the connection:</p>
 <pre class="r"><code>library(DBI)
-con &lt;- dbConnect(RSQLite::SQLite(),
-                 name = &quot;my_personal_database&quot;)</code></pre>
-<p>We now have an open connection to our database.</p>
+con &lt;- dbConnect(drv = RSQLite::SQLite(),
+                 dbname = &quot;H:/peter23.sqlite&quot;)</code></pre>
+<hr />
+<ol start="8" style="list-style-type: decimal">
+<li><strong>Write the dataset to your database using the functions from
+the lecture. Check that there is actually create a table in the
+database.</strong></li>
+</ol>
 <p>To write our dataset to the database we use the function
 <code>dbWriteTable</code>. Check the help page for the function to see
 the arguments.</p>
@@ -481,7 +491,7 @@ our data has been created, use the function
 <pre><code>## [1] &quot;my_tablename&quot;</code></pre>
 <p>If the name of your table does not show up, something went wrong.</p>
 <hr />
-<ol start="8" style="list-style-type: decimal">
+<ol start="9" style="list-style-type: decimal">
 <li><strong>Read the dataset from the database back into R and inspect
 it. Does it look like you expected?</strong></li>
 </ol>
@@ -493,12 +503,62 @@ to a database and the name of the table you want to read:</p>
 <p>Inspect the data either by printing it in the console or use the
 <code>View</code>-function. You will see that once again, the logical
 column has changed datatype. This time to a numeric/integer.</p>
-<ol start="9" style="list-style-type: decimal">
-<li><strong>Remove your table from the database and
-disconnect</strong></li>
+<hr />
+<ol start="10" style="list-style-type: decimal">
+<li><strong>Disconnect from your database</strong></li>
 </ol>
-<pre class="r"><code>dbRemoveTable(con, &quot;my_tablename&quot;)
-dbDisconnect(con)</code></pre>
+<p>This is done using the function <code>dbDisconnect</code> which takes
+your connection as an argument.</p>
+<pre class="r"><code>dbDisconnect(con)</code></pre>
+<hr />
+<ol start="11" style="list-style-type: decimal">
+<li><strong>Ask another group for the path to their database and open a
+connection to it. Use this connection to show the name of their
+table.</strong></li>
+</ol>
+<p>If the other group named their database
+<code>&quot;H:/anna93.sqlite&quot;</code> then you can connect to it just like if
+it was your own, so you can reuse your code from exercise 7:</p>
+<pre class="r"><code>con2 &lt;- dbConnect(RSQLite::SQLite(),
+                  dbname = &quot;H:/anna93.sqlite&quot;)
+dbListTables(con2)</code></pre>
+<pre><code>## [1] &quot;their_table_name&quot;</code></pre>
+<hr />
+<ol start="12" style="list-style-type: decimal">
+<li><strong>Append your own dataset to the other groups table. Appending
+is when you add your data the existing data. Read the help-file for
+<code>dbWriteTable</code> to see how it is done. Close the connection
+when you are done.</strong></li>
+</ol>
+<p>The first thing you have to do is make your dataset look like theirs.
+They may have used different names for their columns, so start by
+reading their table and inspecting it using the tablename you found in
+exercise 11.</p>
+<pre class="r"><code>their_data &lt;- dbReadTable(con2, &quot;their_table_name&quot;)
+View(their_data)</code></pre>
+<p>Now rename your dataframe so it matches theirs. This can be done
+using the <code>names</code> function</p>
+<pre class="r"><code>names(personal_data) &lt;- c(&quot;Their&quot;, &quot;column&quot;, &quot;names&quot;) ##Remember R is casesensitive!</code></pre>
+<p>Now you should be able to add your dataset to their table:</p>
+<pre class="r"><code>dbWriteTable(conn = con2, 
+             name = &quot;their_table_name&quot;, 
+             value = personal_data, 
+             append = TRUE)</code></pre>
+<p>Disconnect from their database</p>
+<pre class="r"><code>dbDisconnect(con2)</code></pre>
+<hr />
+<ol start="13" style="list-style-type: decimal">
+<li><strong>Reopen the connection to your own database and read your
+table. Can you see the new data that has been added?</strong></li>
+</ol>
+<p>Use the same code you made in exercise 7 and 9. If the other group
+successfully appended their dataset, you should see more rows than you
+did earlier.</p>
+<hr />
+<ol start="14" style="list-style-type: decimal">
+<li><strong>If you have more time, try making an SQL-query to select
+only the data where shoe size is greater than 40</strong></li>
+</ol>
 <hr />
 <p>End of practical</p>
 </div>
