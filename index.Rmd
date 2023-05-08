@@ -130,6 +130,7 @@ Lecture presentation and exercises will be made available here. Download the fil
     - [Lecture B](Contents/Material/Part B - How is R organized/Lecture_B.html){target="_blank"}
     - [Practical B](Contents/Material/Part B - How is R organized/Practical_B.html){target="_blank"}
     - [Practical B - With walkthrough](Contents/Material/Part B - How is R organized/Practical_B_Walkthrough.html){target="_blank"}
+    - [boys.Rdata](Contents/Material/Part B - How is R organized/boys.Rdata){target="_blank"}
 
 All lectures are in `html` format. Practicals are are provided both as naked questions but also with ample explanations and solutions - choose according to your taste!
 
