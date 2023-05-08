@@ -36,7 +36,7 @@ In this practical we are going to play around with the different types of elemen
 
 ---
 
-7. **Check if the first column in the data frames from Question 4 and Question 5 are indeed numeric. If not, determine what they are. **
+7. **Check if the first column in the data frames from Question 5 and Question 6 are indeed numeric. If not, determine what they are. **
 
 ---
 
