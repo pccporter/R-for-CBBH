@@ -549,7 +549,9 @@ represents grouping information about cities. Convert the variable to a
 factor and add the labels Utrecht, New York, London, Singapore, Rome and
 Cape Town.</strong></li>
 </ol>
-<pre class="r"><code>dat3$V1 &lt;- factor(dat3$V1, labels = c(&quot;Utrecht&quot;, &quot;New York&quot;, &quot;London&quot;, &quot;Singapore&quot;, &quot;Rome&quot;, &quot;Capetown&quot;))
+<pre class="r"><code>dat3$V1 &lt;- factor(dat3$V1,
+                  levels = dat3$V1,
+                  labels = c(&quot;Utrecht&quot;, &quot;New York&quot;, &quot;London&quot;, &quot;Singapore&quot;, &quot;Rome&quot;, &quot;Capetown&quot;))
 dat3</code></pre>
 <pre><code>##          V1 V2
 ## 1   Utrecht  A
