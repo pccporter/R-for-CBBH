@@ -49,8 +49,7 @@ The course starts at a very basic level and builds up gradually. No previous exp
 |             | *Break*                                         |     
 | 13.00-15.30 | Data manipulation and tidyverse                 |
 | *Wednesday* |                                                 |
-| 08.30-10.30/| More data manipulation                          |
-| 09.00-12.00 | *Exact timeslot not determined*                 |
+| 08.30-11.30 | More data manipulation                          |
 |             | *Break*                                         |             
 | 13.00-15.30 | Grouping and summarizing data                   |
 | *Thursday*  |                                                 |
@@ -175,9 +174,3 @@ The following references are currently available for free, either as pdfs or as 
 - [Introduction to Statistical Learning](http://faculty.marshall.usc.edu/gareth-james/ISL/): an introductory book on statistical learning, with applications in R. The R code is somewhat old-style and you might be able to find newer packages for the tasks, but ths is a solid read well worth the effort.
 - [Data Analysis and Graphics Using R](http://www.pindex.com/uploads/post_docs/Maindonald%20Data%20Analysis%20and%20Graphics(PINDEX-DOC-6953).pdf): a detailed book that covers a lot about categorical data analysis and fitting `glm`s in `R`.
 - [Happy Git and GitHub for the useR ](https://happygitwithr.com/index.html): a great introduction to version control using Git and GitHub together with RStudio. Written by Jenny Bryan in a very concise style. Highly recommended!
-
-<!-- ## Column 2 -->
-
-<!-- ### For fun -->
-<!-- <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">My wife asked me what machine learning is and I said: remember when we ordered the hot plate for the boat and amazon suggested buying all the equipment needed to make a full meth lab?</p>&mdash; (((Kane Baccigalupi))) (@rubyghetto) <a href="https://twitter.com/rubyghetto/status/1058220004301127680?ref_src=twsrc%5Etfw">November 2, 2018</a></blockquote> -->
-<!-- <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
