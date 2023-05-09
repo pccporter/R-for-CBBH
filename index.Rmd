@@ -145,9 +145,9 @@ Lecture presentation and exercises will be made available here. Download the fil
     - [Practical C - With walkthrough](Contents/Material/Part C - Reading external data/Practical_C_walkthrough.html){target="_blank"}
 
 - Part D: Data manipulation and tidyverse
-    - [Lecture D](Contents/Material/Part B - How is R organized/Lecture_B.html){target="_blank"}
-    - [Practical D](Contents/Material/Part B - How is R organized/Practical_B.html){target="_blank"}
-    - [Practical D - With walkthrough](Contents/Material/Part B - How is R organized/Practical_B_Walkthrough.html){target="_blank"}
+    - [Lecture D](Contents/Material/Part D - Data manipulation/Lecture D.html){target="_blank"}
+    - [Practical D1](Contents/Material/Part D - Data manipulation/Practical D1.html){target="_blank"}
+    - [Practical D2](Contents/Material/Part D - Data manipulation/Practical D2.html){target="_blank"}
 
 All lectures are in `html` format. Practicals are are provided both as naked questions but also with ample explanations and solutions - choose according to your taste!
 
