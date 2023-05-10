@@ -1,0 +1,141 @@
+---
+title: "Practical H - Walkthrough"
+author: "Statistical Programming in R"
+date: ""
+output:
+  html_document: 
+    self_contained: true
+---
+
+#### Exercises
+
+---
+
+The following packages are required for this practical:
+
+```{r, message=FALSE, warning=F}
+library(tidyverse) ## This includes ggplot2
+library(mice)
+library(kableExtra)
+```
+
+1. **Create a scatterplot (points) between `age` and `bmi` in the `boys` data set.**
+
+We start by selecting the data we want `boys`, them the geometric representation `geom_point` and then our aestethic mapping `aes(x = age, y = bmi)`
+```{r}
+boys |> 
+  ggplot() + 
+  geom_point(aes(x = age,
+                 y = bmi))
+```
+---
+
+2. **Add title and labs to the x and y axis**
+```{r}
+boys |> 
+  ggplot() + 
+  geom_point(aes(x = age,
+                 y = bmi))+
+  ggtitle("Plot of the boys dataset") + 
+  xlab("Age in years") + 
+  ylab("Body Mass Index") 
+```
+
+---
+
+3. **Color the lines based on the region the boys is from** 
+
+Since we want the color of the lines to be based on the data this is also an aesthetic. So we have to add it inside the `aes`-function.  
+The aesthetic that controls the color of the lines is called `color` and the column we want it to descripe is called `reg` so we simply add `color = reg` to the function:
+```{r}
+boys |> 
+  ggplot() + 
+  geom_point(aes(x = age,
+                 y = bmi,
+                 color = reg)) + #<---- Here
+  ggtitle("Plot of the boys dataset") + 
+  xlab("Age in years") + 
+  ylab("Body Mass Index") 
+```
+
+---
+
+4. **Download the RMarkdown-file called "example.Rmd" and inspect it. What does it do?. Try knitting it by pressing the button "Knit" or by pressing the keys Ctrl+Shift+K**
+
+The file reads the Balance of Payments for Maintenance and Repair that we have looked at earlier. It also generates the two datasets `mar_long` and `group_long` which are tidy datasets that you can use for visualization and calculations.
+
+---
+
+
+5. **Add a new section to the markdown file by creating a new header and writing some text** Knit the file when you are done.
+
+You can add a new section by writing:
+\#\# Some headline
+
+And then any text you write after that will be included in the new section.
+Pres Ctrl+Shift+K to Knit
+
+---
+
+6. **Add a plot of the data to your markdown-file. Perhaps a a line showing the tradebalance with Germany (DE) for each year. Remember to decorate your plot with title and labels**
+
+To create a plot you first create a new code chunk. This is done by pressing Ctrl+Alt+i.  
+In the code chunk you can create the by using ggplot. The tricky part here might
+be plotting only the data for Germany. This can be done by putting a filter before
+your plot:
+```{r eval = F}
+mar_long |> 
+  filter(Code == "DE") |> 
+  ggplot() + 
+  geom_line(aes(x = year,
+                y = balance)) + 
+  ggtitle("Trade balance for Germany") + 
+  xlab("Year") + 
+  ylab("Million KM")
+```
+
+
+
+---
+
+7. **Add a table of your liking, only the sky is the limit!**
+
+To make a nicer looking table we are going to use the `knitr::kable` and `kableExtra::kable_styling` functions. You can control almost everything with `kable_styling`. 
+```{r eval = F}
+group_long |> 
+  kable()  |> 
+  kable_styling()
+```
+
+Take a look at the vignette for creating tables in HTML-documents by running the command: browseVignettes("kableExtra") and then click on "Awesome tables in HTML".
+
+---
+
+8. **Play around with the markdown file and add some new things. Perhaps try to change the output-format by editing the YAML-header if you're adventurous!**
+
+*!!This example is only interesting if you want to create PDF instead of HTML!!*   
+If you want to create a PDF-document you first have to do some preparation.
+Creating PDF's with RMarkdown relies on the typesetting software LaTeX which does not
+come installed by default on Windows and can be quite a headache to install manually.  
+Thankfully somebody created a package to help us!  
+
+1. First step is installing the packages `tinytex`
+```{r eval = F}
+install.packages("tinytex")
+```
+
+2. Then you need to run the function `tinytex::install_tinytex()`. This download and installs a minimal version of LaTeX to your computer
+```{r eval = F}
+tinytex::install_tinytex()
+```
+
+3. Now you are ready to create PDF documents in RMarkdown!
+
+Edit the YAML in the start of the document so it says:
+```{verbatim eval = F}
+---
+title: "Report for the BOP of Maintenance and Repairs"
+output: pdf_document
+---
+```
+Press Knit and voilá. Hopefully you will generate a nice-looking PDF-document

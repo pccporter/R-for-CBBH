@@ -22,7 +22,7 @@ In this exercise we will learn to use packages and write data to/from external s
 
 ---
 
-4. **Together with 3-4 coleagues make a dataframe with three columns. One column should be a character column with your names. The second column should be a numeric column with your shoe size. The third column should be a logical columnd with `TRUE` if you have used `R` before and `FALSE` if you have not. Assign the dataframe to a name you choose yourselves**
+4. **Together with 3-4 coleagues make a dataframe with three columns. One column should be a character column with your names. The second column should be a numeric column with your shoe size. The third column should be a logical column with `TRUE` if you have used `R` before and `FALSE` if you have not. Assign the dataframe to a name you choose yourselves**
 
 ---
 

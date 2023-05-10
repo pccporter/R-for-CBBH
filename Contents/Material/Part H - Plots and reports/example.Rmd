@@ -1,0 +1,58 @@
+---
+title: "Report for the BOP of Maintenance and Repairs"
+output: html_document
+---
+
+```{r warning = F, message = F}
+library(tidyverse)
+library(openxlsx)
+mar_credit <- read.xlsx("some_data.xlsx",
+                        sheet = "Credit",
+                        rows = 3:284)
+
+mar_debit <- read.xlsx("some_data.xlsx",
+                        sheet = "Debit",
+                        rows = 3:284)
+
+eu_groups <- read.xlsx("some_data.xlsx",
+                        sheet = "groups")
+
+mar_debit_long <- mar_debit |> 
+  select(-Description) |> 
+  pivot_longer(cols = matches("\\d{4}"),
+               names_to = "year",
+               values_to = "debit")
+
+mar_credit_long <- mar_credit |> 
+  select(-Description) |> 
+  pivot_longer(cols = matches("\\d{4}"),
+               names_to = "year",
+               values_to = "credit")
+
+mar_long <- mar_credit_long |> 
+  full_join(mar_debit_long,
+            by = c("Code", "year")) |> 
+  mutate(balance = credit-debit) |> 
+  mutate(year = as.numeric(year))
+
+group_long <- mar_long |> 
+  left_join(eu_groups,
+            by = c("Code" = "code")) |> 
+  filter(!is.na(Code)) |> 
+  group_by(group, year) |> 
+  summarise(debit = sum(debit),
+            credit = sum(credit),
+            balance = sum(balance)) |> 
+  ungroup() |> 
+  rename(Code = group) 
+```
+
+## Introduction
+
+This is R Markdown document is part of the last exercise in the course *Statistical programming with R*.  
+The code chunk above has generated some datasets that you should be familiar with. Below you can see the first 6 rows of the dataset `group_long`:
+
+```{r echo = F}
+group_long |> 
+  head()
+```

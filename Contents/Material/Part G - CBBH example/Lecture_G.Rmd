@@ -1,0 +1,271 @@
+---
+title: 'BOP'
+author: "Statistical Programming with R"
+date: ""
+output:
+  ioslides_presentation:
+    fig_height: 5
+    fig_width: 8
+    logo: logo_en.png
+    transition: faster
+    smaller: true
+    df_print: tibble
+  beamer_presentation: default
+---
+```{r setup, echo=F, results='hide', message = F, warning=F}
+```
+
+
+## Recreating the Maintenance and Repair BOP
+
+- We received the BOP for Maintenance and Repair as an Excel-file
+- First we inspect the dataset
+  - Credit information in the sheet "Credit"
+  - Debit information in the sheet "Debit"
+  - Weights in the sheet "Ponder_Exp_Imp"
+  - Output in sheet "PROVJERA"
+- The credit and debit is already weighted, so we do not need the "Ponder_Exp_Imp"-sheet  
+
+## Recreating the Maintenance and Repair BOP
+
+Plan:
+
+ - Read the sheets "Debit" and "Credit"
+ - Calculate the balance for each country
+ - Group the countries by area and summarize the credit, debit and balance
+ - Write to excel
+
+## Read the sheet - Credit
+
+- The name of the sheet is "Credit"
+- The data start from row 3 to 284
+```{r warning = F}
+library(openxlsx)
+mar_credit <- read.xlsx("4_SB_MAINTENANCE and REPAIR.xlsx",
+                        sheet = "Credit",
+                        rows = 3:284) 
+mar_credit
+```
+
+
+## Read the sheet - Debit
+
+- The name of the sheet is "Debit"
+- The data start from row 3 to 284
+```{r}
+mar_debit <- read.xlsx("4_SB_MAINTENANCE and REPAIR.xlsx",
+                        sheet = "Debit",
+                        rows = 3:284)
+mar_debit
+```
+
+# Calculating the balance
+## Tidy data
+- The data is not tidy right now... Why?
+- This makes it difficult to calculate the balance with tidyverse.
+- And we need to load the tidyverse:
+```{r message=F, warning = F}
+library(tidyverse)
+mar_credit 
+```
+
+## Tidy data
+- We do not need description
+- We want the dataset to be longer, with one row for each year
+```{r}
+mar_debit_long <- mar_debit |> 
+  select(-Description) |> 
+  pivot_longer(cols = matches("\\d{4}"),
+               names_to = "year",
+               values_to = "debit")
+mar_debit_long
+```
+
+## Tidy data
+- And the same for credit
+```{r}
+mar_credit_long <- mar_credit |> 
+  select(-Description) |> 
+  pivot_longer(cols = matches("\\d{4}"),
+               names_to = "year",
+               values_to = "credit")
+mar_credit_long
+```
+
+## Combining the datasets
+- We have two datasets that we need to combine to calculate the balance
+- This is what a good place to use `joins`
+```{r}
+mar_long <- mar_credit_long |> 
+  full_join(mar_debit_long,
+            by = c("Code", "year"))
+mar_long
+```
+
+## Calculating the balance
+- Now it is straightforward to calculate the balance:
+```{r}
+mar_long <- mar_long |> 
+  mutate(balance = credit-debit)
+mar_long
+```
+
+## And datatypes...
+- We notice that year is a character. We would prefer a numeric.
+```{r}
+mar_long <- mar_long |> 
+  mutate(year = as.numeric(year))
+mar_long
+```
+
+# Grouping data
+
+## Groups
+- Groupings into for instance
+  - B6: EU27 (fixed composition) as of 31 January 2020 (brexit)
+  - E1: Europe
+  - E7: Central and Eastern Europe
+- They are listed in "IZ Annex 1_BOP_DSD_Matrix_2-1_2022-09 - formatted_for_BOP_Vademecum" in the sheet "CL_AREA"
+- Not in a very tidy format, so instead we use the file "groups.xlsx"
+
+## Read the file
+```{r}
+eu_groups <- read.xlsx("groups.xlsx")
+eu_groups
+```
+
+## Add it to our dataset
+
+- Add the groups to our dataset from before
+- The columns we join by is not spelled the same way
+```{r warning = F, message = F}
+group_long <- mar_long |> 
+  left_join(eu_groups,
+            by = c("Code" = "code"))
+group_long
+```
+## Remove missing groups
+- Some countries do not belong to a group!
+```{r}
+group_long |> 
+  count(group)
+```
+
+## Remove missing groups
+- Some countries do not belong to a group!
+```{r}
+group_long <- group_long |> 
+  filter(!is.na(group))
+group_long |> 
+  count(group)
+```
+
+## Group by and summarise
+- We want one row for every group for every year
+- We want to sum the balance, debit and credit
+```{r message = F}
+group_long <- group_long |> 
+  group_by(group, year) |> 
+  summarise(debit = sum(debit),
+            credit = sum(credit),
+            balance = sum(balance)) |> 
+  ungroup()
+group_long
+```
+## Compare with target
+- Compare the dataset with the expected result...
+- Hopefully it matches the results you expected
+- Small difference: Not called `group` but `Code`
+```{r}
+group_long <- group_long |> 
+  rename(Code = group)
+group_long
+```
+
+
+# Export to excel
+## Untidy your data
+- Look at the Excel-sheet we want to reproduce
+- Two things differ:
+  - One row for credit, debit and balance
+  - One column for each year
+  
+## Untidy your data
+- One row for credit, debit and balance.
+- A longer dataset
+```{r}
+mar_untidy <- mar_long |> 
+  pivot_longer(cols = c(credit, debit, balance),
+               names_to = "bop",
+               values_to = "value") 
+mar_untidy
+```
+## Untidy your data
+- Change values to C, D and B
+```{r}
+mar_untidy <- mar_untidy |> 
+  mutate(bop = case_when(bop == "credit" ~ "C",
+                         bop == "debit" ~ "D",
+                         bop == "balance" ~ "B"))
+mar_untidy
+```
+## Untidy your data
+- One column for each year
+- This makes our dataset wider
+```{r}
+mar_untidy <- mar_untidy |> 
+  pivot_wider(names_from = year, values_from = value)
+mar_untidy
+```
+
+## Untidy your data
+- Do the same for the grouped data! Try doing it as one long pipe
+- It should look like this:
+```{r echo=F}
+group_untidy <- group_long |> 
+  pivot_longer(cols = c(credit, debit, balance),
+               names_to = "bop",
+               values_to = "value") |> 
+  mutate(bop = case_when(bop == "credit" ~ "C",
+                         bop == "debit" ~ "D",
+                         bop == "balance" ~ "B")) |> 
+  pivot_wider(names_from = year, values_from = value)
+group_untidy
+```
+
+
+# Export to Excel
+## Write to Excel-file
+- We are already experts in this!
+```{r}
+library(openxlsx)
+write.xlsx(mar_untidy, file = "mar_countries.xlsx")
+write.xlsx(group_untidy, file = "mar_groups.xlsx")
+```
+
+## Write to Excel-file...
+- So let's explore if we can do it a little bit better:
+  - Both datasets in same file but different sheets
+  - Add some border to make it easier to read
+  - Simple styling for the header
+- The vignette for `openxlsx` has **a lot** of examples of formatting!
+
+## Write to Excel-file...
+- Very simple formatting
+```{r}
+write.xlsx(list("EU groups" = group_untidy,
+                "Countries" = mar_untidy),
+           file = "output.xlsx",
+           colNames = TRUE,
+           borders = "columns",
+           headerStyle = createStyle(fgFill = "yellow"))
+```
+
+## Exercise
+- Create a new project
+- Get the datasets from the shared drive and move them to your project-directory.
+- Download the file `example.R`, put it in your project-directory and open it
+- Run the code chunk by chunk and inspect the results.
+- At line 92 there is a missing chunk that you should write yourselves. It is the bit that makes the group-data untidy so it can go into the excel-file
+-  When you are done you can run the whole file by pressing "Run" in the top right
+corner of the editor pane

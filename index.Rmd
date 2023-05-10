@@ -170,7 +170,20 @@ All lectures are in `html` format. Practicals are are provided both as naked que
 
 # Thursday
 
-Lecture presentation and exercises will be made available here
+We adapt the course as we go. To ensure that you work with the latest iteration of the course materials, we advice all course participants to access the materials online.
+
+Lecture presentation and exercises will be made available here. Download the files and put them in their own directory.
+
+- Part G: Recreating the BoP for MaR
+    - [Lecture E](Contents/Material/Part G - CBBH example/Lecture_G.html){target="_blank"}
+
+- Part H: Plots and reports
+    - [Lecture H](Contents/Material/Part H - Plots and reports/Lecture_H.html){target="_blank"}
+    - [Practical H](Contents/Material/Part H - Plots and reports/Practical_H.html){target="_blank"}
+    - [Practical H - With walkthrough](Contents/Material/Part H - Plots and reports/Practical_H_walkthrough.html){target="_blank"}
+    - [some_data.xlsx](Contents/Material/Part H - Plots and reports/some_data.xlsx){target="_blank"}
+
+All lectures are in `html` format. Practicals are are provided both as naked questions but also with ample explanations and solutions - choose according to your taste!
 
 # Further studies
 
@@ -181,8 +194,7 @@ Lecture presentation and exercises will be made available here
 The following references are currently available for free, either as pdfs or as extensive webpages (written with [RMarkdown](https://rmarkdown.rstudio.com/) and [bookdown](https://bookdown.org/)). They are all very useful and we highly recommend them. 
 
 - [R for Data Science](https://r4ds.had.co.nz): written by Hadley Wickham and Garrett Grolemund this book relies almost exclusively on the [tidyverse](https://www.tidyverse.org/) approach to data analysis. Many highly effective tools will be right at your fingertips after reading this book and working through the many exercises.
-- [Hands-On Programming with R](https://rstudio-education.github.io/hopr/): a great read by Garrett Grolemund emphasizing programming techniques with R. 
 - [Advanced R](https://adv-r.hadley.nz/): You want to gain deeper knowledge of R and you wnat to learn from one of the most influential R contributors. This one is for you!
-- [Introduction to Statistical Learning](http://faculty.marshall.usc.edu/gareth-james/ISL/): an introductory book on statistical learning, with applications in R. The R code is somewhat old-style and you might be able to find newer packages for the tasks, but ths is a solid read well worth the effort.
-- [Data Analysis and Graphics Using R](http://www.pindex.com/uploads/post_docs/Maindonald%20Data%20Analysis%20and%20Graphics(PINDEX-DOC-6953).pdf): a detailed book that covers a lot about categorical data analysis and fitting `glm`s in `R`.
 - [Happy Git and GitHub for the useR ](https://happygitwithr.com/index.html): a great introduction to version control using Git and GitHub together with RStudio. Written by Jenny Bryan in a very concise style. Highly recommended!
+ - [Rmarkdown](https://bookdown.org/yihui/rmarkdown/): A very thorough look at RMarkdown. No need to read everything, but if there is a subject you struggle with, take a look at the index.
+ - [ggplot2 - The book](https://ggplot2-book.org/): The ultimate guide to `ggplot` written by Hadley Wickham who is also the author to the package. It is quite long, but if you want to truely understand it, this is the place to start.

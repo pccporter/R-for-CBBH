@@ -1,0 +1,55 @@
+---
+title: "Practical H"
+author: "Statistical Programming in R"
+date: ""
+output:
+  html_document: 
+    self_contained: true
+---
+
+
+#### Exercises 
+
+---
+
+The following packages are required for this practical:
+
+```{r, message=FALSE, warning=F}
+library(tidyverse) ## This includes ggplot2
+library(mice)
+library(kableExtra)
+```
+---
+
+1. **Create a scatterplot (points) between `age` and `bmi` in the `boys` data set.**
+
+---
+
+2. **Add title and labes to the x and y axis**
+
+---
+
+3. **Color the lines based on the region the boys is from** 
+
+---
+
+4. **Download the RMarkdown-file called "example.Rmd" and inspect it. What does it do?. Try knitting it by pressing the button "Knit" or by pressing the keys Ctrl+Shift+K**
+
+---
+
+5. **Add a new section to the markdown file by creating a new header and writing some text** Knit the file when you are done.
+
+---
+
+6. **Add a plot of the data to your markdown-file. Perhaps a a line showing the tradebalance with Germany (DE) for each year. Remember to decorate your plot with title and labels**
+
+---
+
+7. **Add a table of your liking, only the sky is the limit!**
+
+---
+
+8. **Play around with the markdown file. Perhaps try to change the output-format by editing the YAML-header if you're adventurous**
+
+---
+End of practical
