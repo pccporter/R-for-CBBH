@@ -153,8 +153,20 @@ All lectures are in `html` format. Practicals are are provided both as naked que
 
 # Wednessday
 
-Lecture presentation and exercises will be made available here
+We adapt the course as we go. To ensure that you work with the latest iteration of the course materials, we advice all course participants to access the materials online.
 
+Lecture presentation and exercises will be made available here. Download the files and put them in their own directory.
+
+- Part E: Summary stats
+    - [Lecture E](Contents/Material/Part E - Summary stats/Lecture_E.html){target="_blank"}
+    - [Practical E](Contents/Material/Part E - Summary stats/Practical_E.html){target="_blank"}
+
+- Part F: Strings and dates
+    - [Lecture F](Contents/Material/Part F - Strings and dates/Lecture_F.html){target="_blank"}
+    - [Practical F1](Contents/Material/Part F - Strings and dates/Practical_F1.html){target="_blank"}
+    - [Practical F2](Contents/Material/Part F - Strings and dates/Practical_F2.html){target="_blank"}
+
+All lectures are in `html` format. Practicals are are provided both as naked questions but also with ample explanations and solutions - choose according to your taste!
 
 # Thursday
 
