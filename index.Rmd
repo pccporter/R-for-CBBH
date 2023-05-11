@@ -175,13 +175,15 @@ We adapt the course as we go. To ensure that you work with the latest iteration 
 Lecture presentation and exercises will be made available here. Download the files and put them in their own directory.
 
 - Part G: Recreating the BoP for MaR
-    - [Lecture E](Contents/Material/Part G - CBBH example/Lecture_G.html){target="_blank"}
+    - [Lecture G](Contents/Material/Part G - CBBH example/Lecture_G.html){target="_blank"}
+    - [example.R](Contents/Material/Part G - CBBH example/example.R){target="_blank"}
 
 - Part H: Plots and reports
     - [Lecture H](Contents/Material/Part H - Plots and reports/Lecture_H.html){target="_blank"}
     - [Practical H](Contents/Material/Part H - Plots and reports/Practical_H.html){target="_blank"}
     - [Practical H - With walkthrough](Contents/Material/Part H - Plots and reports/Practical_H_walkthrough.html){target="_blank"}
     - [some_data.xlsx](Contents/Material/Part H - Plots and reports/some_data.xlsx){target="_blank"}
+    - [example.Rmd](Contents/Material/Part H - Plots and reports/example.Rmd){target="_blank"}
 
 All lectures are in `html` format. Practicals are are provided both as naked questions but also with ample explanations and solutions - choose according to your taste!
 
